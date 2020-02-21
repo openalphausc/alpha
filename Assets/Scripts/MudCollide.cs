@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MudCollide : MonoBehaviour
 {
-    void OnTriggerStay2D(Collider2D other)
+    void OnCollisionStay(Collision other)
     {
-        if (other.name == "Wiper" && Input.GetKey("space"))
+        if (other.collider.name == "Wiper")
         {
             Destroy(gameObject);
         }
