@@ -22,10 +22,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      // movement left/right
       float moveX = 0;
-      float moveY = 0;
       if(Input.GetKey("d")) moveX = speed;
       else if(Input.GetKey("a")) moveX = -speed;
-      transform.position = new Vector3(transform.position.x + moveX, transform.position.y + moveY, transform.position.z);
+      transform.position = new Vector3(transform.position.x + moveX, transform.position.y, transform.position.z);
+
+      // input to restart the scene/quit
+      // if(Input.GetKey("r")) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+      if(Input.GetKeyUp(KeyCode.Escape)) Application.Quit();
     }
 }

@@ -20,7 +20,7 @@ public class WiperControl : MonoBehaviour
     void Start()
     {
         wiperSpeed = 0.07f;
-        maxDistanceFromBody = 8f;
+        maxDistanceFromBody = 6f;
 
         playerScript = GameObject.Find("Body").GetComponent<PlayerController>();
         playerTransform = GameObject.Find("Body").transform;
