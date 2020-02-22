@@ -14,8 +14,9 @@ public class SmudgeManager : MonoBehaviour
         }
     }
 
-    public static void removeSmudge()
+    public static void RemoveSmudge(GameObject smudge)
     {
-        
+        allSmudges.Remove(smudge);
+        Destroy(smudge);
     }
 }

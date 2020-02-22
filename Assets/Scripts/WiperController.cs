@@ -6,26 +6,30 @@ using UnityEngine;
 public class WiperController : MonoBehaviour
 {
     private GameObject currentCollision;
+    private bool colliding = false;
     void Start()
     {
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && currentCollision.CompareTag("Smudge"))
+        if (Input.GetKeyDown(KeyCode.Space) && colliding)
         {
-            SmudgeManager.allSmudges.Remove(currentCollision);
-            Destroy(currentCollision);
+            SmudgeManager.RemoveSmudge(currentCollision);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         currentCollision = other.gameObject;
+        if (currentCollision.CompareTag("Smudge"))
+        {
+            colliding = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        currentCollision = this.gameObject;
+        colliding = false;
     }
 }
