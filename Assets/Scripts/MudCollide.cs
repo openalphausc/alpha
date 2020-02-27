@@ -12,7 +12,7 @@ public class MudCollide : MonoBehaviour
     private Transform wiperTransform;
 
     void Start() {
-      maxHealth = 50f;
+      maxHealth = 20f;
       health = maxHealth;
       radius = 1.5f;
       wiperScript = GameObject.Find("Wiper").GetComponent<WiperControl>();

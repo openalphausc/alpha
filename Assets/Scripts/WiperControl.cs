@@ -24,7 +24,7 @@ public class WiperControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        wiperSpeed = 0.07f;
+        wiperSpeed = 0.4f;
         maxDistanceFromBody = 5f;
 
         sprayCooldownMax = 10f;
