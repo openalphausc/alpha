@@ -11,7 +11,7 @@ public class WiperControl : MonoBehaviour
     public bool tooFarY;
 
     private Vector3 mousePosition;
-    private Vector3 targetPosition;
+    public Vector3 targetPosition;
 
     private PlayerController playerScript;
     private Transform playerTransform;
