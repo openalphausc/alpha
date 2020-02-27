@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MudCollide : MonoBehaviour
 {
+    public float maxHealth;
     public float health;
     public float radius;
 
@@ -11,7 +12,8 @@ public class MudCollide : MonoBehaviour
     private Transform wiperTransform;
 
     void Start() {
-      health = 50f;
+      maxHealth = 50f;
+      health = maxHealth;
       radius = 1.5f;
       wiperScript = GameObject.Find("Wiper").GetComponent<WiperControl>();
       wiperTransform = GameObject.Find("Wiper").transform;
@@ -19,9 +21,27 @@ public class MudCollide : MonoBehaviour
 
     void Update() {
       float distanceFromWiper = Mathf.Abs(Vector3.Distance(wiperTransform.position, transform.position));
+      // wiper is on top of mud
       if(distanceFromWiper < radius) {
         float speedInst = Mathf.Abs(Vector3.Distance(wiperTransform.position, wiperScript.targetPosition));
-        health -= speedInst;
+        // check if fluid particles are on top
+        bool wet = false;
+        var fluids = GameObject.FindGameObjectsWithTag("Fluid");
+        foreach (var fluid in fluids) {
+            float fluidDist = Mathf.Abs(Vector3.Distance(fluid.transform.position, transform.position));
+            if(fluidDist < radius) {
+              wet = true;
+              break;
+            }
+        }
+        // do things
+        if(wet) {
+          health -= speedInst;
+        }
+        else {
+          health += speedInst;
+        }
+        transform.localScale = new Vector3(1.5f * health/maxHealth, 1.5f * health/maxHealth, transform.localScale.z);
       }
 
       if(health <= 0) Destroy(gameObject);

@@ -10,6 +10,10 @@ public class WiperControl : MonoBehaviour
     public bool tooFarX;
     public bool tooFarY;
 
+    public float sprayCooldownMax;
+    public float sprayCooldown;
+    public GameObject fluidPrefab;
+
     private Vector3 mousePosition;
     public Vector3 targetPosition;
 
@@ -22,6 +26,9 @@ public class WiperControl : MonoBehaviour
     {
         wiperSpeed = 0.07f;
         maxDistanceFromBody = 5f;
+
+        sprayCooldownMax = 10f;
+        sprayCooldown = sprayCooldownMax;
 
         playerScript = GameObject.Find("Body").GetComponent<PlayerController>();
         playerTransform = GameObject.Find("Body").transform;
@@ -37,7 +44,7 @@ public class WiperControl : MonoBehaviour
       tooFarX = distanceX > maxDistanceFromBody;
       tooFarY = distanceY > maxDistanceFromBody;
 
-      // only move the wiper with the body if it's out of range (otherwise the mouse still has full control)
+      // move the wiper with the mouse, and move it with the body if it's being dragged along
       float moveX = 0;
       float playerSpeed = playerScript.speed;
       if(Input.GetKey("d")) moveX += playerSpeed;
@@ -48,6 +55,19 @@ public class WiperControl : MonoBehaviour
       }
       if(!tooFarY) {
         transform.position = new Vector3(transform.position.x, Vector3.Lerp(transform.position, targetPosition, wiperSpeed).y, transform.position.z);
+      }
+
+      // spray cleaning fluid
+      if(sprayCooldown < sprayCooldownMax) {
+        sprayCooldown--;
+        if(sprayCooldown <= 0) sprayCooldown = sprayCooldownMax;
+      }
+      else {
+        if(Input.GetKey(KeyCode.Space)) {
+          // spawn fluid particle
+          Instantiate(fluidPrefab, transform.position, Quaternion.identity);
+          sprayCooldown--;
+        }
       }
     }
 }
