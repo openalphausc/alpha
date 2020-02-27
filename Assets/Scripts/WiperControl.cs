@@ -7,7 +7,8 @@ public class WiperControl : MonoBehaviour
 
     public float wiperSpeed;
     public float maxDistanceFromBody;
-    public bool tooFar;
+    public bool tooFarX;
+    public bool tooFarY;
 
     private Vector3 mousePosition;
     private Vector3 targetPosition;
@@ -20,7 +21,7 @@ public class WiperControl : MonoBehaviour
     void Start()
     {
         wiperSpeed = 0.07f;
-        maxDistanceFromBody = 6f;
+        maxDistanceFromBody = 5f;
 
         playerScript = GameObject.Find("Body").GetComponent<PlayerController>();
         playerTransform = GameObject.Find("Body").transform;
@@ -31,20 +32,22 @@ public class WiperControl : MonoBehaviour
     {
       mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
       targetPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-      float distanceFromBody = Mathf.Abs(Vector3.Distance(targetPosition, playerTransform.position));
-      tooFar = distanceFromBody > maxDistanceFromBody;
-      bool mouseControl = Input.GetMouseButton(0);
+      float distanceX = Mathf.Abs(targetPosition.x - playerTransform.position.x);
+      float distanceY = Mathf.Abs(targetPosition.y - playerTransform.position.y);
+      tooFarX = distanceX > maxDistanceFromBody;
+      tooFarY = distanceY > maxDistanceFromBody;
 
       // only move the wiper with the body if it's out of range (otherwise the mouse still has full control)
-      if(tooFar || !mouseControl) {
-        float moveX = 0;
-        float playerSpeed = playerScript.speed;
-        if(Input.GetKey("d")) moveX += playerSpeed;
-        else if(Input.GetKey("a")) moveX -= playerSpeed;
-        transform.position = new Vector3(transform.position.x + moveX, transform.position.y, transform.position.z);
+      float moveX = 0;
+      float playerSpeed = playerScript.speed;
+      if(Input.GetKey("d")) moveX += playerSpeed;
+      else if(Input.GetKey("a")) moveX -= playerSpeed;
+      transform.position = new Vector3(transform.position.x + moveX, transform.position.y, transform.position.z);
+      if(!tooFarX) {
+        transform.position = new Vector3(Vector3.Lerp(transform.position, targetPosition, wiperSpeed).x, transform.position.y, transform.position.z);
       }
-      else if(mouseControl) {
-        transform.position = Vector3.Lerp(transform.position, targetPosition, wiperSpeed);
+      if(!tooFarY) {
+        transform.position = new Vector3(transform.position.x, Vector3.Lerp(transform.position, targetPosition, wiperSpeed).y, transform.position.z);
       }
     }
 }
