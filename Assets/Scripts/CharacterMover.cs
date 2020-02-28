@@ -31,17 +31,20 @@ public class CharacterMover : MonoBehaviour
         FindClosest();
     }
 
-    void FindClosest()
+    public void FindClosest()
     {
         Vector3 closestPosition = Vector3.positiveInfinity;
+        int i = 0;
         foreach (Smudge smudge in SmudgeManager.allSmudges)
         {
             Vector3 relative = smudge.transform.position - this.transform.position;
             if (Mathf.Abs(relative.x) < Mathf.Abs(closestPosition.x))
             {
                 closestPosition = relative;
-                closestSmudge = smudge.Index;
+                closestSmudge = i;
             }
+
+            i++;
         }
 
         closestRelativePosition = closestPosition;

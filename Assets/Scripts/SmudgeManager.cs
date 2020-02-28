@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class SmudgeManager : MonoBehaviour
 {
+    public GameObject character;
+    
     public static List<Smudge> allSmudges = new List<Smudge>();
     
     private static int currentTarget = -1;
+    private static CharacterMover characterMover;
 
     void Start()
     {
-        
+        characterMover = character.GetComponent<CharacterMover>();
     }
 
     public static void WipeSmudge()
@@ -22,6 +25,7 @@ public class SmudgeManager : MonoBehaviour
                 allSmudges[currentTarget].Clean();
                 allSmudges.RemoveAt(currentTarget);
                 currentTarget = -1;
+                characterMover.FindClosest();
             }
         }
     }
@@ -38,7 +42,6 @@ public class SmudgeManager : MonoBehaviour
     {
         if (currentTarget != smudgeIndex)
         {
-            print("new target");
             DeselectSmudge();
             currentTarget = smudgeIndex;
             allSmudges[smudgeIndex].Select();
@@ -47,10 +50,10 @@ public class SmudgeManager : MonoBehaviour
 
     public static void DeselectSmudge()
     {
-        if (currentTarget > -1)
+        if (currentTarget > -1 && currentTarget < allSmudges.Count)
         {
             allSmudges[currentTarget].Deselect();
-            currentTarget = -1;
         }
+        currentTarget = -1;
     }
 }

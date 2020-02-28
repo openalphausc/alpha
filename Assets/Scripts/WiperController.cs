@@ -6,10 +6,12 @@ using UnityEngine;
 public class WiperController : MonoBehaviour
 {
     public GameObject armJoint;
-    
+
+    public bool colliding = false;
+
     private GameObject currentCollision;
-    private bool colliding = false;
     private ArmController armController;
+
 
     void Start()
     {
@@ -20,23 +22,25 @@ public class WiperController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SmudgeManager.WipeSmudge();
+            armController.AnimateWipe();
         }
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeJ);
             armController.AnimateSpray(Smudge.SmudgeType.smudgeJ);
+            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeJ);
         }
+
         if (Input.GetKeyDown(KeyCode.K))
         {
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeK);
             armController.AnimateSpray(Smudge.SmudgeType.smudgeK);
+            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeK);
         }
+
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
             armController.AnimateSpray(Smudge.SmudgeType.smudgeL);
+            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
         }
     }
 
@@ -46,6 +50,10 @@ public class WiperController : MonoBehaviour
         if (currentCollision.CompareTag("Smudge"))
         {
             colliding = true;
+            if (armController.animationState == ArmController.AnimationState.wiping)
+            {
+                SmudgeManager.WipeSmudge();
+            }
         }
     }
 

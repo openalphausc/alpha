@@ -20,12 +20,10 @@ public class Smudge : MonoBehaviour
     public bool selected = false;
 
     private new MeshRenderer renderer;
-    private int index;
     
     // Start is called before the first frame update
     void Start()
     {
-        index = SmudgeManager.allSmudges.Count;
         SmudgeManager.allSmudges.Add(this);
         renderer = GetComponent<MeshRenderer>();
     }
@@ -59,5 +57,4 @@ public class Smudge : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public int Index => index;
 }

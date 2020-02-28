@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class ArmController : MonoBehaviour
 {
+
+    public enum AnimationState
+    {
+        complete,
+        spraying,
+        wiping,
+    }
+    
     public float maxArmLength;
     public float targetRange;
 
     public GameObject arm;
     public GameObject hand;
+    public ParticleSystem particles;
 
     public Material sprayColorJ;
     public Material sprayColorK;
     public Material sprayColorL;
     public Material wiperColor;
+    public Material armColor;
+    
+    public AnimationState animationState = AnimationState.complete;
 
     private MeshRenderer handRenderer;
     private Transform armTransform;
     private Transform handTransform;
     private IEnumerator coroutine;
     private Dictionary<Smudge.SmudgeType, Material> sprayColor = new Dictionary<Smudge.SmudgeType, Material>();
-    private bool animating;
 
     void Start()
     {
@@ -44,7 +55,52 @@ public class ArmController : MonoBehaviour
             transform.rotation = Quaternion.identity;
             SmudgeManager.DeselectSmudge();
         }
+    }
 
+    public void AnimateSpray(Smudge.SmudgeType spray)
+    {
+        if (animationState != AnimationState.complete)
+        {
+            StopCoroutine(coroutine);
+        }
+
+        handRenderer.material = sprayColor[spray];
+
+        transform.LookAt(CharacterMover.closestRelativePosition + this.transform.position);
+        if (CharacterMover.closestRelativePosition.magnitude <= maxArmLength * 2)
+        {
+            StretchArm(CharacterMover.closestRelativePosition.magnitude / 2);
+        }
+        else
+        {
+            StretchArm(maxArmLength);
+        }
+
+        ParticleSystem.MainModule particlesMain = particles.main;
+        particlesMain.startColor = handRenderer.material.color;
+        particles.Play();
+        coroutine = FinishSpray();
+        StartCoroutine(coroutine);
+    }
+
+    IEnumerator FinishSpray()
+    {
+        animationState = AnimationState.spraying;
+        yield return new WaitForSeconds(0.5f);
+        transform.rotation = Quaternion.identity;
+        handRenderer.material = armColor;
+        animationState = AnimationState.complete;
+    }
+
+    public void AnimateWipe()
+    {
+        if (animationState != AnimationState.complete)
+        {
+            StopCoroutine(coroutine);
+        }
+
+        handRenderer.material = wiperColor;
+        transform.LookAt(CharacterMover.closestRelativePosition + this.transform.position);
         if (CharacterMover.closestRelativePosition.magnitude <= maxArmLength)
         {
             StretchArm(CharacterMover.closestRelativePosition.magnitude);
@@ -53,32 +109,19 @@ public class ArmController : MonoBehaviour
         {
             StretchArm(maxArmLength);
         }
-    }
 
-    public void AnimateSpray(Smudge.SmudgeType spray)
-    {
-        if (animating)
-        {
-            StopCoroutine(coroutine);
-        }
-        handRenderer.material = sprayColor[spray];
-        transform.LookAt(CharacterMover.closestRelativePosition + this.transform.position);
         //particles
-        coroutine = FinishSpray();
+        coroutine = FinishWipe();
         StartCoroutine(coroutine);
     }
 
-    IEnumerator FinishSpray()
+    IEnumerator FinishWipe()
     {
-        animating = true;
-        yield return new WaitForSeconds(1);
+        animationState = AnimationState.wiping;
+        yield return new WaitForSeconds(0.5f);
         transform.rotation = Quaternion.identity;
-        handRenderer.material = wiperColor;
-        animating = false;
-    }
-
-    void AnimateWipe()
-    {
+        handRenderer.material = armColor;
+        animationState = AnimationState.complete;
     }
 
     void StretchArm(float length)
