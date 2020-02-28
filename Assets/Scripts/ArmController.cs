@@ -7,34 +7,37 @@ public class ArmController : MonoBehaviour
     public float maxArmLength;
     public float targetRange;
 
+    public GameObject arm;
+    public GameObject hand;
+
+    public Material sprayColorJ;
+    public Material sprayColorK;
+    public Material sprayColorL;
+    public Material wiperColor;
+
+    private MeshRenderer handRenderer;
     private Transform armTransform;
     private Transform handTransform;
+    private IEnumerator coroutine;
+    private Dictionary<Smudge.SmudgeType, Material> sprayColor = new Dictionary<Smudge.SmudgeType, Material>();
+    private bool animating;
 
     void Start()
     {
-        armTransform = GameObject.Find("Arm").transform;
-        handTransform = GameObject.Find("Hand").transform;
+        armTransform = arm.transform;
+        handTransform = hand.transform;
+        handRenderer = hand.GetComponent<MeshRenderer>();
+        sprayColor[Smudge.SmudgeType.smudgeJ] = sprayColorJ;
+        sprayColor[Smudge.SmudgeType.smudgeK] = sprayColorK;
+        sprayColor[Smudge.SmudgeType.smudgeL] = sprayColorL;
     }
 
     void Update()
     {
-        // find relative position of closest smudge
-        Vector3 closestPosition = Vector3.positiveInfinity;
-        int closestSmudge = -1;
-        foreach (Smudge smudge in SmudgeManager.allSmudges)
-        {
-            Vector3 relative = smudge.transform.position - this.transform.position;
-            if (Mathf.Abs(relative.x) < Mathf.Abs(closestPosition.x))
-            {
-                closestPosition = relative;
-                closestSmudge = smudge.Index;
-            }
-        }
-
-        if (closestPosition.magnitude <= targetRange)
+        if (CharacterMover.closestRelativePosition.magnitude <= targetRange)
         {
             // transform.LookAt(closestPosition + this.transform.position);
-            SmudgeManager.SelectSmudge(closestSmudge);
+            SmudgeManager.SelectSmudge(CharacterMover.closestSmudge);
         }
         else
         {
@@ -42,14 +45,40 @@ public class ArmController : MonoBehaviour
             SmudgeManager.DeselectSmudge();
         }
 
-        if (closestPosition.magnitude <= maxArmLength)
+        if (CharacterMover.closestRelativePosition.magnitude <= maxArmLength)
         {
-            StretchArm(closestPosition.magnitude);
+            StretchArm(CharacterMover.closestRelativePosition.magnitude);
         }
         else
         {
             StretchArm(maxArmLength);
         }
+    }
+
+    public void AnimateSpray(Smudge.SmudgeType spray)
+    {
+        if (animating)
+        {
+            StopCoroutine(coroutine);
+        }
+        handRenderer.material = sprayColor[spray];
+        transform.LookAt(CharacterMover.closestRelativePosition + this.transform.position);
+        //particles
+        coroutine = FinishSpray();
+        StartCoroutine(coroutine);
+    }
+
+    IEnumerator FinishSpray()
+    {
+        animating = true;
+        yield return new WaitForSeconds(1);
+        transform.rotation = Quaternion.identity;
+        handRenderer.material = wiperColor;
+        animating = false;
+    }
+
+    void AnimateWipe()
+    {
     }
 
     void StretchArm(float length)
@@ -61,5 +90,4 @@ public class ArmController : MonoBehaviour
         localScale = new Vector3(localScale.x, localScale.y, length);
         armTransform.localScale = localScale;
     }
-
 }
