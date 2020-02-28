@@ -19,28 +19,32 @@ public class ArmController : MonoBehaviour
     void Update()
     {
         // find relative position of closest smudge
-        Vector3 closest = Vector3.positiveInfinity;
-        foreach (GameObject smudge in SmudgeManager.allSmudges)
+        Vector3 closestPosition = Vector3.positiveInfinity;
+        int closestSmudge = -1;
+        foreach (Smudge smudge in SmudgeManager.allSmudges)
         {
             Vector3 relative = smudge.transform.position - this.transform.position;
-            if (relative.magnitude < closest.magnitude)
+            if (Mathf.Abs(relative.x) < Mathf.Abs(closestPosition.x))
             {
-                closest = relative;
+                closestPosition = relative;
+                closestSmudge = smudge.Index;
             }
         }
 
-        if (closest.magnitude <= targetRange)
+        if (closestPosition.magnitude <= targetRange)
         {
-            transform.LookAt(closest + this.transform.position);
+            // transform.LookAt(closestPosition + this.transform.position);
+            SmudgeManager.SelectSmudge(closestSmudge);
         }
         else
         {
             transform.rotation = Quaternion.identity;
+            SmudgeManager.DeselectSmudge();
         }
 
-        if (closest.magnitude <= maxArmLength)
+        if (closestPosition.magnitude <= maxArmLength)
         {
-            StretchArm(closest.magnitude);
+            StretchArm(closestPosition.magnitude);
         }
         else
         {
