@@ -11,7 +11,7 @@ public class ArmController : MonoBehaviour
         spraying,
         wiping,
     }
-    
+
     public float maxArmLength;
     public float targetRange;
 
@@ -24,7 +24,7 @@ public class ArmController : MonoBehaviour
     public Material sprayColorL;
     public Material wiperColor;
     public Material armColor;
-    
+
     public AnimationState animationState = AnimationState.complete;
 
     private MeshRenderer handRenderer;
@@ -57,7 +57,7 @@ public class ArmController : MonoBehaviour
         }
     }
 
-    public void AnimateSpray(Smudge.SmudgeType spray)
+    public void AnimateSpray(Smudge.SmudgeType spray, bool showSprayParticles)
     {
         if (animationState != AnimationState.complete)
         {
@@ -76,9 +76,11 @@ public class ArmController : MonoBehaviour
             StretchArm(maxArmLength);
         }
 
-        ParticleSystem.MainModule particlesMain = particles.main;
-        particlesMain.startColor = handRenderer.material.color;
-        particles.Play();
+        if(showSprayParticles) {
+          ParticleSystem.MainModule particlesMain = particles.main;
+          particlesMain.startColor = handRenderer.material.color;
+          particles.Play();
+        }
         coroutine = FinishSpray();
         StartCoroutine(coroutine);
     }

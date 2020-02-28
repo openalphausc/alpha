@@ -12,10 +12,14 @@ public class WiperController : MonoBehaviour
     private GameObject currentCollision;
     private ArmController armController;
 
+    private float maxFluid = 4;
+    private float fluidRemaining;
+
 
     void Start()
     {
         armController = armJoint.GetComponent<ArmController>();
+        fluidRemaining = maxFluid;
     }
 
     void Update()
@@ -25,22 +29,30 @@ public class WiperController : MonoBehaviour
             armController.AnimateWipe();
         }
 
+
         if (Input.GetKeyDown(KeyCode.J))
         {
-            armController.AnimateSpray(Smudge.SmudgeType.smudgeJ);
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeJ);
+            armController.AnimateSpray(Smudge.SmudgeType.smudgeJ, (fluidRemaining > 0));
+            if(fluidRemaining > 0) SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeJ);
+            fluidRemaining--;
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            armController.AnimateSpray(Smudge.SmudgeType.smudgeK);
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeK);
+            armController.AnimateSpray(Smudge.SmudgeType.smudgeK, (fluidRemaining > 0));
+            if(fluidRemaining > 0) SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeK);
+            fluidRemaining--;
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            armController.AnimateSpray(Smudge.SmudgeType.smudgeL);
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
+            armController.AnimateSpray(Smudge.SmudgeType.smudgeL, (fluidRemaining > 0));
+            if(fluidRemaining > 0) SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
+            fluidRemaining--;
+        }
+
+        if(fluidRemaining <= 0 && Input.GetKeyDown(KeyCode.R)) {
+          fluidRemaining = maxFluid;
         }
     }
 
