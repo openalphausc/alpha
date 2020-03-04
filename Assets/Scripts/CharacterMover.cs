@@ -6,6 +6,10 @@ public class CharacterMover : MonoBehaviour
 {
     public float movementSpeed;
 
+    public float fallMultiplier = 2.5f;
+
+    public float lowJumpMultiplier = 2.0f;
+
     public Rigidbody rb;
 
     public LayerMask platform;
@@ -16,12 +20,15 @@ public class CharacterMover : MonoBehaviour
 
     public BoxCollider col;
 
+    private bool WPressed;
 
     void Start()
     {
         inAir = false;
         rb = GetComponent<Rigidbody>();
         col = GetComponent<BoxCollider>();
+        WPressed = false;
+
     }
 
     void Update()
@@ -34,14 +41,29 @@ public class CharacterMover : MonoBehaviour
         {
             transform.Translate(movementSpeed * Time.deltaTime, 0, 0);
         }
-        //utilizing the addforce function gives the fall a more realistic feel
-        if (Input.GetKey(KeyCode.W) && !inAir)
+        if ((Input.GetKey(KeyCode.W) && !WPressed) && !inAir)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.velocity = Vector3.up * jumpForce;
             inAir = true;
+            WPressed = true;
+        }
+        if (!Input.GetKey(KeyCode.W))
+        {
+            WPressed = false;
         }
 
+        //Gravity effects for a more video game feeling jump
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W))
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
     }
+
+
     void OnCollisionEnter(Collision dataFromCollision)
     {
 
