@@ -2,49 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmController : MonoBehaviour
+public abstract class ArmController : MonoBehaviour
 {
 
-    public enum AnimationState
-    {
-        complete,
-        spraying,
-        wiping,
-    }
     
-    public float targetRange;
-    public float wipeRange;
-    public float maxArmLength;
+    [SerializeField] protected float targetRange;
+    [SerializeField] protected float maxArmLength;
+    [SerializeField] protected GameObject arm;
+    [SerializeField] protected GameObject hand;
+    [SerializeField] protected Material armColor;
 
-    public GameObject arm;
-    public GameObject hand;
-    public ParticleSystem particles;
+    public bool animating;
 
-    public Material sprayColorJ;
-    public Material sprayColorK;
-    public Material sprayColorL;
-    public Material wiperColor;
-    public Material armColor;
-    
-    public AnimationState animationState = AnimationState.complete;
+    protected IEnumerator coroutine;
+    protected MeshRenderer handRenderer;
 
-    private MeshRenderer handRenderer;
     private Transform armTransform;
     private Transform handTransform;
-    private IEnumerator coroutine;
-    private Dictionary<Smudge.SmudgeType, Material> sprayColor = new Dictionary<Smudge.SmudgeType, Material>();
 
-    void Start()
+    protected virtual void Start()
     {
         armTransform = arm.transform;
         handTransform = hand.transform;
         handRenderer = hand.GetComponent<MeshRenderer>();
-        sprayColor[Smudge.SmudgeType.smudgeJ] = sprayColorJ;
-        sprayColor[Smudge.SmudgeType.smudgeK] = sprayColorK;
-        sprayColor[Smudge.SmudgeType.smudgeL] = sprayColorL;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (CharacterMover.closestRelativePosition.magnitude <= targetRange)
         {
@@ -58,77 +41,12 @@ public class ArmController : MonoBehaviour
         }
     }
 
-    public void AnimateSpray(Smudge.SmudgeType spray)
+    protected Vector3 ClosestRelativeToArm()
     {
-        if (animationState != AnimationState.complete)
-        {
-            StopCoroutine(coroutine);
-        }
-
-        handRenderer.material = sprayColor[spray];
-
-        transform.LookAt(CharacterMover.closestRelativePosition + this.transform.position);
-        if (CharacterMover.closestRelativePosition.magnitude <= maxArmLength * 2)
-        {
-            StretchArm(CharacterMover.closestRelativePosition.magnitude / 2);
-        }
-        else
-        {
-            StretchArm(maxArmLength);
-        }
-
-        ParticleSystem.MainModule particlesMain = particles.main;
-        particlesMain.startColor = handRenderer.material.color;
-        particles.Play();
-        coroutine = FinishSpray();
-        StartCoroutine(coroutine);
+        return CharacterMover.closestRelativePosition - transform.localPosition;
     }
 
-    IEnumerator FinishSpray()
-    {
-        animationState = AnimationState.spraying;
-        yield return new WaitForSeconds(0.5f);
-        transform.rotation = Quaternion.identity;
-        handRenderer.material = armColor;
-        animationState = AnimationState.complete;
-    }
-
-    public void AnimateWipe()
-    {
-        if (animationState != AnimationState.complete)
-        {
-            StopCoroutine(coroutine);
-        }
-
-        handRenderer.material = wiperColor;
-        transform.LookAt(CharacterMover.closestRelativePosition + this.transform.position);
-        if (CharacterMover.closestRelativePosition.magnitude <= maxArmLength)
-        {
-            StretchArm(CharacterMover.closestRelativePosition.magnitude);
-        }
-        else
-        {
-            StretchArm(maxArmLength);
-        }
-
-        if (CharacterMover.closestRelativePosition.magnitude <= wipeRange)
-        {
-            SmudgeManager.WipeSmudge();
-        }
-        coroutine = FinishWipe();
-        StartCoroutine(coroutine);
-    }
-
-    IEnumerator FinishWipe()
-    {
-        animationState = AnimationState.wiping;
-        yield return new WaitForSeconds(0.5f);
-        transform.rotation = Quaternion.identity;
-        handRenderer.material = armColor;
-        animationState = AnimationState.complete;
-    }
-
-    void StretchArm(float length)
+    protected void StretchArm(float length)
     {
         handTransform.localPosition = length * Vector3.forward;
         armTransform.localPosition = length / 2 * Vector3.forward;

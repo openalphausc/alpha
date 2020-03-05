@@ -1,43 +1,72 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WiperController : MonoBehaviour
+public class WiperController : ArmController
 {
-    public GameObject armJoint;
+    [SerializeField] private float wipeRange;
+    [SerializeField] private float passiveReachRatio;
     
-    private ArmController armController;
-
-
-    void Start()
+    
+    protected  override void Start()
     {
-        armController = armJoint.GetComponent<ArmController>();
+        base.Start();
     }
 
-    void Update()
+    protected override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        base.Update();
+
+        if (ClosestRelativeToArm().magnitude <= targetRange && !animating)
         {
-            armController.AnimateWipe();
+            PassiveWipe();
+        }
+    }
+
+    private void PassiveWipe()
+    {
+        Vector3 closest = ClosestRelativeToArm();
+        transform.LookAt(closest + transform.position);
+        if (closest.magnitude <= maxArmLength / passiveReachRatio)
+        {
+            StretchArm(closest.magnitude * passiveReachRatio);
+        }
+        else
+        {
+            StretchArm(maxArmLength);
+        }
+    }
+    
+    public void AnimateWipe()
+    {
+        if (animating)
+        {
+            StopCoroutine(coroutine);
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        Vector3 closest = ClosestRelativeToArm();
+        transform.LookAt(closest + transform.position);
+        if (closest.magnitude <= maxArmLength)
         {
-            armController.AnimateSpray(Smudge.SmudgeType.smudgeJ);
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeJ);
+            StretchArm(closest.magnitude);
+        }
+        else
+        {
+            StretchArm(maxArmLength);
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (CharacterMover.closestRelativePosition.magnitude <= wipeRange)
         {
-            armController.AnimateSpray(Smudge.SmudgeType.smudgeK);
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeK);
+            SmudgeManager.WipeSmudge();
         }
+        coroutine = FinishWipe();
+        StartCoroutine(coroutine);
+    }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            armController.AnimateSpray(Smudge.SmudgeType.smudgeL);
-            SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
-        }
+    private IEnumerator FinishWipe()
+    {
+        animating = true;
+        yield return new WaitForSeconds(0.5f);
+        animating = false;
     }
 }
