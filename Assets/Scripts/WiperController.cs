@@ -56,7 +56,7 @@ public class WiperController : MonoBehaviour
             fluidRemaining--;
         }
 
-        if(fluidRemaining <= 0 && Input.GetKeyDown(KeyCode.R)) {
+        if(fluidRemaining <= 0 && Input.GetKeyDown(KeyCode.F)) {
           fluidRemaining = maxFluid;
           gaugeControl.transform.position = new Vector3(gaugeControl.transform.position.x, gaugeControl.startPos, gaugeControl.transform.position.z);
           gaugeControl.transform.localScale = new Vector3(gaugeControl.transform.localScale.x, gaugeControl.startScale, gaugeControl.transform.localScale.z);
