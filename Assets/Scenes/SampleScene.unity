@@ -180,8 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dce972c9548a7d42a1d25fe3f959f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WiperArmJoint: {fileID: 0}
-  SprayArmJoint: {fileID: 0}
+  WiperArmJoint: {fileID: 452349168}
+  SprayArmJoint: {fileID: 1264828766}
 --- !u!1 &452349168
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452349169}
+  - component: {fileID: 452349170}
   m_Layer: 0
   m_Name: WiperArmJoint
   m_TagString: Untagged
@@ -214,6 +215,26 @@ Transform:
   m_Father: {fileID: 409764741}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &452349170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452349168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f7d4a1fbcaf1e4e9b60f522d9eae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRange: 4
+  maxArmLength: 2
+  arm: {fileID: 1415254418}
+  hand: {fileID: 1047213177}
+  armColor: {fileID: 2100000, guid: d4109714a55a2ca43832eb41b368af18, type: 2}
+  animating: 0
+  wipeRange: 2.5
+  passiveReachRatio: 0.66
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +390,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5b1e530f0ddeb84a8f59fd70830a010, type: 2}
+  - {fileID: 2100000, guid: d4109714a55a2ca43832eb41b368af18, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5520,24 +5541,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1264828766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9392518a41069d4e8e3bd8bbf2aab43, type: 3}
+  m_Script: {fileID: 11500000, guid: fa0b60dc17ac20a41b085afd456c0e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetRange: 4
-  wipeRange: 2.5
   maxArmLength: 2
   arm: {fileID: 2073324558}
   hand: {fileID: 711792316}
-  particles: {fileID: 1027090756}
+  armColor: {fileID: 2100000, guid: d4109714a55a2ca43832eb41b368af18, type: 2}
+  animating: 0
   sprayColorJ: {fileID: 2100000, guid: 56e14882c40886048b1395a26384ff28, type: 2}
   sprayColorK: {fileID: 2100000, guid: e3695e905d9747e43b30e6bc1c6a9ec9, type: 2}
   sprayColorL: {fileID: 2100000, guid: e9b6839f8db1272498d1e95fa1cc27c9, type: 2}
-  wiperColor: {fileID: 2100000, guid: c5b1e530f0ddeb84a8f59fd70830a010, type: 2}
-  armColor: {fileID: 2100000, guid: d4109714a55a2ca43832eb41b368af18, type: 2}
-  animationState: 0
-  handRenderer: {fileID: 0}
-  armTransform: {fileID: 0}
-  handTransform: {fileID: 0}
+  particles: {fileID: 1027090756}
 --- !u!1 &1415254418
 GameObject:
   m_ObjectHideFlags: 0
