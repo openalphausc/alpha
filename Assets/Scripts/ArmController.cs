@@ -12,8 +12,9 @@ public class ArmController : MonoBehaviour
         wiping,
     }
     
-    public float maxArmLength;
     public float targetRange;
+    public float wipeRange;
+    public float maxArmLength;
 
     public GameObject arm;
     public GameObject hand;
@@ -110,7 +111,10 @@ public class ArmController : MonoBehaviour
             StretchArm(maxArmLength);
         }
 
-        //particles
+        if (CharacterMover.closestRelativePosition.magnitude <= wipeRange)
+        {
+            SmudgeManager.WipeSmudge();
+        }
         coroutine = FinishWipe();
         StartCoroutine(coroutine);
     }

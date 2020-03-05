@@ -6,10 +6,7 @@ using UnityEngine;
 public class WiperController : MonoBehaviour
 {
     public GameObject armJoint;
-
-    public bool colliding = false;
-
-    private GameObject currentCollision;
+    
     private ArmController armController;
 
 
@@ -42,23 +39,5 @@ public class WiperController : MonoBehaviour
             armController.AnimateSpray(Smudge.SmudgeType.smudgeL);
             SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        currentCollision = other.gameObject;
-        if (currentCollision.CompareTag("Smudge"))
-        {
-            colliding = true;
-            if (armController.animationState == ArmController.AnimationState.wiping)
-            {
-                SmudgeManager.WipeSmudge();
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        colliding = false;
     }
 }
