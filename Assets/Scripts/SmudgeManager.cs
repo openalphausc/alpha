@@ -10,10 +10,22 @@ public class SmudgeManager : MonoBehaviour
     
     private static int currentTarget = -1;
     private static CharacterMover characterMover;
+    public AudioSource source;
+    public AudioClip jingle;
 
     void Start()
     {
         characterMover = character.GetComponent<CharacterMover>();
+        source = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        if(allSmudges.Count <= 0)
+        {
+            source.PlayOneShot(jingle, 0.1f);
+        }
+
     }
 
     public static void WipeSmudge()
@@ -26,6 +38,7 @@ public class SmudgeManager : MonoBehaviour
                 allSmudges.RemoveAt(currentTarget);
                 currentTarget = -1;
                 characterMover.FindClosest();
+
             }
         }
     }
