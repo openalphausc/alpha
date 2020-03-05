@@ -4,48 +4,124 @@ using UnityEngine;
 
 public class ArmController : MonoBehaviour
 {
+
+    public enum AnimationState
+    {
+        complete,
+        spraying,
+        wiping,
+    }
+    
     public float maxArmLength;
     public float targetRange;
 
+    public GameObject arm;
+    public GameObject hand;
+    public ParticleSystem particles;
+
+    public Material sprayColorJ;
+    public Material sprayColorK;
+    public Material sprayColorL;
+    public Material wiperColor;
+    public Material armColor;
+    
+    public AnimationState animationState = AnimationState.complete;
+
+    private MeshRenderer handRenderer;
     private Transform armTransform;
     private Transform handTransform;
+    private IEnumerator coroutine;
+    private Dictionary<Smudge.SmudgeType, Material> sprayColor = new Dictionary<Smudge.SmudgeType, Material>();
 
     void Start()
     {
-        armTransform = GameObject.Find("Arm").transform;
-        handTransform = GameObject.Find("Hand").transform;
+        armTransform = arm.transform;
+        handTransform = hand.transform;
+        handRenderer = hand.GetComponent<MeshRenderer>();
+        sprayColor[Smudge.SmudgeType.smudgeJ] = sprayColorJ;
+        sprayColor[Smudge.SmudgeType.smudgeK] = sprayColorK;
+        sprayColor[Smudge.SmudgeType.smudgeL] = sprayColorL;
     }
 
     void Update()
     {
-        // find relative position of closest smudge
-        Vector3 closest = Vector3.positiveInfinity;
-        foreach (GameObject smudge in SmudgeManager.allSmudges)
+        if (CharacterMover.closestRelativePosition.magnitude <= targetRange)
         {
-            Vector3 relative = smudge.transform.position - this.transform.position;
-            if (relative.magnitude < closest.magnitude)
-            {
-                closest = relative;
-            }
-        }
-
-        if (closest.magnitude <= targetRange)
-        {
-            transform.LookAt(closest + this.transform.position);
+            // transform.LookAt(closestPosition + this.transform.position);
+            SmudgeManager.SelectSmudge(CharacterMover.closestSmudge);
         }
         else
         {
             transform.rotation = Quaternion.identity;
+            SmudgeManager.DeselectSmudge();
+        }
+    }
+
+    public void AnimateSpray(Smudge.SmudgeType spray)
+    {
+        if (animationState != AnimationState.complete)
+        {
+            StopCoroutine(coroutine);
         }
 
-        if (closest.magnitude <= maxArmLength)
+        handRenderer.material = sprayColor[spray];
+
+        transform.LookAt(CharacterMover.closestRelativePosition + this.transform.position);
+        if (CharacterMover.closestRelativePosition.magnitude <= maxArmLength * 2)
         {
-            StretchArm(closest.magnitude);
+            StretchArm(CharacterMover.closestRelativePosition.magnitude / 2);
         }
         else
         {
             StretchArm(maxArmLength);
         }
+
+        ParticleSystem.MainModule particlesMain = particles.main;
+        particlesMain.startColor = handRenderer.material.color;
+        particles.Play();
+        coroutine = FinishSpray();
+        StartCoroutine(coroutine);
+    }
+
+    IEnumerator FinishSpray()
+    {
+        animationState = AnimationState.spraying;
+        yield return new WaitForSeconds(0.5f);
+        transform.rotation = Quaternion.identity;
+        handRenderer.material = armColor;
+        animationState = AnimationState.complete;
+    }
+
+    public void AnimateWipe()
+    {
+        if (animationState != AnimationState.complete)
+        {
+            StopCoroutine(coroutine);
+        }
+
+        handRenderer.material = wiperColor;
+        transform.LookAt(CharacterMover.closestRelativePosition + this.transform.position);
+        if (CharacterMover.closestRelativePosition.magnitude <= maxArmLength)
+        {
+            StretchArm(CharacterMover.closestRelativePosition.magnitude);
+        }
+        else
+        {
+            StretchArm(maxArmLength);
+        }
+
+        //particles
+        coroutine = FinishWipe();
+        StartCoroutine(coroutine);
+    }
+
+    IEnumerator FinishWipe()
+    {
+        animationState = AnimationState.wiping;
+        yield return new WaitForSeconds(0.5f);
+        transform.rotation = Quaternion.identity;
+        handRenderer.material = armColor;
+        animationState = AnimationState.complete;
     }
 
     void StretchArm(float length)
@@ -57,5 +133,4 @@ public class ArmController : MonoBehaviour
         localScale = new Vector3(localScale.x, localScale.y, length);
         armTransform.localScale = localScale;
     }
-
 }

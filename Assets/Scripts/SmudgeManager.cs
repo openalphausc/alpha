@@ -4,19 +4,56 @@ using UnityEngine;
 
 public class SmudgeManager : MonoBehaviour
 {
-    public static HashSet<GameObject> allSmudges = new HashSet<GameObject>();
+    public GameObject character;
     
+    public static List<Smudge> allSmudges = new List<Smudge>();
+    
+    private static int currentTarget = -1;
+    private static CharacterMover characterMover;
+
     void Start()
     {
-        foreach (Transform smudge in transform)
+        characterMover = character.GetComponent<CharacterMover>();
+    }
+
+    public static void WipeSmudge()
+    {
+        if (currentTarget > -1)
         {
-            allSmudges.Add(smudge.gameObject);
+            if (allSmudges[currentTarget].neutralized)
+            {
+                allSmudges[currentTarget].Clean();
+                allSmudges.RemoveAt(currentTarget);
+                currentTarget = -1;
+                characterMover.FindClosest();
+            }
         }
     }
 
-    public static void RemoveSmudge(GameObject smudge)
+    public static void SpraySmudge(Smudge.SmudgeType spray)
     {
-        allSmudges.Remove(smudge);
-        Destroy(smudge);
+        if (spray == allSmudges[currentTarget].type)
+        {
+            allSmudges[currentTarget].Neutralize();
+        }
+    }
+
+    public static void SelectSmudge(int smudgeIndex)
+    {
+        if (currentTarget != smudgeIndex)
+        {
+            DeselectSmudge();
+            currentTarget = smudgeIndex;
+            allSmudges[smudgeIndex].Select();
+        }
+    }
+
+    public static void DeselectSmudge()
+    {
+        if (currentTarget > -1 && currentTarget < allSmudges.Count)
+        {
+            allSmudges[currentTarget].Deselect();
+        }
+        currentTarget = -1;
     }
 }
