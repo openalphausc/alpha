@@ -7,19 +7,24 @@ public class WiperController : MonoBehaviour
 {
     public GameObject armJoint;
 
+    public GameObject gaugeFront;
+    private GaugeControl gaugeControl;
+
     public bool colliding = false;
 
     private GameObject currentCollision;
     private ArmController armController;
 
-    private float maxFluid = 4;
-    private float fluidRemaining;
+    public float maxFluid = 4;
+    public float fluidRemaining;
 
 
     void Start()
     {
         armController = armJoint.GetComponent<ArmController>();
         fluidRemaining = maxFluid;
+
+        gaugeControl = gaugeFront.GetComponent<GaugeControl>();
     }
 
     void Update()
@@ -53,6 +58,8 @@ public class WiperController : MonoBehaviour
 
         if(fluidRemaining <= 0 && Input.GetKeyDown(KeyCode.R)) {
           fluidRemaining = maxFluid;
+          gaugeControl.transform.position = new Vector3(gaugeControl.transform.position.x, gaugeControl.startPos, gaugeControl.transform.position.z);
+          gaugeControl.transform.localScale = new Vector3(gaugeControl.transform.localScale.x, gaugeControl.startScale, gaugeControl.transform.localScale.z);
         }
     }
 
