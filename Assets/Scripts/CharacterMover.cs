@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMover : MonoBehaviour
 {
@@ -22,6 +23,15 @@ public class CharacterMover : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             MovePlayer(movementSpeed);
+        }
+
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
