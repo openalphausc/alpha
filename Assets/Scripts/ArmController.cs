@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class ArmController : MonoBehaviour
 {
 
-    
+
     [SerializeField] protected float targetRange;
     [SerializeField] protected float maxArmLength;
     [SerializeField] protected GameObject arm;

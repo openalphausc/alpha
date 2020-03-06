@@ -6,8 +6,8 @@ public class WiperController : ArmController
 {
     [SerializeField] private float wipeRange;
     [SerializeField] private float passiveReachRatio;
-    
-    
+
+
     protected  override void Start()
     {
         base.Start();
@@ -36,7 +36,7 @@ public class WiperController : ArmController
             StretchArm(maxArmLength);
         }
     }
-    
+
     public void AnimateWipe()
     {
         if (animating)

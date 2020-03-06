@@ -48,3 +48,6 @@ sysinfo.txt
 crashlytics-build.properties
 
 *.idea
+
+todo.txt
+.DS_Store
