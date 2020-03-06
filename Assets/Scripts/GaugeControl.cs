@@ -33,7 +33,7 @@ public class GaugeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(sprayController.animationState == ArmController.AnimationState.spraying && sprayController.transform.rotation.y != 0) {
+      if(sprayController.animating && sprayController.transform.rotation.y != 0) {
         // gauge shows up when player is spraying
         float offset = 2f;
         if(sprayController.transform.rotation.y > 0) offset *= -1;

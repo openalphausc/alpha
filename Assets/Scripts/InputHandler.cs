@@ -11,8 +11,8 @@ public class InputHandler : MonoBehaviour
     private WiperController wiperController;
     private SprayController sprayController;
 
-    private float maxFluid = 4;
-    private float fluidRemaining;
+    public float maxFluid = 4;
+    public float fluidRemaining;
 
     public GameObject gaugeFront;
     private GaugeControl gaugeControl;
