@@ -17,13 +17,13 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer<= 10.0f)
+        if (SmudgeManager.allSmudges.Count > 0)
         {
             timer += Time.deltaTime;
             uiText.text = timer.ToString("F");
         }
 
-        uiText.text = "10.00";
+        //uiText.text = "10.00";
         
     }
 }

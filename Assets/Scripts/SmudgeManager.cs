@@ -10,6 +10,7 @@ public class SmudgeManager : MonoBehaviour
     
     private static int currentTarget = -1;
     private static CharacterMover characterMover;
+    
 
     void Start()
     {
