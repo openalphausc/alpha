@@ -22,6 +22,8 @@ public class TimerScript : MonoBehaviour
             timer += Time.deltaTime;
             uiText.text = timer.ToString("F");
         }
+
+        uiText.text = "10.00";
         
     }
 }
