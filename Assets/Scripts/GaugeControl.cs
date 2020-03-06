@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GaugeControl : MonoBehaviour
 {
-    public GameObject armJoint;
-    private ArmController armController;
+    public GameObject sprayArmJoint;
+    private SprayController sprayController;
 
-    public GameObject hand;
-    private WiperController wiperController;
+    public GameObject character;
+    private InputHandler inputHandler;
 
     public float startPos;
     public float startScale;
@@ -19,8 +19,8 @@ public class GaugeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      armController = armJoint.GetComponent<ArmController>();
-      wiperController = hand.GetComponent<WiperController>();
+      sprayController = sprayArmJoint.GetComponent<SprayController>();
+      inputHandler = character.GetComponent<InputHandler>();
 
       // mfX = transform.position.x + transform.localScale.x/2.0f;
       bottom = transform.position.y - transform.localScale.y/2.0f;
@@ -33,17 +33,17 @@ public class GaugeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(armController.animationState == ArmController.AnimationState.spraying && armController.transform.rotation.y != 0) {
+      if(sprayController.animationState == ArmController.AnimationState.spraying && sprayController.transform.rotation.y != 0) {
         // gauge shows up when player is spraying
         float offset = 2f;
-        if(armController.transform.rotation.y > 0) offset *= -1;
+        if(sprayController.transform.rotation.y > 0) offset *= -1;
         float z = 5f;
         if(gameObject.name == "GaugeBack") z = 5f;
         else if(gameObject.name == "GaugeFront") z = 5.1f;
-        transform.position = new Vector3(armController.transform.position.x + offset, armController.transform.position.y, z);
+        transform.position = new Vector3(sprayController.transform.position.x + offset, sprayController.transform.position.y, z);
         if(gameObject.name == "GaugeFront") {
           // adjust size of gauge front to make it seem like it's going down
-          float targetPercent = 100*wiperController.fluidRemaining/wiperController.maxFluid;
+          float targetPercent = 100*inputHandler.fluidRemaining/inputHandler.maxFluid;
           float currPercent = 100*transform.localScale.y/startScale;
           Debug.Log("target: " + targetPercent + "  curr: " + currPercent);
           if(currPercent > targetPercent && currPercent > 0 && currPercent <= 100) {

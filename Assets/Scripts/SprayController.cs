@@ -8,13 +8,13 @@ public class SprayController : ArmController
     public Material sprayColorK;
     public Material sprayColorL;
     public ParticleSystem particles;
-    
+
     private Dictionary<Smudge.SmudgeType, Material> sprayColor = new Dictionary<Smudge.SmudgeType, Material>();
-    
+
     protected override void Start()
     {
         base.Start();
-        
+
         sprayColor[Smudge.SmudgeType.smudgeJ] = sprayColorJ;
         sprayColor[Smudge.SmudgeType.smudgeK] = sprayColorK;
         sprayColor[Smudge.SmudgeType.smudgeL] = sprayColorL;
@@ -24,8 +24,8 @@ public class SprayController : ArmController
     {
         base.Update();
     }
-    
-    public void AnimateSpray(Smudge.SmudgeType spray)
+
+    public void AnimateSpray(Smudge.SmudgeType spray, bool showSprayParticles)
     {
         if (animating)
         {
@@ -44,10 +44,11 @@ public class SprayController : ArmController
         {
             StretchArm(maxArmLength);
         }
-
-        ParticleSystem.MainModule particlesMain = particles.main;
-        particlesMain.startColor = handRenderer.material.color;
-        particles.Play();
+        if(showSprayParticles) {
+          ParticleSystem.MainModule particlesMain = particles.main;
+          particlesMain.startColor = handRenderer.material.color;
+          particles.Play();
+        }
         coroutine = FinishSpray();
         StartCoroutine(coroutine);
     }
