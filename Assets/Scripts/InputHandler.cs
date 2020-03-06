@@ -38,7 +38,7 @@ public class InputHandler : MonoBehaviour
         {
             sprayController.AnimateSpray(Smudge.SmudgeType.smudgeJ, (fluidRemaining > 0));
             if(fluidRemaining > 0) {
-              SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeJ);
+                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeJ);
               fluidRemaining--;
             }
         }
@@ -47,7 +47,7 @@ public class InputHandler : MonoBehaviour
         {
             sprayController.AnimateSpray(Smudge.SmudgeType.smudgeK, (fluidRemaining > 0));
             if(fluidRemaining > 0) {
-              SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeK);
+                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeK);
               fluidRemaining--;
             }
         }
@@ -56,7 +56,7 @@ public class InputHandler : MonoBehaviour
         {
             sprayController.AnimateSpray(Smudge.SmudgeType.smudgeL, (fluidRemaining > 0));
             if(fluidRemaining > 0) {
-              SmudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
+                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
             }
         }
 

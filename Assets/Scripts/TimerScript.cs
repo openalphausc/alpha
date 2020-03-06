@@ -17,7 +17,7 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SmudgeManager.allSmudges.Count > 0)
+        if (FloorManager.currentFloor.smudgeManager.allSmudges.Count > 0)
         {
             timer += Time.deltaTime;
             uiText.text = timer.ToString("F");

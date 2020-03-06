@@ -32,12 +32,12 @@ public abstract class ArmController : MonoBehaviour
         if (CharacterMover.closestRelativePosition.magnitude <= targetRange)
         {
             // transform.LookAt(closestPosition + this.transform.position);
-            SmudgeManager.SelectSmudge(CharacterMover.closestSmudge);
+            FloorManager.currentFloor.smudgeManager.SelectSmudge(CharacterMover.closestSmudge);
         }
         else
         {
             transform.rotation = Quaternion.identity;
-            SmudgeManager.DeselectSmudge();
+            FloorManager.currentFloor.smudgeManager.DeselectSmudge();
         }
     }
 

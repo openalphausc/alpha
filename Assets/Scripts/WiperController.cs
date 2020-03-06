@@ -55,9 +55,9 @@ public class WiperController : ArmController
             StretchArm(maxArmLength);
         }
 
-        if (CharacterMover.closestRelativePosition.magnitude <= wipeRange)
+        if (closest.magnitude <= wipeRange)
         {
-            SmudgeManager.WipeSmudge();
+            FloorManager.currentFloor.smudgeManager.WipeSmudge();
         }
         coroutine = FinishWipe();
         StartCoroutine(coroutine);

@@ -45,7 +45,7 @@ public class CharacterMover : MonoBehaviour
     {
         Vector3 closestPosition = Vector3.positiveInfinity;
         int i = 0;
-        foreach (Smudge smudge in SmudgeManager.allSmudges)
+        foreach (Smudge smudge in FloorManager.currentFloor.smudgeManager.allSmudges)
         {
             Vector3 relative = smudge.transform.position - this.transform.position;
             if (Mathf.Abs(relative.x) < Mathf.Abs(closestPosition.x))

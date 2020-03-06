@@ -45,7 +45,7 @@ public class GaugeControl : MonoBehaviour
           // adjust size of gauge front to make it seem like it's going down
           float targetPercent = 100*inputHandler.fluidRemaining/inputHandler.maxFluid;
           float currPercent = 100*transform.localScale.y/startScale;
-          Debug.Log("target: " + targetPercent + "  curr: " + currPercent);
+          // Debug.Log("target: " + targetPercent + "  curr: " + currPercent);
           if(currPercent > targetPercent && currPercent > 0 && currPercent <= 100) {
             // decrease speed is proportional to how much distance is left
             float decrease = (currPercent - targetPercent)*0.002f*decreaseSpeed;

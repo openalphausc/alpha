@@ -20,15 +20,12 @@ public class Smudge : MonoBehaviour
     public bool selected = false;
 
     private new MeshRenderer renderer;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
-        SmudgeManager.allSmudges.Add(this);
         renderer = GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
