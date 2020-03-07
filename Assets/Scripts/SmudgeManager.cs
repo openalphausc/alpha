@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// keeps track of the smudges on its floor
 public class SmudgeManager : MonoBehaviour
 {
     public AudioSource source;
@@ -11,9 +12,9 @@ public class SmudgeManager : MonoBehaviour
     public GameObject prefabK;
     public GameObject prefabL;
 
-    public List<Smudge> allSmudges = new List<Smudge>();
+    public List<Smudge> allSmudges = new List<Smudge>(); // ACCESS VIA: FloorManager.currentFloor.smudgeManager.allSmudges
 
-    private static int currentTarget = -1;
+    private static int currentTarget = -1; // index in allSmudges that is being selected
     private CharacterMover characterMover;
     private FloorManager floorManager;
 
@@ -33,18 +34,19 @@ public class SmudgeManager : MonoBehaviour
         }
     }
 
+    // creates a smudge object at the given position with the given type
     public void AddSmudge(Tuple<Vector3, Smudge.SmudgeType> smudgeInfo)
     {
         GameObject prefab;
         switch (smudgeInfo.Item2)
         {
-            case Smudge.SmudgeType.smudgeJ:
+            case Smudge.SmudgeType.SmudgeJ:
                 prefab = prefabJ;
                 break;
-            case Smudge.SmudgeType.smudgeK:
+            case Smudge.SmudgeType.SmudgeK:
                 prefab = prefabK;
                 break;
-            case Smudge.SmudgeType.smudgeL:
+            case Smudge.SmudgeType.SmudgeL:
             default:
                 prefab = prefabL;
                 break;

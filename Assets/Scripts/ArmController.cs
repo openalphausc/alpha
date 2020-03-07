@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Superclass for WiperController and SprayController
 public abstract class ArmController : MonoBehaviour
 {
-
-
-    [SerializeField] protected float targetRange;
-    [SerializeField] protected float maxArmLength;
+    [SerializeField] protected float targetRange; // how close a smudge must be to be targeted
+    [SerializeField] protected float maxArmLength; // maximum distance player can reach
     [SerializeField] protected GameObject arm;
     [SerializeField] protected GameObject hand;
     [SerializeField] protected Material armColor;
@@ -29,9 +28,8 @@ public abstract class ArmController : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (CharacterMover.closestRelativePosition.magnitude <= targetRange)
+        if (ClosestRelativeToArm().magnitude <= targetRange)
         {
-            // transform.LookAt(closestPosition + this.transform.position);
             FloorManager.currentFloor.smudgeManager.SelectSmudge(CharacterMover.closestSmudge);
         }
         else
@@ -46,6 +44,7 @@ public abstract class ArmController : MonoBehaviour
         return CharacterMover.closestRelativePosition - transform.localPosition;
     }
 
+    // Used to extend the arm to a specified distance
     protected void StretchArm(float length)
     {
         handTransform.localPosition = length * Vector3.forward;

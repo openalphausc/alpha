@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Used to access objects on a given floor
 public class Floor : MonoBehaviour
 {
     public SmudgeManager smudgeManager;

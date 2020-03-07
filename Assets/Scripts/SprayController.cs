@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// controls the spraying arm
 public class SprayController : ArmController
 {
     public Material sprayColorJ;
@@ -15,9 +16,9 @@ public class SprayController : ArmController
     {
         base.Start();
 
-        sprayColor[Smudge.SmudgeType.smudgeJ] = sprayColorJ;
-        sprayColor[Smudge.SmudgeType.smudgeK] = sprayColorK;
-        sprayColor[Smudge.SmudgeType.smudgeL] = sprayColorL;
+        sprayColor[Smudge.SmudgeType.SmudgeJ] = sprayColorJ;
+        sprayColor[Smudge.SmudgeType.SmudgeK] = sprayColorK;
+        sprayColor[Smudge.SmudgeType.SmudgeL] = sprayColorL;
     }
 
     protected override void Update()
@@ -25,15 +26,17 @@ public class SprayController : ArmController
         base.Update();
     }
 
+    // begins the spray animation process
     public void AnimateSpray(Smudge.SmudgeType spray, bool showSprayParticles)
     {
         if (animating)
-        {
+        { //animation cancel
             StopCoroutine(coroutine);
         }
 
         handRenderer.material = sprayColor[spray];
 
+        // aim the spraying arm
         Vector3 closest = ClosestRelativeToArm();
         transform.LookAt(closest + transform.position);
         if (closest.magnitude <= maxArmLength * 2)
@@ -44,6 +47,8 @@ public class SprayController : ArmController
         {
             StretchArm(maxArmLength);
         }
+        
+        // spray particles
         if(showSprayParticles) {
           ParticleSystem.MainModule particlesMain = particles.main;
           particlesMain.startColor = handRenderer.material.color;
@@ -53,6 +58,7 @@ public class SprayController : ArmController
         StartCoroutine(coroutine);
     }
 
+    // after delay, retract arm
     private IEnumerator FinishSpray()
     {
         animating = true;

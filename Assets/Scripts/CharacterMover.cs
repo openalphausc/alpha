@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Controls the left-right movement of the character
+// as well as finding the closest smudge to the player
 public class CharacterMover : MonoBehaviour
 {
     public float movementSpeed;
@@ -41,6 +43,7 @@ public class CharacterMover : MonoBehaviour
         FindClosest();
     }
 
+    // calculates the nearest smudge
     public void FindClosest()
     {
         Vector3 closestPosition = Vector3.positiveInfinity;

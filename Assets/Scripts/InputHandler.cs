@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// attached to Character, processes non-movement controls and manages fluid levels
 public class InputHandler : MonoBehaviour
 {
     public GameObject WiperArmJoint;
@@ -36,27 +37,27 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            sprayController.AnimateSpray(Smudge.SmudgeType.smudgeJ, (fluidRemaining > 0));
+            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeJ, (fluidRemaining > 0));
             if(fluidRemaining > 0) {
-                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeJ);
+                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeJ);
               fluidRemaining--;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            sprayController.AnimateSpray(Smudge.SmudgeType.smudgeK, (fluidRemaining > 0));
+            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeK, (fluidRemaining > 0));
             if(fluidRemaining > 0) {
-                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeK);
+                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeK);
               fluidRemaining--;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            sprayController.AnimateSpray(Smudge.SmudgeType.smudgeL, (fluidRemaining > 0));
+            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeL, (fluidRemaining > 0));
             if(fluidRemaining > 0) {
-                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.smudgeL);
+                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeL);
             }
         }
 

@@ -6,9 +6,9 @@ public class Smudge : MonoBehaviour
 {
     public enum SmudgeType
     {
-        smudgeJ,
-        smudgeK,
-        smudgeL,
+        SmudgeJ,
+        SmudgeK,
+        SmudgeL,
     }
 
     public SmudgeType type;
