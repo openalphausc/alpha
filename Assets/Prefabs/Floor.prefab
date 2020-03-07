@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed5d1bf53f12ed4e88cb141aacabdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smudgeManager: {fileID: 914696458970649810}
 --- !u!1 &914696458970649820
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb2d539e811cd441bc55f103fd4fe11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
   source: {fileID: 914696458970649811}
   jingle: {fileID: 8300000, guid: 0848c35d79c2f4388aff873d397ccc4b, type: 3}
   prefabJ: {fileID: 3366389209060992969, guid: 177cf6de5427c0d41806b1e99e04224e, type: 3}

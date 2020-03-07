@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WindowController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public SmudgeManager smudgeManager; // access this smudgeManager (already linked in editor)
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
