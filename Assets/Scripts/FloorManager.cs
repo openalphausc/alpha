@@ -11,13 +11,14 @@ public class FloorManager : MonoBehaviour
     [SerializeField] private float descentSpeed; // How quickly the platform transitions between floors
     
     public List<Floor> allFloors;
-    public static Floor currentFloor; // ACCESS VIA: FloorManager.currentFloor
-    
+    public static Floor currentFloor; // ACCESS VIA: FloorManager.currentFloor    
 
     private const float FLOOR_HEIGHT = 7;
     private bool moving;
     private int floorIndex; // current floor index in allFloors
     private int floorCount;
+    private WindowController windowController_;
+
 
     void Start()
     {
@@ -33,6 +34,8 @@ public class FloorManager : MonoBehaviour
         currentFloor = allFloors[0];
         floorIndex = 0;
         playerObjects.transform.position = new Vector3(0, (floorCount - 1) * FLOOR_HEIGHT, 0); // start at top floor
+
+        windowController_ = GetComponent<WindowController>();
     }
 
     void Update()

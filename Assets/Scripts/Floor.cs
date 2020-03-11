@@ -9,10 +9,12 @@ public class Floor : MonoBehaviour
     public SmudgeManager smudgeManager;
     public WindowController windowController;
 
-    void Start()
+    void Awake()
     {
         
     }
+    void Start()
+    {}
 
     
     void Update()

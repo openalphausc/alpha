@@ -17,6 +17,9 @@ public class SmudgeManager : MonoBehaviour
     private static int currentTarget = -1; // index in allSmudges that is being selected
     private CharacterMover characterMover;
     private FloorManager floorManager;
+    private int initialSmudges = 0; //initial number of total window smudges when spawned
+    private int currTotalSmudges = 0; //current amount of smudges on window
+
 
     void Start()
     {
@@ -56,6 +59,8 @@ public class SmudgeManager : MonoBehaviour
         smudge.transform.parent = this.transform;
         smudge.transform.localPosition = smudgeInfo.Item1;
         allSmudges.Add(smudge.GetComponent<Smudge>());
+        initialSmudges++;
+        currTotalSmudges++;
     }
 
     public void WipeSmudge()
@@ -70,6 +75,12 @@ public class SmudgeManager : MonoBehaviour
                 characterMover.FindClosest();
             }
         }
+        currTotalSmudges--;
+    }
+
+    public float Progress
+    {
+        get{return (float)currTotalSmudges/(float)initialSmudges;}
     }
 
     public void SpraySmudge(Smudge.SmudgeType spray)
