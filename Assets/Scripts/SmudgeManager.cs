@@ -56,7 +56,7 @@ public class SmudgeManager : MonoBehaviour
         allSmudges.Add(smudge.GetComponent<Smudge>());
     }
 
-    public void WipeSmudge()
+    public bool WipeSmudge()
     {
         if (currentTarget > -1)
         {
@@ -66,8 +66,10 @@ public class SmudgeManager : MonoBehaviour
                 allSmudges.RemoveAt(currentTarget);
                 currentTarget = -1;
                 characterMover.FindClosest();
+                return true;
             }
         }
+        return false;
     }
 
     public void SpraySmudge(Smudge.SmudgeType spray)
