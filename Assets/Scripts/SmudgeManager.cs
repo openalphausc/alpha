@@ -63,7 +63,7 @@ public class SmudgeManager : MonoBehaviour
         currTotalSmudges++;
     }
 
-    public void WipeSmudge()
+    public bool WipeSmudge()
     {
         if (currentTarget > -1)
         {
@@ -73,9 +73,11 @@ public class SmudgeManager : MonoBehaviour
                 allSmudges.RemoveAt(currentTarget);
                 currentTarget = -1;
                 characterMover.FindClosest();
+                currTotalSmudges--;
+                return true;
             }
         }
-        currTotalSmudges--;
+        return false;
     }
 
     public float Progress

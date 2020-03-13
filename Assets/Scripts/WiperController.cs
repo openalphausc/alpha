@@ -7,11 +7,12 @@ public class WiperController : ArmController
 {
     [SerializeField] private float wipeRange; // maximum distance to successfully wipe
     [SerializeField] private float passiveReachRatio; // percentage to reach towards nearest target
+    private AudioSource source;
 
-
-    protected  override void Start()
+    protected override void Start()
     {
         base.Start();
+        source = GetComponent<AudioSource>();
     }
 
     protected override void Update()
@@ -62,7 +63,8 @@ public class WiperController : ArmController
         // perform wipe
         if (closest.magnitude <= wipeRange)
         {
-            FloorManager.currentFloor.smudgeManager.WipeSmudge();
+            if (FloorManager.currentFloor.smudgeManager.WipeSmudge())
+                source.Play();
         }
         coroutine = FinishWipe();
         StartCoroutine(coroutine);

@@ -12,6 +12,8 @@ public class SprayController : ArmController
 
     private Dictionary<Smudge.SmudgeType, Material> sprayColor = new Dictionary<Smudge.SmudgeType, Material>();
 
+    private AudioSource source;
+
     protected override void Start()
     {
         base.Start();
@@ -19,6 +21,9 @@ public class SprayController : ArmController
         sprayColor[Smudge.SmudgeType.SmudgeJ] = sprayColorJ;
         sprayColor[Smudge.SmudgeType.SmudgeK] = sprayColorK;
         sprayColor[Smudge.SmudgeType.SmudgeL] = sprayColorL;
+        
+        //grab audio source for use in animateSpray
+        source = GetComponent<AudioSource>();
     }
 
     protected override void Update()
@@ -53,6 +58,8 @@ public class SprayController : ArmController
           ParticleSystem.MainModule particlesMain = particles.main;
           particlesMain.startColor = handRenderer.material.color;
           particles.Play();
+          //if there's enough fluid (shiwSprayParticles), then play the spray sound effect
+          source.Play();
         }
         coroutine = FinishSpray();
         StartCoroutine(coroutine);
