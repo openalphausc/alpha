@@ -22,7 +22,6 @@ public class GaugeControl : MonoBehaviour
       sprayController = sprayArmJoint.GetComponent<SprayController>();
       inputHandler = character.GetComponent<InputHandler>();
 
-      // mfX = transform.position.x + transform.localScale.x/2.0f;
       bottom = transform.position.y - transform.localScale.y/2.0f;
       startPos = transform.position.y;
       startScale = transform.localScale.y;
@@ -34,6 +33,7 @@ public class GaugeControl : MonoBehaviour
     void Update()
     {
       if(sprayController.animating && sprayController.transform.rotation.y != 0) {
+        Debug.Log(gameObject.name + "  " + startPos + " " + bottom);
         // gauge shows up when player is spraying
         float offset = 2f;
         if(sprayController.transform.rotation.y > 0) offset *= -1;
@@ -45,13 +45,12 @@ public class GaugeControl : MonoBehaviour
           // adjust size of gauge front to make it seem like it's going down
           float targetPercent = 100*inputHandler.fluidRemaining/inputHandler.maxFluid;
           float currPercent = 100*transform.localScale.y/startScale;
-          // Debug.Log("target: " + targetPercent + "  curr: " + currPercent);
           if(currPercent > targetPercent && currPercent > 0 && currPercent <= 100) {
             // decrease speed is proportional to how much distance is left
             float decrease = (currPercent - targetPercent)*0.002f*decreaseSpeed;
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y - decrease, transform.localScale.z);
           }
-          transform.position = new Vector3(transform.position.x, bottom + transform.localScale.y/2.0f, 0);
+          transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 14 + bottom + transform.localScale.y/2.0f, 0);
         }
       }
       else {
