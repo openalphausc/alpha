@@ -9,6 +9,7 @@ public class Smudge : MonoBehaviour
         SmudgeJ,
         SmudgeK,
         SmudgeL,
+        SmudgeNone,
     }
 
     public SmudgeType type;
