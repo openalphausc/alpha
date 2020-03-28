@@ -11,6 +11,7 @@ public class SmudgeManager : MonoBehaviour
     public GameObject prefabJ;
     public GameObject prefabK;
     public GameObject prefabL;
+    public GameObject prefabNone;
 
     public List<Smudge> allSmudges = new List<Smudge>(); // ACCESS VIA: FloorManager.currentFloor.smudgeManager.allSmudges
 
@@ -50,8 +51,11 @@ public class SmudgeManager : MonoBehaviour
                 prefab = prefabK;
                 break;
             case Smudge.SmudgeType.SmudgeL:
-            default:
                 prefab = prefabL;
+                break;
+            case Smudge.SmudgeType.SmudgeNone:
+            default:
+                prefab = prefabNone;
                 break;
         }
 
