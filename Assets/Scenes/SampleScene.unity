@@ -327,6 +327,7 @@ MonoBehaviour:
   SprayArmJoint: {fileID: 1264828766}
   maxFluid: 4
   fluidRemaining: 0
+  refilling: 0
   gaugeFront: {fileID: 950066677}
 --- !u!1 &452349168
 GameObject:
@@ -854,7 +855,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 3
-  parent: {fileID: 2048231766}
   myPrefab: {fileID: 5056577576163181635, guid: fb6aa287c0b70584ba9ffae1743d4186,
     type: 3}
 --- !u!1 &846522548
@@ -966,6 +966,7 @@ MonoBehaviour:
   startPos: 0
   startScale: 0
   decreaseSpeed: 0.05
+  increaseSpeed: 0
 --- !u!23 &950066680
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6467,6 +6468,7 @@ MonoBehaviour:
   startPos: 0
   startScale: 0
   decreaseSpeed: 0.05
+  increaseSpeed: 0
 --- !u!1 &1703549895
 GameObject:
   m_ObjectHideFlags: 0
