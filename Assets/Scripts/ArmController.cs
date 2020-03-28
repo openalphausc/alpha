@@ -9,12 +9,11 @@ public abstract class ArmController : MonoBehaviour
     [SerializeField] protected float maxArmLength; // maximum distance player can reach
     [SerializeField] protected GameObject arm;
     [SerializeField] protected GameObject hand;
-    [SerializeField] protected Material armColor;
 
     public bool animating;
 
     protected IEnumerator coroutine;
-    protected MeshRenderer handRenderer;
+    protected SpriteRenderer handRenderer;
 
     private Transform armTransform;
     private Transform handTransform;
@@ -23,7 +22,7 @@ public abstract class ArmController : MonoBehaviour
     {
         armTransform = arm.transform;
         handTransform = hand.transform;
-        handRenderer = hand.GetComponent<MeshRenderer>();
+        handRenderer = hand.GetComponent<SpriteRenderer>();
     }
 
     protected virtual void Update()
@@ -49,9 +48,11 @@ public abstract class ArmController : MonoBehaviour
     {
         handTransform.localPosition = length * Vector3.forward;
         armTransform.localPosition = length / 2 * Vector3.forward;
+        handTransform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
+        armTransform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
 
         Vector3 localScale = armTransform.localScale;
-        localScale = new Vector3(localScale.x, localScale.y, length);
+        localScale = new Vector3(length, localScale.y);
         armTransform.localScale = localScale;
     }
 }

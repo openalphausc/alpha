@@ -5,12 +5,9 @@ using UnityEngine;
 // controls the spraying arm
 public class SprayController : ArmController
 {
-    public Material sprayColorJ;
-    public Material sprayColorK;
-    public Material sprayColorL;
     public ParticleSystem particles;
 
-    private Dictionary<Smudge.SmudgeType, Material> sprayColor = new Dictionary<Smudge.SmudgeType, Material>();
+    private Dictionary<Smudge.SmudgeType, Color> sprayColor = new Dictionary<Smudge.SmudgeType, Color>();
 
     private AudioSource source;
 
@@ -18,9 +15,9 @@ public class SprayController : ArmController
     {
         base.Start();
 
-        sprayColor[Smudge.SmudgeType.SmudgeJ] = sprayColorJ;
-        sprayColor[Smudge.SmudgeType.SmudgeK] = sprayColorK;
-        sprayColor[Smudge.SmudgeType.SmudgeL] = sprayColorL;
+        sprayColor[Smudge.SmudgeType.SmudgeJ] = Color.red;
+        sprayColor[Smudge.SmudgeType.SmudgeK] = Color.yellow;
+        sprayColor[Smudge.SmudgeType.SmudgeL] = Color.green;
         
         //grab audio source for use in animateSpray
         source = GetComponent<AudioSource>();
@@ -39,7 +36,7 @@ public class SprayController : ArmController
             StopCoroutine(coroutine);
         }
 
-        handRenderer.material = sprayColor[spray];
+        handRenderer.color = sprayColor[spray];
 
         // aim the spraying arm
         Vector3 closest = ClosestRelativeToArm();
@@ -71,7 +68,6 @@ public class SprayController : ArmController
         animating = true;
         yield return new WaitForSeconds(0.5f);
         transform.rotation = Quaternion.identity;
-        handRenderer.material = armColor;
         animating = false;
     }
 }
