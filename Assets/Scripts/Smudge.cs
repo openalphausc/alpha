@@ -13,18 +13,18 @@ public class Smudge : MonoBehaviour
     }
 
     public SmudgeType type;
-    public Material normalColorOff;
-    public Material normalColorOn;
-    public Material neutralizedColorOff;
-    public Material neutralizedColorOn;
+    public Color normalColorOff;
+    public Color normalColorOn;
+    public Color neutralizedColorOff;
+    public Color neutralizedColorOn;
     public bool neutralized = false;
     public bool selected = false;
 
-    private new MeshRenderer renderer;
+    private new SpriteRenderer renderer;
 
     void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -35,24 +35,25 @@ public class Smudge : MonoBehaviour
     public void Select()
     {
         selected = true;
-        renderer.material = neutralized ? neutralizedColorOn : normalColorOn;
+        renderer.color = neutralized ? neutralizedColorOn : normalColorOn;
     }
 
     public void Deselect()
     {
         selected = false;
-        renderer.material = neutralized ? neutralizedColorOff : normalColorOff;
+        renderer.color = neutralized ? neutralizedColorOff : normalColorOff;
     }
 
     public void Neutralize()
     {
         neutralized = true;
-        renderer.material = selected ? neutralizedColorOn : neutralizedColorOff;
+        renderer.color = selected ? neutralizedColorOn : neutralizedColorOff;
     }
 
     public void Clean()
     {
         Destroy(gameObject);
     }
+
 
 }
