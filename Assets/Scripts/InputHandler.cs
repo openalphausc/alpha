@@ -12,9 +12,9 @@ public class InputHandler : MonoBehaviour
     private WiperController wiperController;
     private SprayController sprayController;
 
-    public float maxFluid = 4;
-    public float fluidRemaining;
-    public bool refilling = false;
+    public List<float> fluidRemaining;
+    public List<bool> refilling;
+    public float maxFluid = 4f;
 
     public GameObject gaugeFront;
     private GaugeControl gaugeControl;
@@ -25,7 +25,12 @@ public class InputHandler : MonoBehaviour
         wiperController = WiperArmJoint.GetComponent<WiperController>();
         sprayController = SprayArmJoint.GetComponent<SprayController>();
 
-        fluidRemaining = maxFluid;
+        fluidRemaining.Clear();
+        for(int i = 0; i < 3; i++) {
+          fluidRemaining.Add(maxFluid);
+          refilling.Add(false);
+        }
+
         gaugeControl = gaugeFront.GetComponent<GaugeControl>();
     }
 
@@ -36,37 +41,40 @@ public class InputHandler : MonoBehaviour
             wiperController.AnimateWipe();
         }
 
-        if (Input.GetKeyDown(KeyCode.J) && !refilling)
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeJ, (fluidRemaining > 0));
-            if(fluidRemaining > 0) {
+          if(!refilling[0]) {
+            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeJ, (fluidRemaining[0] > 0));
+            if(fluidRemaining[0] > 0) {
                 FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeJ);
-              fluidRemaining--;
+              fluidRemaining[0]--;
             }
+          }
+          else if(fluidRemaining[0] <= 0) refilling[0] = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && !refilling)
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeK, (fluidRemaining > 0));
-            if(fluidRemaining > 0) {
+          if(!refilling[1]) {
+            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeK, (fluidRemaining[1] > 0));
+            if(fluidRemaining[1] > 0) {
                 FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeK);
-              fluidRemaining--;
+              fluidRemaining[1]--;
             }
+          }
+          else if(fluidRemaining[1] <= 0) refilling[1] = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && !refilling)
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeL, (fluidRemaining > 0));
-            if(fluidRemaining > 0) {
+          if(!refilling[2]) {
+            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeL, (fluidRemaining[2] > 0));
+            if(fluidRemaining[2] > 0) {
                 FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeL);
-              fluidRemaining--;
+              fluidRemaining[2]--;
             }
-        }
-
-        if(Input.GetKeyDown(KeyCode.F) && fluidRemaining <= 0) {
-          refilling = true;
-          // gaugeControl.transform.position = new Vector3(gaugeControl.transform.position.x, gaugeControl.startPos, gaugeControl.transform.position.z);
-          // gaugeControl.transform.localScale = new Vector3(gaugeControl.transform.localScale.x, gaugeControl.startScale, gaugeControl.transform.localScale.z);
+          }
+          else if(fluidRemaining[2] <= 0) refilling[2] = true;
         }
     }
 }

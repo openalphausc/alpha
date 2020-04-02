@@ -17,6 +17,7 @@ public class GaugeControl : MonoBehaviour
     public float decreaseSpeed;
     public float increaseSpeed;
 
+    public int fluidIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class GaugeControl : MonoBehaviour
     {
       if(sprayController.animating && sprayController.transform.rotation.y != 0) {
         // adjust size of gauge front to make it seem like it's going down
-        float targetPercent = 100*inputHandler.fluidRemaining/inputHandler.maxFluid;
+        float targetPercent = 100*inputHandler.fluidRemaining[fluidIndex]/inputHandler.maxFluid;
         float currPercent = 100*transform.localScale.y/startScale;
         if(currPercent > targetPercent && currPercent > 0 && currPercent <= 100) {
           // decrease speed is proportional to how much distance is left
@@ -45,7 +46,7 @@ public class GaugeControl : MonoBehaviour
         }
         transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 17 + bottom + transform.localScale.y/2.0f, 1f);
       }
-      else if(inputHandler.refilling) {
+      else if(inputHandler.refilling[fluidIndex]) {
         // adjust size of gauge front to make it seem like it's going down
         float targetPercent = 100;
         float currPercent = 100*transform.localScale.y/startScale;
@@ -55,8 +56,8 @@ public class GaugeControl : MonoBehaviour
           transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + increase, 1f);
         }
         else {
-          inputHandler.refilling = false;
-          inputHandler.fluidRemaining = inputHandler.maxFluid;
+          inputHandler.refilling[fluidIndex] = false;
+          inputHandler.fluidRemaining[fluidIndex] = inputHandler.maxFluid;
         }
 
         transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 17 + bottom + transform.localScale.y/2.0f, 1f);
