@@ -10,6 +10,8 @@ public class GaugeMove : MonoBehaviour
     public GameObject character;
     private InputHandler inputHandler;
 
+    public bool decreasing = false;
+
     public int fluidIndex;
 
     // Start is called before the first frame update
@@ -22,7 +24,7 @@ public class GaugeMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(inputHandler.refilling[fluidIndex] || (sprayController.animating && sprayController.transform.rotation.y != 0)) {
+      if(inputHandler.refilling[fluidIndex] || (decreasing && sprayController.animating)) {
         // gauge shows up when player is spraying or refilling
         // at the bottom-left of the screen
         float x = -12f;

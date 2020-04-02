@@ -16,8 +16,12 @@ public class InputHandler : MonoBehaviour
     public List<bool> refilling;
     public float maxFluid = 4f;
 
-    public GameObject gaugeFront;
-    private GaugeControl gaugeControl;
+    public GameObject gaugeJ;
+    public GameObject gaugeK;
+    public GameObject gaugeL;
+    private GaugeMove gaugeMoveJ;
+    private GaugeMove gaugeMoveK;
+    private GaugeMove gaugeMoveL;
 
 
     void Start()
@@ -31,7 +35,9 @@ public class InputHandler : MonoBehaviour
           refilling.Add(false);
         }
 
-        gaugeControl = gaugeFront.GetComponent<GaugeControl>();
+        gaugeMoveJ = gaugeJ.GetComponent<GaugeMove>();
+        gaugeMoveK = gaugeK.GetComponent<GaugeMove>();
+        gaugeMoveL = gaugeL.GetComponent<GaugeMove>();
     }
 
     void Update()
@@ -41,40 +47,36 @@ public class InputHandler : MonoBehaviour
             wiperController.AnimateWipe();
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-          if(!refilling[0]) {
-            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeJ, (fluidRemaining[0] > 0));
-            if(fluidRemaining[0] > 0) {
-                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeJ);
-              fluidRemaining[0]--;
-            }
+        // Loop through J, K, L and do keydown things
+        for(int i = 0; i < 3; i++) {
+          // set up variables
+          Smudge.SmudgeType spray = Smudge.SmudgeType.SmudgeJ;
+          if(i == 0 && !Input.GetKeyDown(KeyCode.J)) continue;
+          else if(i == 1) {
+            if(!Input.GetKeyDown(KeyCode.K)) continue;
+            spray = Smudge.SmudgeType.SmudgeK;
           }
-          else if(fluidRemaining[0] <= 0) refilling[0] = true;
-        }
+          else if(i == 2) {
+            if(!Input.GetKeyDown(KeyCode.L)) continue;
+            spray = Smudge.SmudgeType.SmudgeL;
+          }
+          // key is down
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-          if(!refilling[1]) {
-            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeK, (fluidRemaining[1] > 0));
-            if(fluidRemaining[1] > 0) {
-                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeK);
-              fluidRemaining[1]--;
+          // if refilling and above a certain point, stop refilling
+          if(refilling[i] && fluidRemaining[i] >= maxFluid/4) {
+            refilling[i] = false;
+          }
+          // if not refilling, attempt to spray
+          if(!refilling[i]) {
+            sprayController.AnimateSpray(spray, (fluidRemaining[i] > 0));
+            if(i == 0) gaugeMoveJ.decreasing = true;
+            else if(i == 1) gaugeMoveK.decreasing = true;
+            else if(i == 2) gaugeMoveL.decreasing = true;
+            if(fluidRemaining[i] > 0) {
+              FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
+              fluidRemaining[i]--;
             }
           }
-          else if(fluidRemaining[1] <= 0) refilling[1] = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-          if(!refilling[2]) {
-            sprayController.AnimateSpray(Smudge.SmudgeType.SmudgeL, (fluidRemaining[2] > 0));
-            if(fluidRemaining[2] > 0) {
-                FloorManager.currentFloor.smudgeManager.SpraySmudge(Smudge.SmudgeType.SmudgeL);
-              fluidRemaining[2]--;
-            }
-          }
-          else if(fluidRemaining[2] <= 0) refilling[2] = true;
         }
     }
 }

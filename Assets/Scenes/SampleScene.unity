@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  decreasing: 0
   fluidIndex: 1
 --- !u!1 &64248577
 GameObject:
@@ -376,7 +377,9 @@ MonoBehaviour:
   fluidRemaining: []
   refilling: 
   maxFluid: 4
-  gaugeFront: {fileID: 950066677}
+  gaugeJ: {fileID: 1814478910}
+  gaugeK: {fileID: 7110223}
+  gaugeL: {fileID: 1047189391}
 --- !u!1 &444123584
 GameObject:
   m_ObjectHideFlags: 0
@@ -6208,6 +6211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  decreasing: 0
   fluidIndex: 2
 --- !u!1 &1047213177
 GameObject:
@@ -6932,6 +6936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  decreasing: 0
   fluidIndex: 0
 --- !u!1 &1921437380
 GameObject:
