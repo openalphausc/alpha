@@ -22,11 +22,13 @@ public class GaugeMove : MonoBehaviour
     {
       if(inputHandler.refilling || (sprayController.animating && sprayController.transform.rotation.y != 0)) {
         // gauge shows up when player is spraying or refilling
-        // next to the player on the opposite side they're spraying on
-        float offset = 2f;
-        if(sprayController.transform.rotation.y > 0) offset *= -1;
+        // at the bottom-left of the screen
+        float x = -12f;
+        if(gameObject.name == "FluidGaugeK") x += 1f;
+        else if(gameObject.name == "FluidGaugeL") x += 2f;
+        float y = -6f;
         float z = 5f;
-        transform.position = new Vector3(sprayController.transform.position.x + offset, sprayController.transform.position.y, z);
+        transform.position = new Vector3(x, sprayController.transform.position.y + y, z);
       }
       else {
         // gauge disappears
