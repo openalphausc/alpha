@@ -23,6 +23,8 @@ public class InputHandler : MonoBehaviour
     private GaugeMove gaugeMoveK;
     private GaugeMove gaugeMoveL;
 
+    public GameObject character;
+    private CharacterMover characterMover;
 
     void Start()
     {
@@ -38,6 +40,8 @@ public class InputHandler : MonoBehaviour
         gaugeMoveJ = gaugeJ.GetComponent<GaugeMove>();
         gaugeMoveK = gaugeK.GetComponent<GaugeMove>();
         gaugeMoveL = gaugeL.GetComponent<GaugeMove>();
+
+        characterMover = character.GetComponent<CharacterMover>();
     }
 
     void Update()
@@ -66,8 +70,8 @@ public class InputHandler : MonoBehaviour
           if(refilling[i] && fluidRemaining[i] >= maxFluid/4) {
             refilling[i] = false;
           }
-          // if not refilling, attempt to spray
-          if(!refilling[i]) {
+          // if not refilling or cleaning up, attempt to spray
+          if(!refilling[i] && characterMover.speedState == 0) {
             sprayController.AnimateSpray(spray, (fluidRemaining[i] > 0));
             if(i == 0) gaugeMoveJ.decreasing = true;
             else if(i == 1) gaugeMoveK.decreasing = true;

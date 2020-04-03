@@ -20,6 +20,9 @@ public class GaugeControl : MonoBehaviour
     public float increaseSpeed;
 
     public int fluidIndex;
+
+    private CharacterMover characterMover;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,8 @@ public class GaugeControl : MonoBehaviour
 
       decreaseSpeed = 1f;
       increaseSpeed = 0.005f;
+
+      characterMover = character.GetComponent<CharacterMover>();
     }
 
     // Update is called once per frame
@@ -63,16 +68,18 @@ public class GaugeControl : MonoBehaviour
           float offset = 1f;
           float x = currPercent/100;
           float increase = increaseSpeed * Mathf.Pow(offset + x, power) / (power - 1);
-
           float min = 0.004f;
           if(increase < min) increase = min;
-          Debug.Log("increase by " + increase);
+
           transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + increase, 1f);
         }
         else {
           transform.localScale = new Vector3(transform.localScale.x, startScale, transform.localScale.z);
-          inputHandler.refilling[fluidIndex] = false;
           inputHandler.fluidRemaining[fluidIndex] = inputHandler.maxFluid;
+          inputHandler.refilling[fluidIndex] = false;
+          // start animation of cleaning up
+          characterMover.speedState = 1;
+          characterMover.timeCleaningUp = (int)(2f * 60);
         }
 
         transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 17 + bottom + transform.localScale.y/2.0f, 1f);
