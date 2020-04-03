@@ -344,6 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 4
   speedState: 0
+  timeCleaningUp: 0
 --- !u!4 &409764741
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,7 +1003,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 120a73e0566f0d947ab696557508415d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7091,7 +7092,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 120a73e0566f0d947ab696557508415d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.955125, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
