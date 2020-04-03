@@ -33,7 +33,7 @@ public class GaugeControl : MonoBehaviour
       gaugeMove = gameObject.transform.parent.gameObject.GetComponent<GaugeMove>();
 
       decreaseSpeed = 1f;
-      increaseSpeed = 1f;
+      increaseSpeed = 0.005f;
     }
 
     // Update is called once per frame
@@ -55,15 +55,22 @@ public class GaugeControl : MonoBehaviour
       }
       else if(inputHandler.refilling[fluidIndex]) {
         // adjust size of gauge front to make it seem like it's going down
-        float targetPercent = 100;
         float currPercent = 100*transform.localScale.y/startScale;
-        inputHandler.fluidRemaining[fluidIndex] = Mathf.Round(inputHandler.maxFluid*currPercent/targetPercent);
-        if(currPercent < targetPercent - 8) {
+        inputHandler.fluidRemaining[fluidIndex] = Mathf.Round(inputHandler.maxFluid*currPercent/100);
+        if(currPercent < 99) {
           // increase speed is proportional to how much distance is left
-          float increase = (targetPercent - currPercent)*0.0001f*increaseSpeed;
+          float power = 2f;
+          float offset = 1f;
+          float x = currPercent/100;
+          float increase = increaseSpeed * Mathf.Pow(offset + x, power) / (power - 1);
+
+          float min = 0.004f;
+          if(increase < min) increase = min;
+          Debug.Log("increase by " + increase);
           transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + increase, 1f);
         }
         else {
+          transform.localScale = new Vector3(transform.localScale.x, startScale, transform.localScale.z);
           inputHandler.refilling[fluidIndex] = false;
           inputHandler.fluidRemaining[fluidIndex] = inputHandler.maxFluid;
         }
