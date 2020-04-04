@@ -8,22 +8,32 @@ public class TimerScript : MonoBehaviour
     [SerializeField] private Text uiText;
 
     private float timer;
+    public readonly float[] trackSplits;
+    public bool runTimer;
+    private int stageCount;
 
     void Start()
     {
         timer = 0;
+        runTimer = true;
+        stageCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (FloorManager.currentFloor.smudgeManager.allSmudges.Count > 0)
+        if (runTimer)
         {
             timer += Time.deltaTime;
             uiText.text = timer.ToString("F");
         }
 
-        //uiText.text = "10.00";
+        else
+        {
+            trackSplits[stageCount] = timer;
+            stageCount++;
+            timer = 0;
+        }
         
     }
 }
