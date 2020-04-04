@@ -15,7 +15,7 @@ public class SmudgeManager : MonoBehaviour
 
     public List<Smudge> allSmudges = new List<Smudge>(); // ACCESS VIA: FloorManager.currentFloor.smudgeManager.allSmudges
 
-    private static int currentTarget = -1; // index in allSmudges that is being selected
+    public static int currentTarget = -1; // index in allSmudges that is being selected
     private CharacterMover characterMover;
     private FloorManager floorManager;
     private int initialSmudges = 0; //initial number of total window smudges when spawned

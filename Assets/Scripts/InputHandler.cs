@@ -66,10 +66,6 @@ public class InputHandler : MonoBehaviour
           }
           // key is down
 
-          // if refilling and above a certain point, stop refilling
-          if(refilling[i] && fluidRemaining[i] >= maxFluid/4) {
-            refilling[i] = false;
-          }
           // if not refilling or cleaning up, attempt to spray
           if(!refilling[i] && characterMover.speedState == 0) {
             sprayController.AnimateSpray(spray, (fluidRemaining[i] > 0));
@@ -77,6 +73,16 @@ public class InputHandler : MonoBehaviour
             else if(i == 1) gaugeMoveK.decreasing = true;
             else if(i == 2) gaugeMoveL.decreasing = true;
             if(fluidRemaining[i] > 0) {
+              FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
+              fluidRemaining[i]--;
+            }
+          }
+          // if refilling and above a certain point, stop refilling
+          if(refilling[i] && fluidRemaining[i] >= 1) {
+            refilling[i] = false;
+            // if targeting the right spray, also spray
+            if(FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == spray) {
+              sprayController.AnimateSpray(spray, (fluidRemaining[i] > 0));
               FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
               fluidRemaining[i]--;
             }
