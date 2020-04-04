@@ -8,15 +8,14 @@ public class TimerScript : MonoBehaviour
     [SerializeField] private Text uiText;
 
     private float timer;
-    public readonly float[] trackSplits;
+    public List<float> trackSplits;
     public bool runTimer;
-    private int stageCount;
 
     void Start()
     {
         timer = 0;
         runTimer = true;
-        stageCount = 0;
+        trackSplits = new List<float>();
     }
 
     // Update is called once per frame
@@ -30,9 +29,9 @@ public class TimerScript : MonoBehaviour
 
         else
         {
-            trackSplits[stageCount] = timer;
-            stageCount++;
+            trackSplits.Add(timer);
             timer = 0;
+            runTimer = true;
         }
         
     }
