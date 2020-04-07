@@ -15,9 +15,10 @@ public class SmudgeManager : MonoBehaviour
 
     public List<Smudge> allSmudges = new List<Smudge>(); // ACCESS VIA: FloorManager.currentFloor.smudgeManager.allSmudges
 
-    private static int currentTarget = -1; // index in allSmudges that is being selected
+    public static int currentTarget = -1; // index in allSmudges that is being selected
     private CharacterMover characterMover;
     private FloorManager floorManager;
+    private TimerScript timerScript;
     private int initialSmudges = 0; //initial number of total window smudges when spawned
     private int currTotalSmudges = 0; //current amount of smudges on window
 
@@ -26,6 +27,7 @@ public class SmudgeManager : MonoBehaviour
     {
         floorManager = GameObject.Find("FloorParent").GetComponent<FloorManager>();
         characterMover = GameObject.Find("Character").GetComponent<CharacterMover>();
+        timerScript = GameObject.Find("TimeControl").GetComponent<TimerScript>();
         source = GetComponent<AudioSource>();
     }
 
@@ -35,6 +37,7 @@ public class SmudgeManager : MonoBehaviour
         {
             if (!floorManager.NextFloor()) source.PlayOneShot(jingle, 0.1f);
             Destroy(this);
+            timerScript.runTimer = false;
         }
     }
 

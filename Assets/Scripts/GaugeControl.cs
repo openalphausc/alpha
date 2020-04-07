@@ -14,9 +14,14 @@ public class GaugeControl : MonoBehaviour
     public float startScale;
     private float bottom;
 
+    private GaugeMove gaugeMove;
     public float decreaseSpeed;
 
     public float increaseSpeed;
+
+    public int fluidIndex;
+
+    private CharacterMover characterMover;
 
     // Start is called before the first frame update
     void Start()
@@ -28,65 +33,57 @@ public class GaugeControl : MonoBehaviour
       startPos = transform.position.y;
       startScale = transform.localScale.y;
 
-      decreaseSpeed = 1f;
+      gaugeMove = gameObject.transform.parent.gameObject.GetComponent<GaugeMove>();
 
-      increaseSpeed = 1f;
+      decreaseSpeed = 1f;
+      increaseSpeed = 0.005f;
+
+      characterMover = character.GetComponent<CharacterMover>();
     }
 
     // Update is called once per frame
     void Update()
     {
-      if(sprayController.animating && sprayController.transform.rotation.y != 0) {
-        Debug.Log(gameObject.name + "   fluid: " + inputHandler.fluidRemaining);
-        // gauge shows up when player is spraying
-        float offset = 2f;
-        if(sprayController.transform.rotation.y > 0) offset *= -1;
-        float z = 5f;
-        if(gameObject.name == "GaugeBack") z = 5f;
-        else if(gameObject.name == "GaugeFront") z = 5.1f;
-        transform.position = new Vector3(sprayController.transform.position.x + offset, sprayController.transform.position.y, z);
-        if(gameObject.name == "GaugeFront") {
-          // adjust size of gauge front to make it seem like it's going down
-          float targetPercent = 100*inputHandler.fluidRemaining/inputHandler.maxFluid;
-          float currPercent = 100*transform.localScale.y/startScale;
-          if(currPercent > targetPercent && currPercent > 0 && currPercent <= 100) {
-            // decrease speed is proportional to how much distance is left
-            float decrease = (currPercent - targetPercent)*0.002f*decreaseSpeed;
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y - decrease, transform.localScale.z);
-          }
-          transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 14 + bottom + transform.localScale.y/2.0f, 0);
+      if(gaugeMove.decreasing) {
+        // adjust size of gauge front to make it seem like it's going down
+        float targetPercent = 100*inputHandler.fluidRemaining[fluidIndex]/inputHandler.maxFluid;
+        float currPercent = 100*transform.localScale.y/startScale;
+        if(currPercent > targetPercent && currPercent > 0) {
+          // decrease speed is proportional to how much distance is left
+          float decrease = (currPercent - targetPercent)*0.002f*decreaseSpeed;
+          transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y - decrease, 1f);
         }
-      }
-      else if(inputHandler.refilling) {
-        float offset = 2f;
-        if(sprayController.transform.rotation.y > 0) offset *= -1;
-        float z = 5f;
-        if(gameObject.name == "GaugeBack") z = 5f;
-        else if(gameObject.name == "GaugeFront") z = 5.1f;
-        transform.position = new Vector3(sprayController.transform.position.x + offset, sprayController.transform.position.y, z);
-
-        if(gameObject.name == "GaugeFront") {
-          // adjust size of gauge front to make it seem like it's going down
-          float targetPercent = 100;
-          float currPercent = 100*transform.localScale.y/startScale;
-          Debug.Log("currPercent is " + transform.localScale.y + " / " + startScale);
-          if(currPercent < targetPercent - 8) {
-            // increase speed is proportional to how much distance is left
-            float increase = (targetPercent - currPercent)*0.002f*increaseSpeed;
-            Debug.Log("increase is " + increase);
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + increase, transform.localScale.z);
-          }
-          else {
-            inputHandler.refilling = false;
-            inputHandler.fluidRemaining = inputHandler.maxFluid;
-          }
-
-          transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 14 + bottom + transform.localScale.y/2.0f, 0);
+        if(!sprayController.animating) {
+          gaugeMove.decreasing = false;
         }
+        transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 17 + bottom + transform.localScale.y/2.0f, 1f);
       }
-      else {
-        // gauge disappears when not spraying
-        transform.position = new Vector3(-100f, -100f, 100f);
+      else if(inputHandler.refilling[fluidIndex]) {
+        // adjust size of gauge front to make it seem like it's going down
+        float currPercent = 100*transform.localScale.y/startScale;
+        inputHandler.fluidRemaining[fluidIndex] = Mathf.Round(inputHandler.maxFluid*currPercent/100);
+        if(currPercent < 99) {
+          // increase speed is proportional to how much distance is left
+          float power = 2f;
+          float offset = 1f;
+          float x = currPercent/100;
+          float increase = increaseSpeed * Mathf.Pow(offset + x, power) / (power - 1);
+          float min = 0.004f;
+          if(increase < min) increase = min;
+
+          transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + increase, 1f);
+        }
+        else {
+          transform.localScale = new Vector3(transform.localScale.x, startScale, transform.localScale.z);
+          inputHandler.fluidRemaining[fluidIndex] = inputHandler.maxFluid;
+          inputHandler.refilling[fluidIndex] = false;
+          // start animation of cleaning up
+          characterMover.speedState = 1;
+          characterMover.timeCleaningUp = (int)(2f * 60);
+        }
+
+        transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 17 + bottom + transform.localScale.y/2.0f, 1f);
       }
+      else if(inputHandler.fluidRemaining[fluidIndex] == 0) inputHandler.refilling[fluidIndex] = true;
     }
 }
