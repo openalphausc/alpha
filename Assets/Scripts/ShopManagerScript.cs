@@ -17,4 +17,7 @@ public class ShopManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("first");
     }
+    public void GoToSecondScene(){
+        SceneManager
+    }
 }

@@ -22,9 +22,5 @@ public class PersistentManagerScript : MonoBehaviour
         }
     }
 
-    public void AttemptPurchase()
-    {
-        
-    }
 
 }
