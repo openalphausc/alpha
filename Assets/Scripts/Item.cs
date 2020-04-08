@@ -5,7 +5,7 @@ public class Item : ScriptableObject
 {
     public string ItemName;
     public Sprite Icon;
-    public int Price;
+    public int price;
     public string ItemDescription;
     public string ItemFlavorText;
     public bool isWatch;

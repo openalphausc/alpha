@@ -16,12 +16,12 @@ public class ShopManagerScript : MonoBehaviour
     public void AttemptPurchase()
     {
         SceneManager.LoadScene("first");
-    }
+    }   
 
     public void GoToSecondScene(){
-        SceneManager
+        SceneManager.LoadScene("second");
     }
     public void increaseMoney(){
-
+        PersistentManagerScript.Instance.money++;
     }
 }

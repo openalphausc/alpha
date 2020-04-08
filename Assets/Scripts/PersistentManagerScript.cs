@@ -24,8 +24,8 @@ public class PersistentManagerScript : MonoBehaviour
         }
     }
 
-    public bool Buy(Item& item){
-        if (money > item.)
+    public bool Buy(Item item){
+        if (money > item.Price)
         return false;
     }
 
