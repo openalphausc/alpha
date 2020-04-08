@@ -9,7 +9,7 @@ public class ShopManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MoneyTxt.text = PersistentManagerScript.Player.money.ToString();
+        MoneyTxt.text = PersistentManagerScript.Instance.money.ToString();
     }
 
     
@@ -17,7 +17,11 @@ public class ShopManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("first");
     }
+
     public void GoToSecondScene(){
         SceneManager
+    }
+    public void increaseMoney(){
+
     }
 }

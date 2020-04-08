@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class PersistentManagerScript : MonoBehaviour
 {
-    public static PersistentManagerScript Player {get; private set;}
+    public static PersistentManagerScript Instance {get; private set;}
 
     public int money;
+    [SerlializeField] List<Item> inventory;
 
     private void Awake()
     {
-        if (Player == null){
-            Player = this;
+        if (Instance == null){
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -22,5 +24,9 @@ public class PersistentManagerScript : MonoBehaviour
         }
     }
 
+    public bool Buy(Item& item){
+        if (money > item.)
+        return false;
+    }
 
 }
