@@ -852,6 +852,10 @@ MonoBehaviour:
     type: 3}
   playerObjects: {fileID: 1127927045}
   descentSpeed: 10
+  floorCount: 20
+  minimumSmudges: 1
+  maximumSmudges: 10
+  randomness: 0.1
   allFloors: []
 --- !u!1 &705507993
 GameObject:
