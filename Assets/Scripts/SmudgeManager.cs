@@ -94,9 +94,30 @@ public class SmudgeManager : MonoBehaviour
 
     public void SpraySmudge(Smudge.SmudgeType spray)
     {
+        // spray matches exactly - neutralize perfectly
         if (spray == allSmudges[currentTarget].type)
         {
             allSmudges[currentTarget].Neutralize();
+            return;
+        }
+        // spray is not an exact match - neutralize either kinda or bad
+        int kinda = 50;
+        int bad = 25;
+        Smudge.SmudgeType smudge = allSmudges[currentTarget].type;
+        Smudge.SmudgeType red = Smudge.SmudgeType.SmudgeJ;
+        Smudge.SmudgeType yellow = Smudge.SmudgeType.SmudgeK;
+        Smudge.SmudgeType green = Smudge.SmudgeType.SmudgeL;
+        if(smudge == red) {
+          if(spray == yellow) allSmudges[currentTarget].Neutralize(kinda);
+          else if(spray == green) allSmudges[currentTarget].Neutralize(bad);
+        }
+        else if(smudge == yellow) {
+          if(spray == green) allSmudges[currentTarget].Neutralize(kinda);
+          else if(spray == red) allSmudges[currentTarget].Neutralize(bad);
+        }
+        if(smudge == green) {
+          if(spray == red) allSmudges[currentTarget].Neutralize(kinda);
+          else if(spray == yellow) allSmudges[currentTarget].Neutralize(bad);
         }
     }
 

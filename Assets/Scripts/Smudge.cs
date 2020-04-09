@@ -17,6 +17,7 @@ public class Smudge : MonoBehaviour
     public Color normalColorOn;
     public Color neutralizedColorOff;
     public Color neutralizedColorOn;
+    public int percentNeutralized = 0; // 0 means not neutralized, 100 means neutralized, but it's a gradient
     public bool neutralized = false;
     public bool selected = false;
 
@@ -29,7 +30,7 @@ public class Smudge : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void Select()
@@ -44,10 +45,14 @@ public class Smudge : MonoBehaviour
         renderer.color = neutralized ? neutralizedColorOff : normalColorOff;
     }
 
-    public void Neutralize()
+    public void Neutralize(int percent = 100)
     {
-        neutralized = true;
-        renderer.color = selected ? neutralizedColorOn : neutralizedColorOff;
+        percentNeutralized += percent;
+        if(percentNeutralized >= 100) {
+          percentNeutralized = 100;
+          neutralized = true;
+          renderer.color = selected ? neutralizedColorOn : neutralizedColorOff;
+        }
     }
 
     public void Clean()
