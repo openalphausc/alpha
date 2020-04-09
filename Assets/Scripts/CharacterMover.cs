@@ -9,7 +9,7 @@ public class CharacterMover : MonoBehaviour
 {
     public float movementSpeed;
     public int speedState = 0; // 0 is free, 1 is slow
-    public int timeCleaningUp;
+    public float timeCleaningUp;
 
     public static int closestSmudge = -1;
     public static Vector3 closestRelativePosition = Vector3.positiveInfinity;
@@ -22,7 +22,8 @@ public class CharacterMover : MonoBehaviour
     {
         if(speedState == 1) {
           movementSpeed = 0.2f;
-          timeCleaningUp--;
+          timeCleaningUp -= Time.deltaTime;
+          Debug.Log("cleaning up " + timeCleaningUp);
           if(timeCleaningUp <= 0) speedState = 0;
         }
         else if(speedState == 0) movementSpeed = 4;

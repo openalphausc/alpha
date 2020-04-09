@@ -74,7 +74,7 @@ public class InputHandler : MonoBehaviour
             else if(i == 2) gaugeMoveL.decreasing = true;
             if(fluidRemaining[i] > 0) {
               FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
-              fluidRemaining[i]--;
+              fluidRemaining[i] -= 1;
             }
           }
           // if refilling and above a certain point, stop refilling
@@ -84,7 +84,7 @@ public class InputHandler : MonoBehaviour
             if(FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == spray) {
               sprayController.AnimateSpray(spray, (fluidRemaining[i] > 0));
               FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
-              fluidRemaining[i]--;
+              fluidRemaining[i] -= 1;
             }
           }
         }
