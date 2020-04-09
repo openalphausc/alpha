@@ -68,25 +68,30 @@ public class InputHandler : MonoBehaviour
 
           // if not refilling or cleaning up, attempt to spray
           if(!refilling[i] && characterMover.speedState == 0) {
-            sprayController.AnimateSpray(spray, (fluidRemaining[i] > 0));
             if(i == 0) gaugeMoveJ.decreasing = true;
             else if(i == 1) gaugeMoveK.decreasing = true;
             else if(i == 2) gaugeMoveL.decreasing = true;
-            if(fluidRemaining[i] > 0) {
-              FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
-              fluidRemaining[i]--;
-            }
+            Spray(i);
           }
           // if refilling and above a certain point, stop refilling
           if(refilling[i] && fluidRemaining[i] >= 1) {
             refilling[i] = false;
             // if targeting the right spray, also spray
             if(FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == spray) {
-              sprayController.AnimateSpray(spray, (fluidRemaining[i] > 0));
-              FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
-              fluidRemaining[i]--;
+              Spray(i);
             }
           }
         }
+    }
+
+    void Spray(int fluidIndex) {
+      Smudge.SmudgeType spray = Smudge.SmudgeType.SmudgeJ;
+      if(fluidIndex == 1) spray = Smudge.SmudgeType.SmudgeK;
+      else if(fluidIndex == 2) spray = Smudge.SmudgeType.SmudgeL;
+      sprayController.AnimateSpray(spray, (fluidRemaining[fluidIndex] > 0));
+      if(fluidRemaining[fluidIndex] > 0) {
+        FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
+        fluidRemaining[fluidIndex]--;
+      }
     }
 }
