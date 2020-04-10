@@ -57,6 +57,8 @@ public class SmudgeManager : MonoBehaviour
                 prefab = prefabL;
                 break;
             case Smudge.SmudgeType.SmudgeNone:
+                prefab = prefabNone;
+                break;
             default:
                 prefab = prefabNone;
                 break;

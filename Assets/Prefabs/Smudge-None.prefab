@@ -93,10 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1ef6759787cde449d88e5fc138a75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 3
   normalColorOff: {r: 0.5803922, g: 0.99607843, b: 1, a: 1}
   normalColorOn: {r: 0.5801887, g: 0.99584526, b: 1, a: 1}
   neutralizedColorOff: {r: 0.40236738, g: 0.6226415, b: 0.6226415, a: 1}
   neutralizedColorOn: {r: 0.5803922, g: 0.99607843, b: 1, a: 1}
+  percentNeutralized: 0
   neutralized: 1
   selected: 0
