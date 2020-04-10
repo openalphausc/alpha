@@ -1,7 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemSlot : MonoBehavior
+public class ItemSlot : MonoBehaviour
 {
     [SerializeField] Image Image;
     private Item _item;
@@ -13,7 +15,8 @@ public class ItemSlot : MonoBehavior
             _item = value;
             if( _item = null){
                 Image.enabled = false;
-            } else{
+            } 
+            else{
                 Image.sprite = _item.Icon;
                 Image.enabled = true;
             }
