@@ -2,26 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemSlot : MonoBehaviour
 {
-    [SerializeField] Image Image;
-    private Item _item;
-    public Item Item {
-        get {
-            return _item;
-        }
-        set {
-            _item = value;
-            if( _item = null){
-                Image.enabled = false;
-            } 
-            else{
-                Image.sprite = _item.Icon;
-                Image.enabled = true;
-            }
-        }
+    [SerializeField] Item item;
+    [SerializeField] Image image;
+    [SerializeField] Button button;
+    
+    void Start(){
+        image.sprite = item.Icon;
+        button.GetComponentInChildren<TextMeshProUGUI>().text = item.price.ToString();
     }
-
+    
+    public void Buy(){
+        PersistentManagerScript.Instance.Buy(item);
+    }
 
 }

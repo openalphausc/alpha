@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 // as well as finding the closest smudge to the player
 public class CharacterMover : MonoBehaviour
 {
+    public static float baseSpeed = 4;
+    //make these private later
+    public float currentSpeed;
     public float movementSpeed;
+    public float slowedSpeed;
+
     public int speedState = 0; // 0 is free, 1 is slow
     public int timeCleaningUp;
 
@@ -16,24 +21,29 @@ public class CharacterMover : MonoBehaviour
 
     void Start()
     {
+        float speedBonus = (PersistentManagerScript.Instance.invSpeedBonus() / 100.0f);
+        movementSpeed = baseSpeed;
+        movementSpeed *= (1 + speedBonus);
+        currentSpeed = movementSpeed;
+        slowedSpeed = 0.2f * movementSpeed;
     }
 
     void Update()
     {
         if(speedState == 1) {
-          movementSpeed = 0.2f;
+          currentSpeed = slowedSpeed;
           timeCleaningUp--;
           if(timeCleaningUp <= 0) speedState = 0;
         }
-        else if(speedState == 0) movementSpeed = 4;
+        else if(speedState == 0) currentSpeed = movementSpeed;
 
         if (Input.GetKey(KeyCode.A))
         {
-            MovePlayer(-movementSpeed);
+            MovePlayer(-currentSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            MovePlayer(movementSpeed);
+            MovePlayer(currentSpeed);
         }
 
         if(Input.GetKeyUp(KeyCode.R))

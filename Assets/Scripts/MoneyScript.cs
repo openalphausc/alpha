@@ -18,7 +18,6 @@ public class MoneyScript : MonoBehaviour
     void Update()
     {
         uiText.text = PersistentManagerScript.Instance.money.ToString();
-
         
     }
 }

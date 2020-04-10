@@ -27,11 +27,25 @@ public class PersistentManagerScript : MonoBehaviour
 
     public bool Buy(Item item){
         if (money > item.price){
-            money-=item.price;
+            print("Successful buy!");
+            money -= item.price;
             inventory.Add(item);
             return true;
         }
         return false;
     }
 
+    //returns an int, the total percentage speed increase players
+    //should recieve from all their items
+    public int invSpeedBonus(){
+        int sum = 0;
+
+        for (int i = 0; i < inventory.Count; i++)
+        {   
+            print("Adding the speed " + inventory[i].moveSpeed + " of " + inventory[i].name);
+            sum += inventory[i].moveSpeed;
+        }
+
+        return sum;
+    }
 }
