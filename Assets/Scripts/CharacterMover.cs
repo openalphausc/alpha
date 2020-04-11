@@ -14,7 +14,7 @@ public class CharacterMover : MonoBehaviour
     public float slowedSpeed;
 
     public int speedState = 0; // 0 is free, 1 is slow
-    public int timeCleaningUp;
+    public float timeCleaningUp;
 
     public static int closestSmudge = -1;
     public static Vector3 closestRelativePosition = Vector3.positiveInfinity;
@@ -32,7 +32,7 @@ public class CharacterMover : MonoBehaviour
     {
         if(speedState == 1) {
           currentSpeed = slowedSpeed;
-          timeCleaningUp--;
+          timeCleaningUp -= Time.deltaTime;
           if(timeCleaningUp <= 0) speedState = 0;
         }
         else if(speedState == 0) currentSpeed = movementSpeed;
