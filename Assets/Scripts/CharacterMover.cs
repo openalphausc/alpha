@@ -21,7 +21,7 @@ public class CharacterMover : MonoBehaviour
 
     void Start()
     {
-        float speedBonus = (PersistentManagerScript.Instance.invSpeedBonus() / 100.0f);
+        float speedBonus = (PersistentManagerScript.Instance.InvSpeedBonus() / 100.0f);
         movementSpeed = baseSpeed;
         movementSpeed *= (1 + speedBonus);
         currentSpeed = movementSpeed;
