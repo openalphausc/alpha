@@ -18,6 +18,8 @@ public class CharacterMover : MonoBehaviour
 
     public static int closestSmudge = -1;
     public static Vector3 closestRelativePosition = Vector3.positiveInfinity;
+    public static bool targeting = false;
+    public float targetRange;
 
     void Start()
     {
@@ -80,5 +82,18 @@ public class CharacterMover : MonoBehaviour
         }
 
         closestRelativePosition = closestPosition;
+
+        print(closestRelativePosition.magnitude);
+        
+        if (closestRelativePosition.magnitude <= targetRange)
+        {
+            FloorManager.currentFloor.smudgeManager.SelectSmudge(CharacterMover.closestSmudge);
+            targeting = true;
+        }
+        else
+        {
+            FloorManager.currentFloor.smudgeManager.DeselectSmudge();
+            targeting = false;
+        }
     }
 }

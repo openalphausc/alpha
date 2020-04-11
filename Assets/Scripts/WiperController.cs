@@ -15,13 +15,15 @@ public class WiperController : ArmController
         source = GetComponent<AudioSource>();
     }
 
-    protected override void Update()
+    void Update()
     {
-        base.Update();
-
-        if (ClosestRelativeToArm().magnitude <= targetRange && !animating)
+        if (CharacterMover.targeting && !animating)
         {
             PassiveWipe();
+        }
+        else if (!animating)
+        {
+            transform.rotation = Quaternion.identity;
         }
     }
 

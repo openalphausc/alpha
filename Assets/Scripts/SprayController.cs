@@ -23,11 +23,6 @@ public class SprayController : ArmController
         source = GetComponent<AudioSource>();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
-
     // begins the spray animation process
     public void AnimateSpray(Smudge.SmudgeType spray, bool showSprayParticles)
     {

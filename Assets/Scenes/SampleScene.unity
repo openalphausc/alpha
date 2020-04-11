@@ -5217,6 +5217,7 @@ MonoBehaviour:
   slowedSpeed: 0
   speedState: 0
   timeCleaningUp: 0
+  targetRange: 3
 --- !u!4 &409764741
 Transform:
   m_ObjectHideFlags: 0
@@ -5497,12 +5498,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f7d4a1fbcaf1e4e9b60f522d9eae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRange: 4
-  maxArmLength: 2
+  maxArmLength: 4
   arm: {fileID: 1415254418}
   hand: {fileID: 1047213177}
   animating: 0
-  wipeRange: 2.5
+  wipeRange: 3
   passiveReachRatio: 0.66
 --- !u!82 &452349171
 AudioSource:
@@ -7131,8 +7131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0b60dc17ac20a41b085afd456c0e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRange: 4
-  maxArmLength: 2
+  maxArmLength: 4
   arm: {fileID: 2073324558}
   hand: {fileID: 711792316}
   animating: 0
