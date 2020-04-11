@@ -53,7 +53,8 @@ public class SprayController : ArmController
         // spray particles
         if(showSprayParticles) {
           ParticleSystem.MainModule particlesMain = particles.main;
-          particlesMain.startColor = handRenderer.material.color;
+          particlesMain.startColor =
+              handRenderer.color;
           particles.Play();
           //if there's enough fluid (shiwSprayParticles), then play the spray sound effect
           source.Play();
