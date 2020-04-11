@@ -1,13 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class Item : ScriptableObject
 {
-    public string ItemName;
-    public Sprite Icon;
+    public string itemName;
+    public Sprite icon;
     public int price;
-    public string ItemDescription;
-    public string ItemFlavorText;
+    public string itemDescription;
+    public string itemFlavorText;
     public bool isWatch;
     public bool isHeadlamp;
     public int moveSpeed;

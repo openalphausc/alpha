@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
+
 public class PersistentManagerScript : MonoBehaviour
 {
     //Treat "Instance" as the equivalent of "player" here. Player.Buy(item) == Instance.Buy(item).
