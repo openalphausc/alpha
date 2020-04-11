@@ -923,7 +923,12 @@ MonoBehaviour:
   floorPrefab: {fileID: 914696457850060347, guid: d221a44e56383dd4f8ee4d292fb06d61,
     type: 3}
   playerObjects: {fileID: 1127927045}
+  character: {fileID: 409764739}
   descentSpeed: 10
+  floorCount: 20
+  minimumSmudges: 1
+  maximumSmudges: 10
+  randomness: 0.1
   allFloors: []
 --- !u!1 &619135684
 GameObject:
