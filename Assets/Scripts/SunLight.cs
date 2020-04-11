@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SunLight : MonoBehaviour
 {
+    public float dayLength;
     public float scale;
     private Light2D L1;
     private float current;
@@ -20,7 +21,7 @@ public class SunLight : MonoBehaviour
     void Update()
     {
         current += Time.deltaTime;
-        if (L1.intensity > 0.0f)
+        if (L1.intensity > 0.0f && current > dayLength)
         {
             L1.intensity -= Time.deltaTime * scale;
         }
