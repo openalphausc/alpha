@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
   m_Name: sword
   m_EditorClassIdentifier: 
-  ItemName: 
-  Icon: {fileID: 21300000, guid: b8462488bd07e004f98350a68ce058fd, type: 3}
+  itemName: 
+  icon: {fileID: 21300000, guid: b8462488bd07e004f98350a68ce058fd, type: 3}
   price: 10
-  ItemDescription: +100% speed \n +5 sprays per bottle
-  ItemFlavorText: 
+  itemDescription: 
+  itemFlavorText: 
   isWatch: 1
   isHeadlamp: 0
   moveSpeed: 100
