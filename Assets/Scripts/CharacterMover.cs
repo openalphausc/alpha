@@ -82,8 +82,6 @@ public class CharacterMover : MonoBehaviour
         }
 
         closestRelativePosition = closestPosition;
-
-        print(closestRelativePosition.magnitude);
         
         if (closestRelativePosition.magnitude <= targetRange)
         {

@@ -20,6 +20,7 @@ public class ItemSlot : MonoBehaviour
     //and update the image to show that the item has been bought
     public void Buy(){
         //for now, just run the buy function.
+        print("uhhh");
         PersistentManagerScript.Instance.Buy(item);
     }
 
