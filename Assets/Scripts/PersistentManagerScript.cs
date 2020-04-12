@@ -61,8 +61,49 @@ public class PersistentManagerScript : MonoBehaviour
 
     }
 
-    //returns an int, the total percentage speed increase players
-    //should receive from all their items
+    
+    //~~~~~~~~~~~~~~~~~~Modifiers section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+    /**
+     * Returns true if the player has a watch or an item that acts as a watch
+     * 
+     */
+    public bool InvWatch(){
+        var watch = false;
+
+        foreach (var item in inventory)
+        {
+            if (item.isWatch)
+            {
+                watch = true;
+            }
+        }
+
+        return watch;
+    }
+    
+    /**
+     * Returns true if the player has a watch or an item that acts as a watch
+     * 
+     */
+    public bool InvHeadlamp(){
+        var headlamp = false;
+
+        foreach (var item in inventory)
+        {
+            if (item.isHeadlamp)
+            {
+                headlamp = true;
+            }
+        }
+
+        return headlamp;
+    }
+    
+    /**
+     * Returns an int, the total percentage speed increase players
+     * should receive from all their items
+     * 
+     */
     public int InvSpeedBonus(){
         var sum = 0;
 
@@ -74,4 +115,56 @@ public class PersistentManagerScript : MonoBehaviour
 
         return sum;
     }
+
+    /**
+     * Returns an int, the total percentage refill speed increase
+     * players should receive from all their items
+     */
+    public int InvRefillSpeedBonus()
+    {
+        var sum = 0;
+
+        foreach (var item in inventory)
+        {
+            print("Adding the speed " + item.refillSpeed + " of " + item.name);
+            sum += item.refillSpeed;
+        }
+
+        return sum;
+    }
+    
+    /**
+     * Returns an int, the number of bonus sprays the player has from all their items.
+     */
+    public int InvSprayIncrease()
+    {
+        var sum = 0;
+
+        foreach (var item in inventory)
+        {
+            print("Adding the speed " + item.sprayIncrease + " of " + item.name);
+            sum += item.sprayIncrease;
+        }
+
+        return sum;
+    }
+    
+    /**
+     * Returns a double, the amount range increase the player has from all their items (default range is not yet set,
+     * but will probably be approximately 10-15 % of the bar.
+     */
+    public double InvRefillRangeIncrease()
+    {
+        var sum = 0;
+
+        foreach (var item in inventory)
+        {
+            print("Adding the speed " + item.refillRange + " of " + item.name);
+            sum += item.refillRange;
+        }
+
+        return sum;
+    }
+    
+    //#########################~~~~~END OF MODIFIERS SECTION~~~~~~~~##################################################//
 }
