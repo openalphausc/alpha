@@ -15,8 +15,8 @@ public class Item : ScriptableObject
     public int refillSpeed;
     public int sprayIncrease;
     public double refillRange;
-    public int timePenalties;
-    public int rangeIncrease;
+    public double timePenalties;
+    public double rangeIncrease;
     public int timeIncrease;
     public int incomeIncrease;
     

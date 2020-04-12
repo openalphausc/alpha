@@ -72,6 +72,7 @@ public class PersistentManagerScript : MonoBehaviour
 
         foreach (var item in inventory)
         {
+            print("Checking the watch " + item.isWatch + " of " + item.name);
             if (item.isWatch)
             {
                 watch = true;
@@ -90,6 +91,7 @@ public class PersistentManagerScript : MonoBehaviour
 
         foreach (var item in inventory)
         {
+            print("Checking the headlamp " + item.isHeadlamp + " of " + item.name);
             if (item.isHeadlamp)
             {
                 headlamp = true;
@@ -142,7 +144,7 @@ public class PersistentManagerScript : MonoBehaviour
 
         foreach (var item in inventory)
         {
-            print("Adding the speed " + item.sprayIncrease + " of " + item.name);
+            print("Adding the increase " + item.sprayIncrease + " of " + item.name);
             sum += item.sprayIncrease;
         }
 
@@ -155,12 +157,26 @@ public class PersistentManagerScript : MonoBehaviour
      */
     public double InvRefillRangeIncrease()
     {
-        var sum = 0;
+        double sum = 0;
 
         foreach (var item in inventory)
         {
-            print("Adding the speed " + item.refillRange + " of " + item.name);
+            print("Adding the range " + item.refillRange + " of " + item.name);
             sum += item.refillRange;
+        }
+
+        return sum;
+    }
+
+    
+    public double InvTimePenaltyReduction()
+    {
+        double sum = 0;
+
+        foreach (var item in inventory)
+        {
+            print("Adding the time reductions " + item.timePenalties + " of " + item.name);
+            sum += item.timePenalties;
         }
 
         return sum;
