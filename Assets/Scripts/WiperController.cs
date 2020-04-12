@@ -66,7 +66,10 @@ public class WiperController : ArmController
         if (closest.magnitude <= wipeRange)
         {
             if (FloorManager.currentFloor.smudgeManager.WipeSmudge())
+            {
                 source.Play();
+                PersistentManagerScript.Instance.money += 2;
+            }
         }
         coroutine = FinishWipe();
         StartCoroutine(coroutine);
