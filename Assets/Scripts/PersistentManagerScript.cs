@@ -39,11 +39,11 @@ public class PersistentManagerScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    //Buy function: Input the item you want the instance to buy
-    //if player can afford it AND doesn't already have the item, purchase the item 
-    //Returns false if the item is already in the inventory or can't afford
-    //returns true if the purchase is successful
+    /**Buy function: Input the item to the inventory if player can afford it AND doesn't already have the item. Reduce
+     * money by the item's price.
+     * Returns false _if the item is already in the inventory_ or _can't afford_
+     * Returns true if the purchase is successful
+     */
     public bool Buy(Item item){
         if (inventory.Contains(item))
         {
@@ -64,7 +64,7 @@ public class PersistentManagerScript : MonoBehaviour
     
     //~~~~~~~~~~~~~~~~~~Modifiers section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     /**
-     * Returns true if the player has a watch or an item that acts as a watch
+     * Returns true if the player has a watch or an item that acts as a watch.
      * 
      */
     public bool InvWatch(){
@@ -83,7 +83,7 @@ public class PersistentManagerScript : MonoBehaviour
     }
     
     /**
-     * Returns true if the player has a watch or an item that acts as a watch
+     * Returns true if the player has a watch or an item that acts as a watch.
      * 
      */
     public bool InvHeadlamp(){
@@ -103,7 +103,7 @@ public class PersistentManagerScript : MonoBehaviour
     
     /**
      * Returns an int, the total percentage speed increase players
-     * should receive from all their items
+     * should receive from all their items.
      * 
      */
     public int InvSpeedBonus(){
@@ -120,7 +120,7 @@ public class PersistentManagerScript : MonoBehaviour
 
     /**
      * Returns an int, the total percentage refill speed increase
-     * players should receive from all their items
+     * players should receive from all their items.
      */
     public int InvRefillSpeedBonus()
     {
@@ -161,14 +161,18 @@ public class PersistentManagerScript : MonoBehaviour
 
         foreach (var item in inventory)
         {
-            print("Adding the range " + item.refillRange + " of " + item.name);
+            print("Adding the refill range " + item.refillRange + " of " + item.name);
             sum += item.refillRange;
         }
 
         return sum;
     }
 
-    
+    /**
+     * Returns a double, the time penalty reduction the player has from all their items.
+     * This will effectively change the number that of TimeCleaningUp in GuageControl is set to (line circa 83 circa
+     * 4/11/2020).
+     */
     public double InvTimePenaltyReduction()
     {
         double sum = 0;
@@ -178,7 +182,59 @@ public class PersistentManagerScript : MonoBehaviour
             print("Adding the time reductions " + item.timePenalties + " of " + item.name);
             sum += item.timePenalties;
         }
+        
+        return sum;
+    }
+    
+    /**
+     * Returns a double, the wipe range increase (default range is 3, max arm length 4)
+     * the player has from all their items.
+     * IMPORTANT: Be sure to change BOTH max_arm_length and wipe_range in wiper-controller AND targetRange in Character
+     * Mover.
+     */
+    public double InvRangeIncrease()
+    {
+        double sum = 0;
 
+        foreach (var item in inventory)
+        {
+            print("Adding the arm range increase " + item.rangeIncrease + " of " + item.name);
+            sum += item.rangeIncrease;
+        }
+        
+        return sum;
+    }
+    
+    /**
+     * Returns an int, the length of day increase the player has from all their items.
+     */
+    public int InvTimeIncrease()
+    {
+        var sum = 0;
+
+        foreach (var item in inventory)
+        {
+            print("Adding the time increase " + item.timeIncrease + " of " + item.name);
+            sum += item.timeIncrease;
+        }
+        
+        return sum;
+    }
+    
+    /**
+     * Returns an int, the percentage income per wipe increase the player has from all their items. Apply in
+     * the start function of Wiper Controller in the assignment of incomePerWipe (feat-cash-shit branch)
+     */
+    public int InvIncomeIncrease()
+    {
+        var sum = 0;
+
+        foreach (var item in inventory)
+        {
+            print("Adding the income increase " + item.incomeIncrease + " of " + item.name);
+            sum += item.incomeIncrease;
+        }
+        
         return sum;
     }
     
