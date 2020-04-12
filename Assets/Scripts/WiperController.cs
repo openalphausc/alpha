@@ -7,12 +7,15 @@ public class WiperController : ArmController
 {
     [SerializeField] private float wipeRange; // maximum distance to successfully wipe
     [SerializeField] private float passiveReachRatio; // percentage to reach towards nearest target
-    private AudioSource source;
-
+    private AudioSource source_;
+    //so you can see the income per wipe
+    public int incomePerWipe = 0;
     protected override void Start()
     {
         base.Start();
-        source = GetComponent<AudioSource>();
+        source_ = GetComponent<AudioSource>();
+        //set the income per wipe to the income per wipe set in the inputHandler
+        incomePerWipe = transform.parent.gameObject.GetComponent<InputHandler>().incomePerWipe;
     }
 
     void Update()
@@ -67,8 +70,8 @@ public class WiperController : ArmController
         {
             if (FloorManager.currentFloor.smudgeManager.WipeSmudge())
             {
-                source.Play();
-                PersistentManagerScript.Instance.money += 2;
+                source_.Play();
+                PersistentManagerScript.Instance.money += incomePerWipe;
             }
         }
         coroutine = FinishWipe();
