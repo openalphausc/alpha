@@ -19,5 +19,6 @@ public class Item : ScriptableObject
     public double rangeIncrease;
     public int timeIncrease;
     public int incomeIncrease;
-    
+    public int bonusOnCompletionIncrease;
+
 }

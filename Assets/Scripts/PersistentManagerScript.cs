@@ -238,5 +238,22 @@ public class PersistentManagerScript : MonoBehaviour
         return sum;
     }
     
+    /**
+     * Returns an int, the total bonus money the player gets for completion of a building
+     * that the player has from all their items. 
+     */
+    public int InvBonusOnCompletionIncrease()
+    {
+        var sum = 0;
+
+        foreach (var item in inventory)
+        {
+            print("Adding the income increase " + item.bonusOnCompletionIncrease + " of " + item.name);
+            sum += item.bonusOnCompletionIncrease;
+        }
+        
+        return sum;
+    }
+    
     //#########################~~~~~END OF MODIFIERS SECTION~~~~~~~~##################################################//
 }
