@@ -30,13 +30,13 @@ public class GaugeMove : MonoBehaviour
         float x = -12f;
         if(gameObject.name == "FluidGaugeK") x += 1f;
         else if(gameObject.name == "FluidGaugeL") x += 2f;
-        float y = -6f;
+        float y = -3f;
         float z = 5f;
-        transform.position = new Vector3(x, sprayController.transform.position.y + y, z);
+        transform.localPosition = new Vector3(x, y, z);
       }
       else {
         // gauge disappears
-        transform.position = new Vector3(-100f, -100f, 100f);
+        transform.localPosition = new Vector3(-100f, -100f, 100f);
       }
     }
 }
