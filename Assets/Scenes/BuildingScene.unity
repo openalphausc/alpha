@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  cam: {fileID: 963194227}
   decreasing: 0
   fluidIndex: 1
 --- !u!1 &37326508
@@ -6297,7 +6298,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
-  startPos: 0
   startScale: 0
   decreaseSpeed: 0.05
   increaseSpeed: 0
@@ -6533,7 +6533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
-  startPos: 0
   startScale: 0
   decreaseSpeed: 0.05
   increaseSpeed: 0
@@ -6732,6 +6731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  cam: {fileID: 963194227}
   decreasing: 0
   fluidIndex: 2
 --- !u!1 &1047213177
@@ -8043,6 +8043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  cam: {fileID: 963194227}
   decreasing: 0
   fluidIndex: 0
 --- !u!1 &1921437380
@@ -8220,7 +8221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
-  startPos: 0
   startScale: 0
   decreaseSpeed: 0.05
   increaseSpeed: 0

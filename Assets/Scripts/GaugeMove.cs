@@ -10,6 +10,8 @@ public class GaugeMove : MonoBehaviour
     public GameObject character;
     private InputHandler inputHandler;
 
+    public Camera cam;
+
     public bool decreasing = false;
 
     public int fluidIndex;
@@ -26,13 +28,16 @@ public class GaugeMove : MonoBehaviour
     {
       if(inputHandler.refilling[fluidIndex] || (decreasing && sprayController.animating)) {
         // gauge shows up when player is spraying or refilling
-        // at the bottom-left of the screen
-        float x = -12f;
-        if(gameObject.name == "FluidGaugeK") x += 1f;
-        else if(gameObject.name == "FluidGaugeL") x += 2f;
-        float y = -3f;
+        // x and y are between 0 and cam.pixelWidth and cam.pixelHeight
+        float x = 0.01f * cam.pixelWidth;
+        if(gameObject.name == "FluidGaugeJ") x *= 9f; // percents across the screen
+        if(gameObject.name == "FluidGaugeK") x *= 12f;
+        else if(gameObject.name == "FluidGaugeL") x *= 15f;
+        float y = 10f * 0.01f * cam.pixelHeight;
         float z = 5f;
-        transform.localPosition = new Vector3(x, y, z);
+
+        Vector3 worldPoint = cam.ScreenToWorldPoint(new Vector3(x, y, cam.nearClipPlane));
+        transform.position = new Vector3(worldPoint.x, worldPoint.y, z);
       }
       else {
         // gauge disappears
