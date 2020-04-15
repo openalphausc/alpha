@@ -20,7 +20,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="ArmController.cs" t="Include" />
-          <e p="ChangeScene.cs" t="Include" />
+          <e p="ChangeSceneScript.cs" t="Include" />
           <e p="CharacterMover.cs" t="Include" />
           <e p="ControlSheet.cs" t="Include" />
           <e p="Floor.cs" t="Include" />
