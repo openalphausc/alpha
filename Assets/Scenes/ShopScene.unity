@@ -416,6 +416,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0088272
       objectReference: {fileID: 0}
+    - target: {fileID: 8974305791644766077, guid: 42fee78c67a86774c8c74f899df8deb1,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 30b754bd43fa8ae4b8a45cd09f24bf87,
+        type: 2}
     - target: {fileID: 8974305791644766078, guid: 42fee78c67a86774c8c74f899df8deb1,
         type: 3}
       propertyPath: m_Name
@@ -602,6 +608,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8974305791644766077, guid: 42fee78c67a86774c8c74f899df8deb1,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 87f7d5c7c4c215e4995ceac5ad886a53,
+        type: 2}
     - target: {fileID: 8974305791644766078, guid: 42fee78c67a86774c8c74f899df8deb1,
         type: 3}
       propertyPath: m_Name
