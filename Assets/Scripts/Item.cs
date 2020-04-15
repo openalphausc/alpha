@@ -14,10 +14,11 @@ public class Item : ScriptableObject
     public int moveSpeed;
     public int refillSpeed;
     public int sprayIncrease;
-    public int refillRange;
-    public int timePenalties;
-    public int rangeIncrease;
+    public double refillRange;
+    public double timePenalties;
+    public double rangeIncrease;
     public int timeIncrease;
     public int incomeIncrease;
-    
+    public int bonusOnCompletionIncrease;
+
 }
