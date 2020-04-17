@@ -8,6 +8,7 @@ public class ChangeScene : MonoBehaviour
     public string sceneName;
     public void PlayGame()
     {
+        SaveLoader.SaveGame();
         SceneManager.LoadScene(sceneName);
     }
 }

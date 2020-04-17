@@ -21,4 +21,8 @@ public class Item : ScriptableObject
     public int incomeIncrease;
     public int bonusOnCompletionIncrease;
 
+    public void loadDataFromName(string name) {
+      itemName = name;
+      // load everything here
+    }
 }

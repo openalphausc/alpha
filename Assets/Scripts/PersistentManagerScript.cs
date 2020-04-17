@@ -19,7 +19,7 @@ public class PersistentManagerScript : MonoBehaviour
 
     //A vector of items which holds all the items the player has
     //should make this private in the future, but useful to be public for debugging purposes in the editor
-    [SerializeField] List<Item> inventory;
+    public List<Item> inventory;
     //Consider adding other items such as record stats for display at end of rounds or in title "stats" screen
 
     //This runs when the presistentManagerScript is first run, before "Start()" of all items, so that it will be non-nul
@@ -67,7 +67,7 @@ public class PersistentManagerScript : MonoBehaviour
     //~~~~~~~~~~~~~~~~~~Modifiers section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     /**
      * Returns true if the player has a watch or an item that acts as a watch.
-     * 
+     *
      */
     public bool InvWatch()
     {
@@ -87,7 +87,7 @@ public class PersistentManagerScript : MonoBehaviour
 
     /**
      * Returns true if the player has a watch or an item that acts as a watch.
-     * 
+     *
      */
     public bool InvHeadlamp()
     {
@@ -108,7 +108,7 @@ public class PersistentManagerScript : MonoBehaviour
     /**
      * Returns an int, the total percentage speed increase players
      * should receive from all their items.
-     * 
+     *
      */
     public int InvSpeedBonus()
     {
@@ -245,7 +245,7 @@ public class PersistentManagerScript : MonoBehaviour
 
     /**
      * Returns an int, the total bonus money the player gets for completion of a building
-     * that the player has from all their items. 
+     * that the player has from all their items.
      */
     public int InvBonusOnCompletionIncrease()
     {
