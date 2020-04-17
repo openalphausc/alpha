@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = System.Random;
 
 // In charge of keeping track of each floor
@@ -15,9 +16,9 @@ public class FloorManager : MonoBehaviour
     [SerializeField] private int minimumSmudges; // Lowest number of possible smudges on a floor
     [SerializeField] private int maximumSmudges; // Highest number of possible smudges on a floor
     [SerializeField] private double randomness; // How much weight is placed on randomness: 0.0 (linear from min to max) to 1.0 (completely random)
-    
+
     public List<Floor> allFloors;
-    public static Floor currentFloor; // ACCESS VIA: FloorManager.currentFloor    
+    public static Floor currentFloor; // ACCESS VIA: FloorManager.currentFloor
 
     private const float FLOOR_HEIGHT = 7;
     public static bool moving;
@@ -35,7 +36,8 @@ public class FloorManager : MonoBehaviour
             Smudge.SmudgeType.SmudgeK,
             Smudge.SmudgeType.SmudgeL,
         };
-        GenerateSmudges(minimumSmudges, maximumSmudges, randomness, availableTypes);
+        Scene currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name != "TutorialScene") GenerateSmudges(minimumSmudges, maximumSmudges, randomness, availableTypes);
         allFloors.Clear();
         for(int i = 0; i < floorCount; i++)
         { // add each floor from the dataset to a new instance of a Floor
@@ -60,7 +62,7 @@ public class FloorManager : MonoBehaviour
             { // stop when arrived
                 playerObjects.transform.position = new Vector3(0,  (floorCount - floorIndex - 1) * FLOOR_HEIGHT, 0);
                 moving = false;
-                characterMover_.FindClosest();
+                // characterMover_.FindClosest();
             }
         }
     }
@@ -76,7 +78,7 @@ public class FloorManager : MonoBehaviour
         moving = true;
         return true;
     }
-    
+
     private void GenerateSmudges(int minSmudges, int maxSmudges, double variance, List<Smudge.SmudgeType> types)
     {
         int range = maxSmudges - minSmudges;
@@ -102,36 +104,54 @@ public class FloorManager : MonoBehaviour
             smudgeData.Add(positions);
         }
     }
-    
+
     // data for floor generation
     public List<List<Tuple<Vector3, Smudge.SmudgeType>>> smudgeData = new List<List<Tuple<Vector3, Smudge.SmudgeType>>>()
-        
+
         //the following will be removed, but leaving in case we remove level generation, as a formatting template
-        
-    // {
-    //     new List<Tuple<Vector3, Smudge.SmudgeType>>
-    //     {
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+1, 1, 0), Smudge.SmudgeType.SmudgeNone),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-4, 4, 0), Smudge.SmudgeType.SmudgeNone),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+6, 2, 0), Smudge.SmudgeType.SmudgeNone),
-    //     },
-    //     new List<Tuple<Vector3, Smudge.SmudgeType>>
-    //     {
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+1, 1, 0), Smudge.SmudgeType.SmudgeJ),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 2, 0), Smudge.SmudgeType.SmudgeL),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+4, 3, 0), Smudge.SmudgeType.SmudgeNone),
-    //     },
-    //     new List<Tuple<Vector3, Smudge.SmudgeType>>
-    //     {
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 2, 0), Smudge.SmudgeType.SmudgeJ),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 5, 0), Smudge.SmudgeType.SmudgeJ),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 1, 0), Smudge.SmudgeType.SmudgeK),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 3, 0), Smudge.SmudgeType.SmudgeL),
-    //         new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 1, 0), Smudge.SmudgeType.SmudgeL),
-    //     },
-    // }
+
+    {
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+1, 1, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-4, 4, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+6, 2, 0), Smudge.SmudgeType.SmudgeNone),
+        },
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+1, 1, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 2, 0), Smudge.SmudgeType.SmudgeL),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+4, 3, 0), Smudge.SmudgeType.SmudgeNone),
+        },
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 2, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 5, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 1, 0), Smudge.SmudgeType.SmudgeK),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 3, 0), Smudge.SmudgeType.SmudgeL),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 1, 0), Smudge.SmudgeType.SmudgeL),
+        },
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 2, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 5, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 1, 0), Smudge.SmudgeType.SmudgeK),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 3, 0), Smudge.SmudgeType.SmudgeL),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 1, 0), Smudge.SmudgeType.SmudgeL),
+        },
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 2, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 5, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 1, 0), Smudge.SmudgeType.SmudgeK),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 3, 0), Smudge.SmudgeType.SmudgeL),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 1, 0), Smudge.SmudgeType.SmudgeL),
+        },
+    }
         ;
 
 }
