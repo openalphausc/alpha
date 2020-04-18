@@ -22,7 +22,7 @@ public class FloorManager : MonoBehaviour
 
     private const float FLOOR_HEIGHT = 7;
     public static bool moving;
-    private int floorIndex; // current floor index in allFloors
+    public static int floorIndex; // current floor index in allFloors
     private WindowController windowController_;
     private CharacterMover characterMover_;
 
@@ -127,15 +127,6 @@ public class FloorManager : MonoBehaviour
         },
         new List<Tuple<Vector3, Smudge.SmudgeType>>
         {
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+6, 2, 0), Smudge.SmudgeType.SmudgeNone),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(1, 5, 0), Smudge.SmudgeType.SmudgeNone),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+5, 1, 0), Smudge.SmudgeType.SmudgeNone),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-5, 4, 0), Smudge.SmudgeType.SmudgeNone),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(3, 3, 0), Smudge.SmudgeType.SmudgeNone),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-3, 1, 0), Smudge.SmudgeType.SmudgeNone),
-        },
-        new List<Tuple<Vector3, Smudge.SmudgeType>>
-        {
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 2, 0), Smudge.SmudgeType.SmudgeJ),
         },
         new List<Tuple<Vector3, Smudge.SmudgeType>>
@@ -167,6 +158,16 @@ public class FloorManager : MonoBehaviour
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 1, 0), Smudge.SmudgeType.SmudgeJ),
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 3, 0), Smudge.SmudgeType.SmudgeJ),
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-4, 4, 0), Smudge.SmudgeType.SmudgeJ),
+        },
+
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+6, 2, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(1, 5, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+5, 1, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-5, 4, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(3, 3, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-3, 1, 0), Smudge.SmudgeType.SmudgeJ),
         },
     }
         ;
