@@ -5840,7 +5840,7 @@ MonoBehaviour:
   playerObjects: {fileID: 1127927045}
   character: {fileID: 409764739}
   descentSpeed: 10
-  floorCount: 5
+  floorCount: 9
   minimumSmudges: 1
   maximumSmudges: 10
   randomness: 0.1

@@ -113,43 +113,60 @@ public class FloorManager : MonoBehaviour
     {
         new List<Tuple<Vector3, Smudge.SmudgeType>>
         {
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+1, 1, 0), Smudge.SmudgeType.SmudgeNone),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-4, 4, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+1, 2, 0), Smudge.SmudgeType.SmudgeNone),
+        },
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+5, 3, 0), Smudge.SmudgeType.SmudgeNone),
+        },
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 3, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-5, 5, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 1, 0), Smudge.SmudgeType.SmudgeNone),
+        },
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+6, 2, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(1, 5, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+5, 1, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-5, 4, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(3, 3, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-3, 1, 0), Smudge.SmudgeType.SmudgeNone),
         },
         new List<Tuple<Vector3, Smudge.SmudgeType>>
         {
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+1, 1, 0), Smudge.SmudgeType.SmudgeJ),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 2, 0), Smudge.SmudgeType.SmudgeL),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+4, 3, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 2, 0), Smudge.SmudgeType.SmudgeJ),
         },
         new List<Tuple<Vector3, Smudge.SmudgeType>>
         {
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 2, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-5, 4, 0), Smudge.SmudgeType.SmudgeJ),
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 5, 0), Smudge.SmudgeType.SmudgeJ),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 1, 0), Smudge.SmudgeType.SmudgeK),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 3, 0), Smudge.SmudgeType.SmudgeL),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 1, 0), Smudge.SmudgeType.SmudgeL),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 2, 0), Smudge.SmudgeType.SmudgeJ),
         },
         new List<Tuple<Vector3, Smudge.SmudgeType>>
         {
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 2, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 3, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+6, 1, 0), Smudge.SmudgeType.SmudgeNone),
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 5, 0), Smudge.SmudgeType.SmudgeJ),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 1, 0), Smudge.SmudgeType.SmudgeK),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 3, 0), Smudge.SmudgeType.SmudgeL),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 1, 0), Smudge.SmudgeType.SmudgeL),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 1, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-4, 3, 0), Smudge.SmudgeType.SmudgeJ),
         },
         new List<Tuple<Vector3, Smudge.SmudgeType>>
         {
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 2, 0), Smudge.SmudgeType.SmudgeJ),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-2, 5, 0), Smudge.SmudgeType.SmudgeJ),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 1, 0), Smudge.SmudgeType.SmudgeK),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 4, 0), Smudge.SmudgeType.SmudgeK),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 3, 0), Smudge.SmudgeType.SmudgeL),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 1, 0), Smudge.SmudgeType.SmudgeL),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-4, 2, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-7, 3, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+3, 1, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+1, 5, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 4, 0), Smudge.SmudgeType.SmudgeJ),
+        },
+        new List<Tuple<Vector3, Smudge.SmudgeType>>
+        {
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-1, 5, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+4, 2, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-6, 1, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+2, 3, 0), Smudge.SmudgeType.SmudgeJ),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-4, 4, 0), Smudge.SmudgeType.SmudgeJ),
         },
     }
         ;
