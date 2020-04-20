@@ -20,7 +20,7 @@ public class TutorialInstructions : MonoBehaviour
       int floor = FloorManager.floorIndex;
       bool moving = FloorManager.moving;
       string text = "";
-      if(floor == 0) text = "PRESS SPACE";
+      if(floor == 0) text = "PRESS A AND D TO MOVE THEN PRESS SPACE";
       else if(floor == 1 && moving) text = "GOOD";
       else if(floor == 1 && !moving) text = "PRESS A AND D TO MOVE";
       else if(floor == 2 && moving) text = "WELL DONE";

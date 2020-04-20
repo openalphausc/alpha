@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  cam: {fileID: 0}
   decreasing: 0
   fluidIndex: 1
 --- !u!1 &37326508
@@ -5253,6 +5254,7 @@ MonoBehaviour:
   fluidRemaining: []
   refilling: 
   maxFluid: 4
+  incomePerWipe: 2
   gaugeJ: {fileID: 1814478910}
   gaugeK: {fileID: 7110223}
   gaugeL: {fileID: 1047189391}
@@ -5504,6 +5506,7 @@ MonoBehaviour:
   animating: 0
   wipeRange: 3
   passiveReachRatio: 0.66
+  incomePerWipe: 0
 --- !u!82 &452349171
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6105,7 +6108,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.238e-42, y: 1.02e-43, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -6299,7 +6302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
-  startPos: 0
   startScale: 0
   decreaseSpeed: 0.05
   increaseSpeed: 0
@@ -6606,7 +6608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09122cc582bce4f3db06886ab87545c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textcomp: {fileID: 0}
+  displayText: {fileID: 0}
 --- !u!1 &950066677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6639,7 +6641,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
-  startPos: 0
   startScale: 0
   decreaseSpeed: 0.05
   increaseSpeed: 0
@@ -6838,6 +6839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  cam: {fileID: 0}
   decreasing: 0
   fluidIndex: 2
 --- !u!1 &1047213177
@@ -7185,8 +7187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477200a46a8f4234ba24f362dc00b4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLength: 60
-  scale: 0.5
+  dayLength: -1
+  scale: 0
 --- !u!1 &1232561691
 GameObject:
   m_ObjectHideFlags: 0
@@ -7753,7 +7755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b968487eb4545a342aad7114a715462c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 5
+  time: 10000
 --- !u!1 &1552360025
 GameObject:
   m_ObjectHideFlags: 0
@@ -8222,6 +8224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
+  cam: {fileID: 0}
   decreasing: 0
   fluidIndex: 0
 --- !u!1 &1921437380
@@ -8399,7 +8402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayArmJoint: {fileID: 1264828766}
   character: {fileID: 409764739}
-  startPos: 0
   startScale: 0
   decreaseSpeed: 0.05
   increaseSpeed: 0
