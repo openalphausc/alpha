@@ -12,6 +12,8 @@ public class SmudgeManager : MonoBehaviour
     public GameObject prefabK;
     public GameObject prefabL;
     public GameObject prefabNone;
+    
+    public GameObject leaveButton;
 
     public List<Smudge> allSmudges = new List<Smudge>(); // ACCESS VIA: FloorManager.currentFloor.smudgeManager.allSmudges
 
@@ -38,6 +40,8 @@ public class SmudgeManager : MonoBehaviour
             if (!floorManager.NextFloor()) source.PlayOneShot(jingle, 0.1f);
             Destroy(this);
             timerScript.runTimer = false;
+            
+            GameObject button = Instantiate(leaveButton) as GameObject;
         }
     }
 
