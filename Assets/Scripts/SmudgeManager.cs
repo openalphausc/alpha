@@ -37,11 +37,15 @@ public class SmudgeManager : MonoBehaviour
     {
         if (allSmudges.Count <= 0)
         {
-            if (!floorManager.NextFloor()) source.PlayOneShot(jingle, 0.1f);
+            if (!floorManager.NextFloor())
+            {
+                source.PlayOneShot(jingle, 0.1f);
+                GameObject button = Instantiate(leaveButton) as GameObject;
+            }
+
             Destroy(this);
             timerScript.runTimer = false;
             
-            GameObject button = Instantiate(leaveButton) as GameObject;
         }
     }
 
