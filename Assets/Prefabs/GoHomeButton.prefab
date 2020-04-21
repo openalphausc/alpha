@@ -167,7 +167,6 @@ GameObject:
   - component: {fileID: 5056577575277326437}
   - component: {fileID: 5056577575277326434}
   - component: {fileID: 5056577575277326435}
-  - component: {fileID: 8948490547603230830}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -274,7 +273,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8948490547603230830}
+      - m_Target: {fileID: 4541279089215493359}
         m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
@@ -285,19 +284,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8948490547603230830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5056577575277326433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b40c857098d2646ac87397e0e25e56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: ShopScene
 --- !u!1 &5056577576163181635
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +296,7 @@ GameObject:
   - component: {fileID: 5056577576163181636}
   - component: {fileID: 5056577576163181637}
   - component: {fileID: 5056577576163181634}
+  - component: {fileID: 4541279089215493359}
   m_Layer: 5
   m_Name: GoHomeButton
   m_TagString: Untagged
@@ -397,3 +384,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4541279089215493359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056577576163181635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4ba75dd14402f4aa201fa9dbca475f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: ShopScene
