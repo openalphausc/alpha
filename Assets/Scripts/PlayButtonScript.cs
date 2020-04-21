@@ -10,4 +10,12 @@ public class PlayButtonScript : MonoBehaviour
         SaveLoader.LoadGame();
         SceneManager.LoadScene("BuildingScene");
     }
+
+   void Update()
+   {
+       if (Input.GetKeyDown(KeyCode.Space))
+       {
+           SceneManager.LoadScene("BuildingScene");
+       }
+   }
 }
