@@ -51,6 +51,7 @@ public class FloorManager : MonoBehaviour
         playerObjects.transform.position = new Vector3(0, (floorCount - 1) * FLOOR_HEIGHT, 0); // start at top floor
 
         windowController_ = GetComponent<WindowController>();
+        characterMover_ = character.GetComponent<CharacterMover>();
     }
 
     void Update()
@@ -64,6 +65,10 @@ public class FloorManager : MonoBehaviour
                 moving = false;
                 // characterMover_.FindClosest();
             }
+        }
+        else
+        {
+            characterMover_.FindClosest();
         }
     }
 
