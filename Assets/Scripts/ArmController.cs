@@ -23,6 +23,7 @@ public abstract class ArmController : MonoBehaviour
         handTransform = hand.transform;
         handRenderer = hand.GetComponent<SpriteRenderer>();
     }
+
     protected Vector3 ClosestRelativeToArm()
     {
         return CharacterMover.closestRelativePosition - transform.localPosition;
@@ -39,5 +40,11 @@ public abstract class ArmController : MonoBehaviour
         Vector3 localScale = armTransform.localScale;
         localScale = new Vector3(length, localScale.y);
         armTransform.localScale = localScale;
+    }
+
+    protected void RestArm()
+    {
+        transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+        StretchArm(2);
     }
 }
