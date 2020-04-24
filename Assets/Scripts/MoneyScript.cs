@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-
+using TMPro;
 public class MoneyScript : MonoBehaviour
 {
-    [SerializeField] private Text uiText;
+    [SerializeField] private TMP_Text uiText;
 
     private int stageCount;
 
@@ -17,7 +17,7 @@ public class MoneyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        uiText.text = PersistentManagerScript.Instance.money.ToString();
+        uiText.text = "$" + PersistentManagerScript.Instance.money.ToString();
         
     }
 }
