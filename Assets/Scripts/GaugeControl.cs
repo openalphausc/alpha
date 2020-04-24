@@ -42,6 +42,7 @@ public class GaugeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -0.1f);
       if(gaugeMove.decreasing) {
         // adjust size of gauge front to make it seem like it's going down
         float targetPercent = 100*inputHandler.fluidRemaining[fluidIndex]/inputHandler.maxFluid;
@@ -56,7 +57,7 @@ public class GaugeControl : MonoBehaviour
           gaugeMove.decreasing = false;
         }
         if(currPercent < 0) transform.localScale = new Vector3(transform.localScale.x, 0.1f, 1f);
-        transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, 1f);
+        transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, -0.1f);
       }
       else if(inputHandler.refilling[fluidIndex]) {
         // adjust size of gauge front to make it seem like it's going down
@@ -71,7 +72,7 @@ public class GaugeControl : MonoBehaviour
           float min = Time.deltaTime * 0.004f;
           if(increase < min) increase = min;
 
-          transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + increase, 1f);
+          transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + increase, -0.1f);
         }
         else {
           transform.localScale = new Vector3(transform.localScale.x, startScale, transform.localScale.z);
@@ -82,7 +83,7 @@ public class GaugeControl : MonoBehaviour
           characterMover.timeCleaningUp = 2f;
         }
 
-        transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, 1f);
+        transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, -0.1f);
       }
       else if(inputHandler.fluidRemaining[fluidIndex] == 0) inputHandler.refilling[fluidIndex] = true;
     }

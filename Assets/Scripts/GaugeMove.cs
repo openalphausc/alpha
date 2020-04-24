@@ -28,11 +28,12 @@ public class GaugeMove : MonoBehaviour
     {
       // x and y are between 0 and cam.pixelWidth and cam.pixelHeight
       float x = 0.01f * cam.pixelWidth;
-      if(gameObject.name == "FluidGaugeJ") x *= 9f; // percents across the screen
-      if(gameObject.name == "FluidGaugeK") x *= 12f;
-      else if(gameObject.name == "FluidGaugeL") x *= 15f;
-      float y = 10f * 0.01f * cam.pixelHeight;
-      float z = 5f;
+      if(gameObject.name == "FluidGaugeJ") x *= 47f; // percents across the screen - CHANGE THESE
+      if(gameObject.name == "FluidGaugeK") x *= 50f;
+      else if(gameObject.name == "FluidGaugeL") x *= 53f;
+      float y = 0.01f * cam.pixelHeight;
+      y *= 10f; // percent across the screen - CHANGE THIS
+      float z = -9f;
 
       Vector3 worldPoint = cam.ScreenToWorldPoint(new Vector3(x, y, cam.nearClipPlane));
       transform.position = new Vector3(worldPoint.x, worldPoint.y, z);
