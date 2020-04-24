@@ -477,6 +477,7 @@ MonoBehaviour:
   cam: {fileID: 8084750350719487884}
   decreasing: 0
   fluidIndex: 0
+  sprite: {fileID: 0}
 --- !u!1 &8084750349647330691
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +567,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 120a73e0566f0d947ab696557508415d, type: 3}
-  m_Color: {r: 0.955125, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5620,6 +5621,7 @@ MonoBehaviour:
   cam: {fileID: 8084750350719487884}
   decreasing: 0
   fluidIndex: 1
+  sprite: {fileID: 0}
 --- !u!1 &8084750350199562620
 GameObject:
   m_ObjectHideFlags: 0
@@ -6360,7 +6362,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 120a73e0566f0d947ab696557508415d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6420,6 +6422,7 @@ MonoBehaviour:
   cam: {fileID: 8084750350719487884}
   decreasing: 0
   fluidIndex: 2
+  sprite: {fileID: 0}
 --- !u!1 &8084750350837061254
 GameObject:
   m_ObjectHideFlags: 0

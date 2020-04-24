@@ -22,6 +22,8 @@ public class GaugeControl : MonoBehaviour
 
     private CharacterMover characterMover;
 
+    public SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +39,20 @@ public class GaugeControl : MonoBehaviour
       gaugeMove = gameObject.transform.parent.gameObject.GetComponent<GaugeMove>();
 
       characterMover = character.GetComponent<CharacterMover>();
+
+      sprite = GetComponent<SpriteRenderer>();
+      print(sprite);
     }
 
     // Update is called once per frame
     void Update()
     {
+      Color newColor;
+      if(inputHandler.refilling[fluidIndex] || gaugeMove.decreasing) newColor = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
+      else newColor = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 150f /255f);
+      sprite.color = newColor;
+      print(gameObject.name + "  " + sprite.color.a);
+
       transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -0.1f);
       if(gaugeMove.decreasing) {
         // adjust size of gauge front to make it seem like it's going down
