@@ -18,21 +18,22 @@ public class SprayController : ArmController
         sprayColor[Smudge.SmudgeType.SmudgeJ] = Color.red;
         sprayColor[Smudge.SmudgeType.SmudgeK] = Color.yellow;
         sprayColor[Smudge.SmudgeType.SmudgeL] = Color.green;
-        
+
         //grab audio source for use in animateSpray
         source = GetComponent<AudioSource>();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
-
     // begins the spray animation process
-    public void AnimateSpray(Smudge.SmudgeType spray, bool showSprayParticles)
+    public bool AnimateSpray(Smudge.SmudgeType spray, bool showSprayParticles)
     {
+        if (!CharacterMover.targeting)
+        {
+            return false;
+        }
+        
         if (animating)
-        { //animation cancel
+        {
+            //animation cancel
             StopCoroutine(coroutine);
         }
 
@@ -40,26 +41,24 @@ public class SprayController : ArmController
 
         // aim the spraying arm
         Vector3 closest = ClosestRelativeToArm();
+
+        StretchArm(closest.magnitude / 2);
         transform.LookAt(closest + transform.position);
-        if (closest.magnitude <= maxArmLength * 2)
-        {
-            StretchArm(closest.magnitude / 2);
-        }
-        else
-        {
-            StretchArm(maxArmLength);
-        }
-        
+
         // spray particles
-        if(showSprayParticles) {
-          ParticleSystem.MainModule particlesMain = particles.main;
-          particlesMain.startColor = handRenderer.material.color;
-          particles.Play();
-          //if there's enough fluid (shiwSprayParticles), then play the spray sound effect
-          source.Play();
+        if (showSprayParticles)
+        {
+            ParticleSystem.MainModule particlesMain = particles.main;
+            particlesMain.startColor =
+                handRenderer.color;
+            particles.Play();
+            //if there's enough fluid (showSprayParticles), then play the spray sound effect
+            source.Play();
         }
+
         coroutine = FinishSpray();
         StartCoroutine(coroutine);
+        return true;
     }
 
     // after delay, retract arm
@@ -67,7 +66,7 @@ public class SprayController : ArmController
     {
         animating = true;
         yield return new WaitForSeconds(0.5f);
-        transform.rotation = Quaternion.identity;
+        RestArm();
         animating = false;
     }
 }

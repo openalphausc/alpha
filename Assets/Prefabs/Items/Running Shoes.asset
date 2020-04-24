@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
-  m_Name: sword
+  m_Name: Running Shoes
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 21300000, guid: b8462488bd07e004f98350a68ce058fd, type: 3}
-  price: 10
-  itemDescription: 
-  itemFlavorText: 
-  isWatch: 1
+  itemName: Running Shoes
+  icon: {fileID: 21300000, guid: 50d10cfb3c599204f9f29387eb91c9df, type: 3}
+  price: 75
+  itemDescription: Move along the window +X% faster.
+  itemFlavorText: Just wipe it.
+  isWatch: 0
   isHeadlamp: 0
-  moveSpeed: 100
+  moveSpeed: 50
   refillSpeed: 0
-  sprayIncrease: 5
+  sprayIncrease: 0
   refillRange: 0
   timePenalties: 0
   rangeIncrease: 0
   timeIncrease: 0
   incomeIncrease: 0
+  bonusOnCompletionIncrease: 0

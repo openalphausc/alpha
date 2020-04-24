@@ -15,6 +15,7 @@ public class InputHandler : MonoBehaviour
     public List<float> fluidRemaining;
     public List<bool> refilling;
     public float maxFluid = 4f;
+    public int incomePerWipe = 2;
 
     public GameObject gaugeJ;
     public GameObject gaugeK;
@@ -46,7 +47,7 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !FloorManager.moving)
+        if (Input.GetKeyDown(KeyCode.Space) && CharacterMover.targeting)
         {
             wiperController.AnimateWipe();
         }
@@ -88,7 +89,7 @@ public class InputHandler : MonoBehaviour
       Smudge.SmudgeType spray = Smudge.SmudgeType.SmudgeJ;
       if(fluidIndex == 1) spray = Smudge.SmudgeType.SmudgeK;
       else if(fluidIndex == 2) spray = Smudge.SmudgeType.SmudgeL;
-      sprayController.AnimateSpray(spray, (fluidRemaining[fluidIndex] > 0));
+      bool inRange = sprayController.AnimateSpray(spray, (fluidRemaining[fluidIndex] > 0));
       if(fluidRemaining[fluidIndex] > 0) {
         FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
         fluidRemaining[fluidIndex]--;

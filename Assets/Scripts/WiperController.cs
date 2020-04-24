@@ -5,23 +5,30 @@ using UnityEngine;
 // controls the wiper arm
 public class WiperController : ArmController
 {
-    [SerializeField] private float wipeRange; // maximum distance to successfully wipe
     [SerializeField] private float passiveReachRatio; // percentage to reach towards nearest target
-    private AudioSource source;
+
+    private AudioSource source_;
+
+    //so you can see the income per wipe
+    public int incomePerWipe = 0;
 
     protected override void Start()
     {
         base.Start();
-        source = GetComponent<AudioSource>();
+        source_ = GetComponent<AudioSource>();
+        //set the income per wipe to the income per wipe set in the inputHandler
+        incomePerWipe = transform.parent.gameObject.GetComponent<InputHandler>().incomePerWipe;
     }
 
-    protected override void Update()
+    void Update()
     {
-        base.Update();
-
-        if (ClosestRelativeToArm().magnitude <= targetRange && !animating)
+        if (CharacterMover.targeting && !animating)
         {
             PassiveWipe();
+        }
+        else if (!animating)
+        {
+            RestArm();
         }
     }
 
@@ -44,28 +51,24 @@ public class WiperController : ArmController
     public void AnimateWipe()
     {
         if (animating)
-        { // animation cancel
+        {
+            // animation cancel
             StopCoroutine(coroutine);
         }
 
-        // aim arm at target
+        // aim the spraying arm
         Vector3 closest = ClosestRelativeToArm();
+
+        StretchArm(closest.magnitude);
         transform.LookAt(closest + transform.position);
-        if (closest.magnitude <= maxArmLength)
-        {
-            StretchArm(closest.magnitude);
-        }
-        else
-        {
-            StretchArm(maxArmLength);
-        }
 
         // perform wipe
-        if (closest.magnitude <= wipeRange)
+        if (FloorManager.currentFloor.smudgeManager.WipeSmudge())
         {
-            if (FloorManager.currentFloor.smudgeManager.WipeSmudge())
-                source.Play();
+            source_.Play();
+            PersistentManagerScript.Instance.money += incomePerWipe;
         }
+
         coroutine = FinishWipe();
         StartCoroutine(coroutine);
     }
