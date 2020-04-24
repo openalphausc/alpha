@@ -12,8 +12,6 @@ public class SettingsMenu : MonoBehaviour
     [FormerlySerializedAs("SettingsMenuUI")] public GameObject settingsMenuUi;
 
     public AudioMixer masterMixer;
-    public AudioMixer soundMixer;
-    public AudioMixer sfxMixer;
     
     // Start is called before the first frame update
     void Start()
@@ -53,9 +51,21 @@ public class SettingsMenu : MonoBehaviour
         mainMenuUi.SetActive(true);
     }
 
-    public void setVolume(float volume)
+    public void SetVolume(float volume)
     {
         Debug.Log(volume);
         masterMixer.SetFloat("masterVolume", volume);
+    }
+    
+    public void SetMusicVolume(float volume)
+    {
+        Debug.Log(volume);
+        masterMixer.SetFloat("musicVolume", volume);
+    }
+    
+    public void SetSFXVolume(float volume)
+    {
+        Debug.Log(volume);
+        masterMixer.SetFloat("sfxVolume", volume);
     }
 }
