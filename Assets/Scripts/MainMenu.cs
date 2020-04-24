@@ -6,11 +6,11 @@ using UnityEngine.Serialization;
 
 public class MainMenu : MonoBehaviour
 {
-    [FormerlySerializedAs("MainMenuUI")] public GameObject mainMenuUi;
-
-    [FormerlySerializedAs("SettingsMenuUI")] public GameObject settingsMenuUi;
-    [FormerlySerializedAs("SettingsMenuUI")] public GameObject statsMenuUI;
-    [FormerlySerializedAs("SettingsMenuUI")] public GameObject helpMenuUI;
+    public GameObject mainMenuUi;
+    public GameObject settingsMenuUi;
+    public GameObject statsMenuUI;
+    public GameObject helpMenuUI;
+    public GameObject feedbackMenuUI;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +60,13 @@ public class MainMenu : MonoBehaviour
     {
         helpMenuUI.SetActive(true);
         mainMenuUi.SetActive(false);
+    }
+    
+    public void OpenFeedback()
+    {
+        feedbackMenuUI.SetActive(true);
+        mainMenuUi.SetActive(false);
+        helpMenuUI.SetActive(false);
     }
     
     public void ReturnToMain()

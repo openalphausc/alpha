@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-public class SettingsMenu : MonoBehaviour
+public class FeedbackMenu : MonoBehaviour
 {
     public GameObject helpMenuUI;
 
@@ -35,20 +35,20 @@ public class SettingsMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ReturnToMain();
+            ReturnToHelp();
         }
     }
 
     public void OpenFeedback()
     {
-        feedbackMenuUi.SetActive(true);
-        helpMenuUi.SetActive(false);
+        feedbackMenuUI.SetActive(true);
+        helpMenuUI.SetActive(false);
     }
     
     public void ReturnToHelp()
     {
-        feedbackMenuUi.SetActive(false);
-        helpMenuUi.SetActive(true);
+        feedbackMenuUI.SetActive(false);
+        helpMenuUI.SetActive(true);
     }
 
     public void SetVolume(float volume)
