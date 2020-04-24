@@ -22,7 +22,9 @@ public class GaugeControl : MonoBehaviour
 
     private CharacterMover characterMover;
 
-    public SpriteRenderer sprite;
+    private bool overflowing = false;
+    private float overflowTime = -1f;
+    private SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +50,20 @@ public class GaugeControl : MonoBehaviour
     void Update()
     {
       Color newColor;
-      if(inputHandler.refilling[fluidIndex] || gaugeMove.decreasing) newColor = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
-      else newColor = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 150f /255f);
+      float dull = 150f/255;
+      // flash when overflowing
+      if(overflowing) {
+        print("overflowing");
+        overflowTime -= Time.deltaTime;
+        if(characterMover.timeCleaningUp % 0.2f > 0.2f/2) newColor = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
+        else newColor = new Color(sprite.color.r, sprite.color.g, sprite.color.b, dull);
+        if(characterMover.speedState == 0 || overflowTime <= 0) overflowing = false;
+      }
+      // bright when gauge increasing or decreasing
+      else if(inputHandler.refilling[fluidIndex] || gaugeMove.decreasing) newColor = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
+      // dull when gauge static
+      else newColor = new Color(sprite.color.r, sprite.color.g, sprite.color.b, dull);
       sprite.color = newColor;
-      print(gameObject.name + "  " + sprite.color.a);
 
       transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -0.1f);
       if(gaugeMove.decreasing) {
@@ -91,7 +103,8 @@ public class GaugeControl : MonoBehaviour
           inputHandler.refilling[fluidIndex] = false;
           // start animation of cleaning up
           characterMover.speedState = 1;
-          characterMover.timeCleaningUp = 2f;
+          characterMover.timeCleaningUp = overflowTime = 2f;
+          overflowing = true;
         }
 
         transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, -0.1f);
