@@ -10,6 +10,7 @@ public class LoopTitleMusic: MonoBehaviour
 
     void Start()
     {
+        AudioListener.volume = 0.1f;
         musicIntro.Play();
         musicLoop.PlayDelayed(musicIntro.clip.length);
     }

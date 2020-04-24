@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -10,6 +11,10 @@ public class SettingsMenu : MonoBehaviour
 
     [FormerlySerializedAs("SettingsMenuUI")] public GameObject settingsMenuUi;
 
+    public AudioMixer masterMixer;
+    public AudioMixer soundMixer;
+    public AudioMixer sfxMixer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -46,5 +51,11 @@ public class SettingsMenu : MonoBehaviour
     {
         settingsMenuUi.SetActive(false);
         mainMenuUi.SetActive(true);
+    }
+
+    public void setVolume(float volume)
+    {
+        Debug.Log(volume);
+        masterMixer.SetFloat("masterVolume", volume);
     }
 }
