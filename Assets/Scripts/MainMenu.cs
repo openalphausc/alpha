@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
     [FormerlySerializedAs("MainMenuUI")] public GameObject mainMenuUi;
 
     [FormerlySerializedAs("SettingsMenuUI")] public GameObject settingsMenuUi;
+    [FormerlySerializedAs("SettingsMenuUI")] public GameObject statsMenuUI;
+    [FormerlySerializedAs("SettingsMenuUI")] public GameObject helpMenuUI;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +50,23 @@ public class MainMenu : MonoBehaviour
         mainMenuUi.SetActive(false);
     }
     
+    public void OpenStats()
+    {
+        statsMenuUI.SetActive(true);
+        mainMenuUi.SetActive(false);
+    }
+    
+    public void OpenHelp()
+    {
+        helpMenuUI.SetActive(true);
+        mainMenuUi.SetActive(false);
+    }
+    
     public void ReturnToMain()
     {
         settingsMenuUi.SetActive(false);
+        helpMenuUI.SetActive(false);
+        statsMenuUI.SetActive(false);
         mainMenuUi.SetActive(true);
     }
 }
