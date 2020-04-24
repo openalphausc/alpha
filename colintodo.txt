@@ -5,10 +5,13 @@ TODO
 color gets stronger when refilling - DONE
 
 how to tell when overflowing?
--color flashes? stops when player isn't slowed down anymore
+-color flashes? stops when player isn't slowed down anymore - DONE
 
 how to tell how many sprays to neutralize a green smudge?
--growing is slow when right below thresholds and fast when in the middle
+-growing is slow when right below thresholds and fast when in the middle - DONE
+
+why are my other sprays neutralizing the wrong smudges?
+-make them dramatically worse - DONE
 
 
 NOTE
