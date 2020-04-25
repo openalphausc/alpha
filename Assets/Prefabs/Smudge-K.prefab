@@ -98,5 +98,6 @@ MonoBehaviour:
   normalColorOn: {r: 1, g: 0.84278667, b: 0, a: 1}
   neutralizedColorOff: {r: 0.5943396, g: 0.5610535, b: 0.41211286, a: 1}
   neutralizedColorOn: {r: 1, g: 0.9524406, b: 0.7216981, a: 1}
+  percentNeutralized: 0
   neutralized: 0
   selected: 0
