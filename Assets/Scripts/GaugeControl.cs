@@ -10,6 +10,7 @@ public class GaugeControl : MonoBehaviour
     public GameObject character;
     private InputHandler inputHandler;
 
+    public float startPos;
     public float startScale;
     private float bottom;
 
@@ -28,13 +29,14 @@ public class GaugeControl : MonoBehaviour
       sprayController = sprayArmJoint.GetComponent<SprayController>();
       inputHandler = character.GetComponent<InputHandler>();
 
+      bottom = transform.position.y - transform.localScale.y/2.0f;
+      startPos = transform.position.y;
       startScale = transform.localScale.y;
-      bottom = -startScale/2;
+
+      gaugeMove = gameObject.transform.parent.gameObject.GetComponent<GaugeMove>();
 
       decreaseSpeed = 0.2f;
       increaseSpeed = 0.2f;
-
-      gaugeMove = gameObject.transform.parent.gameObject.GetComponent<GaugeMove>();
 
       characterMover = character.GetComponent<CharacterMover>();
     }
@@ -56,7 +58,7 @@ public class GaugeControl : MonoBehaviour
           gaugeMove.decreasing = false;
         }
         if(currPercent < 0) transform.localScale = new Vector3(transform.localScale.x, 0.1f, 1f);
-        transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, 1f);
+        transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 17 + bottom + transform.localScale.y/2.0f, 1f);
       }
       else if(inputHandler.refilling[fluidIndex]) {
         // adjust size of gauge front to make it seem like it's going down
@@ -82,7 +84,7 @@ public class GaugeControl : MonoBehaviour
           characterMover.timeCleaningUp = 2f;
         }
 
-        transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, 1f);
+        transform.position = new Vector3(transform.position.x, gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.position.y - 17 + bottom + transform.localScale.y/2.0f, 1f);
       }
       else if(inputHandler.fluidRemaining[fluidIndex] == 0) inputHandler.refilling[fluidIndex] = true;
     }

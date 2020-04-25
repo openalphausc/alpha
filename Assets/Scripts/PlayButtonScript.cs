@@ -7,15 +7,6 @@ public class PlayButtonScript : MonoBehaviour
 {
    public void PlayGame()
     {
-        SaveLoader.LoadGame();
-        SceneManager.LoadScene("BuildingScene");
+        SceneManager.LoadScene("SampleScene");
     }
-
-   void Update()
-   {
-       if (Input.GetKeyDown(KeyCode.Space))
-       {
-           SceneManager.LoadScene("BuildingScene");
-       }
-   }
 }

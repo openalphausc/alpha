@@ -14,15 +14,10 @@ public class Item : ScriptableObject
     public int moveSpeed;
     public int refillSpeed;
     public int sprayIncrease;
-    public double refillRange;
-    public double timePenalties;
-    public double rangeIncrease;
+    public int refillRange;
+    public int timePenalties;
+    public int rangeIncrease;
     public int timeIncrease;
     public int incomeIncrease;
-    public int bonusOnCompletionIncrease;
-
-    public void loadDataFromName(string name) {
-      itemName = name;
-      // load everything here
-    }
+    
 }

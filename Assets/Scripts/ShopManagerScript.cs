@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,13 +22,13 @@ public class ShopManagerScript : MonoBehaviour
     public void AttemptPurchase()
     {
 
-    }
+    }   
 
     //Template code
     public void GoToSecondScene(){
-
+        
     }
-
+    
     //used for debugging & testing
     public void IncreaseMoney(){
         PersistentManagerScript.Instance.money++;

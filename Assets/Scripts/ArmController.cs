@@ -5,6 +5,7 @@ using UnityEngine;
 // Superclass for WiperController and SprayController
 public abstract class ArmController : MonoBehaviour
 {
+    [SerializeField] protected float targetRange; // how close a smudge must be to be targeted
     [SerializeField] protected float maxArmLength; // maximum distance player can reach
     [SerializeField] protected GameObject arm;
     [SerializeField] protected GameObject hand;
@@ -24,6 +25,19 @@ public abstract class ArmController : MonoBehaviour
         handRenderer = hand.GetComponent<SpriteRenderer>();
     }
 
+    protected virtual void Update()
+    {
+        if (ClosestRelativeToArm().magnitude <= targetRange)
+        {
+            FloorManager.currentFloor.smudgeManager.SelectSmudge(CharacterMover.closestSmudge);
+        }
+        else
+        {
+            transform.rotation = Quaternion.identity;
+            FloorManager.currentFloor.smudgeManager.DeselectSmudge();
+        }
+    }
+
     protected Vector3 ClosestRelativeToArm()
     {
         return CharacterMover.closestRelativePosition - transform.localPosition;
@@ -40,11 +54,5 @@ public abstract class ArmController : MonoBehaviour
         Vector3 localScale = armTransform.localScale;
         localScale = new Vector3(length, localScale.y);
         armTransform.localScale = localScale;
-    }
-
-    protected void RestArm()
-    {
-        transform.rotation = Quaternion.Euler(90f, 90f, 0f);
-        StretchArm(2);
     }
 }

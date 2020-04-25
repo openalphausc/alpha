@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeSceneScript : MonoBehaviour
+public class ChangeScene : MonoBehaviour
 {
     public string sceneName;
     public void PlayGame()
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    public void ChangeScene()
     {
         SceneManager.LoadScene(sceneName);
     }
