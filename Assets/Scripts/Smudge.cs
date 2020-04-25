@@ -28,22 +28,44 @@ public class Smudge : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
+        string letter;
+        switch (type)
+        {
+            case SmudgeType.SmudgeJ:
+                letter = "J";
+                break;
+            case SmudgeType.SmudgeK:
+                letter = "K";
+                break;
+            case SmudgeType.SmudgeL:
+                letter = "L";
+                break;
+            default:
+                letter = "None";
+                break;
+        }
+
+        string filename = "Sprites/Smudge" + letter + "/Sprite" + letter + "" + PersistentManagerScript.Instance.levelIndex;
+
+        print(filename);
+        renderer.sprite = Resources.Load<Sprite>(filename);
 
         transform.localScale = new Vector3(startScale, startScale, startScale);
     }
 
     void Update()
     {
-      // green smudges grow slowly
-      if(type == SmudgeType.SmudgeL && !neutralized && FloorManager.currentFloor.smudgeManager.allSmudges.Contains(this)) {
-        percentNeutralized -= 10f * Time.deltaTime;
-      }
+        // green smudges grow slowly
+        if (type == SmudgeType.SmudgeL && !neutralized && FloorManager.currentFloor.smudgeManager.allSmudges.Contains(this))
+        {
+            percentNeutralized -= 10f * Time.deltaTime;
+        }
 
 
-      // change size of smudge based on percentNeutralized
-      float scalePercent = 100 - percentNeutralized;
-      if(scalePercent <= 40) scalePercent = 50;
-      transform.localScale = new Vector3(startScale * scalePercent/100, startScale * scalePercent/100, startScale * scalePercent/100);
+        // change size of smudge based on percentNeutralized
+        float scalePercent = 100 - percentNeutralized;
+        if (scalePercent <= 40) scalePercent = 50;
+        transform.localScale = new Vector3(startScale * scalePercent / 100, startScale * scalePercent / 100, startScale * scalePercent / 100);
     }
 
     public void Select()
@@ -61,10 +83,11 @@ public class Smudge : MonoBehaviour
     public void Neutralize(int percent = 100)
     {
         percentNeutralized += percent;
-        if(percentNeutralized >= 100f) {
-          percentNeutralized = 100f;
-          neutralized = true;
-          renderer.color = selected ? neutralizedColorOn : neutralizedColorOff;
+        if (percentNeutralized >= 100f)
+        {
+            percentNeutralized = 100f;
+            neutralized = true;
+            renderer.color = selected ? neutralizedColorOn : neutralizedColorOff;
         }
     }
 
@@ -72,6 +95,4 @@ public class Smudge : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
 }
