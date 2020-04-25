@@ -10,6 +10,8 @@ public class LoopTitleMusic: MonoBehaviour
 
     void Start()
     {
+        //Dampen the sound of the game
+        //AudioListener.volume = 0.1f;
         musicIntro.Play();
         musicLoop.PlayDelayed(musicIntro.clip.length);
     }

@@ -8,14 +8,14 @@ public class PlayButtonScript : MonoBehaviour
    public void PlayGame()
     {
         SaveLoader.LoadGame();
-        SceneManager.LoadScene("BuildingScene");
+        SceneManager.LoadScene("TutorialScene");
     }
 
    void Update()
    {
        if (Input.GetKeyDown(KeyCode.Space))
        {
-           SceneManager.LoadScene("BuildingScene");
+           PlayGame();
        }
    }
 }

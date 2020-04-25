@@ -52,10 +52,6 @@ public class CharacterMover : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
     void MovePlayer(float distance)

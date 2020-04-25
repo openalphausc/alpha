@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-
+using TMPro;
 public class TimerScript : MonoBehaviour
 {
-    [SerializeField] private Text uiText;
+    [SerializeField] private TMP_Text uiText;
 
     private float timer;
     public List<float> trackSplits;
