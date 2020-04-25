@@ -101,3 +101,7 @@ MonoBehaviour:
   percentNeutralized: 0
   neutralized: 0
   selected: 0
+  FloatingTextPrefab: {fileID: 9169145967977829911, guid: 47d55af7b3ca5394ea70dba91c2d34e4,
+    type: 3}
+  SmudgePosition: {x: 0, y: 0, z: 0}
+  SmudgeRotation: {x: 0, y: 0, z: 0, w: 0}
