@@ -76,8 +76,8 @@ public class InputHandler : MonoBehaviour
           // if refilling and above a certain point, stop refilling
           if(refilling[i] && fluidRemaining[i] >= 1) {
             refilling[i] = false;
-            // if targeting the right spray, also spray
-            if(FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == spray) {
+            // if targeting a sprayable spray, also spray
+            if(FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == Smudge.SmudgeType.SmudgeJ || FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == Smudge.SmudgeType.SmudgeK || FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == Smudge.SmudgeType.SmudgeL) {
               Spray(i);
             }
           }

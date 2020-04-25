@@ -1,0 +1,23 @@
+Welcome to Colin's todo.txt! Please don't delete this. He might forgot he wrote this and come back to it later when he gets a message like "Filename 'colintodo.txt' is taken."
+
+TODO
+
+color gets stronger when refilling - DONE
+
+how to tell when overflowing?
+-color flashes? stops when player isn't slowed down anymore - DONE
+
+how to tell how many sprays to neutralize a green smudge?
+-growing is slow when right below thresholds and fast when in the middle - DONE
+
+why are my other sprays neutralizing the wrong smudges?
+-make them dramatically worse - DONE
+
+
+NOTE
+
+question for #design (after playtests?)
+-what if all smudges started at a random size between 1 and 3ish? i.e. take 1-3 sprays to neutralize before wiping
+  -only after tutorial
+  -start at mostly 1, 2 is rare
+  -next levels vary it more to be equal distribution between 1-3

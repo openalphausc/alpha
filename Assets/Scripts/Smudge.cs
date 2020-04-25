@@ -17,7 +17,7 @@ public class Smudge : MonoBehaviour
     public Color normalColorOn;
     public Color neutralizedColorOff;
     public Color neutralizedColorOn;
-    public float percentNeutralized = 0; // 0 means not neutralized, 100 means neutralized, but it's a gradient
+    public float percentNeutralized = 100; // 0 means neutralized, 100 means normal (size 1), but it's a gradient
     public bool neutralized = false;
     public bool selected = false;
 
@@ -36,14 +36,15 @@ public class Smudge : MonoBehaviour
     {
       // green smudges grow slowly
       if(type == SmudgeType.SmudgeL && !neutralized && FloorManager.currentFloor.smudgeManager.allSmudges.Contains(this)) {
-        percentNeutralized -= 10f * Time.deltaTime;
+        float growPerSecond = 100f - (percentNeutralized % 100f);
+        if(growPerSecond < 1f) growPerSecond = 1f;
+        percentNeutralized += growPerSecond * Time.deltaTime;
       }
 
 
       // change size of smudge based on percentNeutralized
-      float scalePercent = 100 - percentNeutralized;
-      if(scalePercent <= 40) scalePercent = 50;
-      transform.localScale = new Vector3(startScale * scalePercent/100, startScale * scalePercent/100, startScale * scalePercent/100);
+      if(percentNeutralized <= 40) percentNeutralized = 50;
+      transform.localScale = new Vector3(startScale * percentNeutralized/100, startScale * percentNeutralized/100, startScale * percentNeutralized/100);
     }
 
     public void Select()
@@ -60,9 +61,9 @@ public class Smudge : MonoBehaviour
 
     public void Neutralize(int percent = 100)
     {
-        percentNeutralized += percent;
-        if(percentNeutralized >= 100f) {
-          percentNeutralized = 100f;
+        percentNeutralized -= percent;
+        if(percentNeutralized <= 0f) {
+          percentNeutralized = 0f;
           neutralized = true;
           renderer.color = selected ? neutralizedColorOn : neutralizedColorOff;
         }

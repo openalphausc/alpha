@@ -103,8 +103,8 @@ public class SmudgeManager : MonoBehaviour
             return;
         }
         // spray is not an exact match - neutralize either kinda or bad
-        int kinda = 50;
-        int bad = 34;
+        int kinda = 34;
+        int bad = 20;
         Smudge.SmudgeType smudge = allSmudges[currentTarget].type;
         Smudge.SmudgeType red = Smudge.SmudgeType.SmudgeJ;
         Smudge.SmudgeType yellow = Smudge.SmudgeType.SmudgeK;
