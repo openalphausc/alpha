@@ -9,6 +9,7 @@ public static class SaveLoader
 
   private static SaveState CreateSaveState() {
     SaveState save = new SaveState();
+    save.levelIndex = PersistentManagerScript.Instance.levelIndex;
     save.money = PersistentManagerScript.Instance.money;
     foreach (Item item in PersistentManagerScript.Instance.inventory) {
       save.inventory.Add(item.itemName);
@@ -30,6 +31,7 @@ public static class SaveLoader
   public static void LoadGame() {
     if (File.Exists(Application.persistentDataPath + "/gamesave.save")) {
       // clear current data
+      PersistentManagerScript.Instance.levelIndex = 0;
       PersistentManagerScript.Instance.money = 0;
       PersistentManagerScript.Instance.inventory = new List<Item>();
 
@@ -40,6 +42,7 @@ public static class SaveLoader
       file.Close();
 
       // load SaveState data into actual data
+      PersistentManagerScript.Instance.levelIndex = save.levelIndex;
       PersistentManagerScript.Instance.money = save.money;
       foreach (string name in save.inventory) {
         Item item = new Item();

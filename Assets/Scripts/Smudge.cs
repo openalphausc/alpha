@@ -28,6 +28,27 @@ public class Smudge : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
+        string letter;
+        switch (type)
+        {
+            case SmudgeType.SmudgeJ:
+                letter = "J";
+                break;
+            case SmudgeType.SmudgeK:
+                letter = "K";
+                break;
+            case SmudgeType.SmudgeL:
+                letter = "L";
+                break;
+            default:
+                letter = "None";
+                break;
+        }
+
+        string filename = "Sprites/Smudge" + letter + "/Sprite" + letter + "" + PersistentManagerScript.Instance.levelIndex;
+
+        print(filename);
+        renderer.sprite = Resources.Load<Sprite>(filename);
 
         transform.localScale = new Vector3(startScale, startScale, startScale);
     }
@@ -73,6 +94,4 @@ public class Smudge : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
 }
