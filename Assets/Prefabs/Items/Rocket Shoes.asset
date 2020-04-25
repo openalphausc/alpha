@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Rocket Shoes
   m_EditorClassIdentifier: 
   itemName: Rocket Shoes
-  icon: {fileID: 21300000, guid: fcb7f463730b37c41ba45fed40d48f5f, type: 3}
+  icon: {fileID: 21300000, guid: d6a2e21385edc514781785184f8b3541, type: 3}
   price: 300
   itemDescription: 'Move along the window +Z% faster. \n(Current: +Y% movement speed)'
   itemFlavorText: It's totally legal.
   isWatch: 0
   isHeadlamp: 0
-  moveSpeed: 50
+  moveSpeed: 100
   refillSpeed: 0
   sprayIncrease: 0
   refillRange: 0

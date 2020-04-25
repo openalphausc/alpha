@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Running Shoes
   m_EditorClassIdentifier: 
   itemName: Running Shoes
-  icon: {fileID: 21300000, guid: 50d10cfb3c599204f9f29387eb91c9df, type: 3}
+  icon: {fileID: 21300000, guid: ca3be38044fb1a84cb13921e94eee595, type: 3}
   price: 75
   itemDescription: Move along the window +X% faster.
   itemFlavorText: Just wipe it.
   isWatch: 0
   isHeadlamp: 0
-  moveSpeed: 50
+  moveSpeed: 100
   refillSpeed: 0
   sprayIncrease: 0
   refillRange: 0
