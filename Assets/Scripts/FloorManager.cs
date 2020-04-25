@@ -37,11 +37,16 @@ public class FloorManager : MonoBehaviour
             Smudge.SmudgeType.SmudgeL,
         };
         Scene currentScene = SceneManager.GetActiveScene();
-        if(currentScene.name != "TutorialScene") GenerateSmudges(minimumSmudges, maximumSmudges, randomness, availableTypes);
+        if (currentScene.name != "TutorialScene")
+        {
+            floorCount += 2 * PersistentManagerScript.Instance.levelIndex;
+            GenerateSmudges(minimumSmudges, maximumSmudges, randomness, availableTypes);
+        }
         allFloors.Clear();
         for(int i = 0; i < floorCount; i++)
         { // add each floor from the dataset to a new instance of a Floor
             GameObject floor = Instantiate(floorPrefab, new Vector3(0, (floorCount - 1 - i) * FLOOR_HEIGHT, 0), Quaternion.identity);
+            floor.transform.parent = this.transform;
             allFloors.Add(floor.GetComponent<Floor>());
             allFloors[i].InitializeFloor(smudgeData[i]);
         }

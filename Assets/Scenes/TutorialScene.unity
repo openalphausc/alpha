@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -493,18 +493,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf1613d90b0d72d4bbde65cf4bc59458, type: 3}
---- !u!1 &458015866 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8084750349003026426, guid: bf1613d90b0d72d4bbde65cf4bc59458,
-    type: 3}
-  m_PrefabInstance: {fileID: 458015865}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &458015867 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8084750350199562620, guid: bf1613d90b0d72d4bbde65cf4bc59458,
-    type: 3}
-  m_PrefabInstance: {fileID: 458015865}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &518780378
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,8 +732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorPrefab: {fileID: 914696457850060347, guid: d221a44e56383dd4f8ee4d292fb06d61,
     type: 3}
-  playerObjects: {fileID: 458015866}
-  character: {fileID: 458015867}
+  playerObjects: {fileID: 0}
+  character: {fileID: 0}
   descentSpeed: 10
   floorCount: 9
   minimumSmudges: 1
@@ -781,6 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c8748b210864d47b1ce40ee8364a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelIndex: 0
   money: 100
   inventory: []
 --- !u!4 &599010282

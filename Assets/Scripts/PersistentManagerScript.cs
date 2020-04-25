@@ -11,6 +11,8 @@ public class PersistentManagerScript : MonoBehaviour
     //Treat "Instance" as the equivalent of "player" here. Player.Buy(item) == Instance.Buy(item).
     public static PersistentManagerScript Instance { get; private set; }
 
+    public int levelIndex;
+    
     //Keeps track of the player's current total currency.
     //think about edge cases when editing this directly:
     //If a player starts a round, wipes some stuff, and exits to the title screen or quits the game, restarts the level,
