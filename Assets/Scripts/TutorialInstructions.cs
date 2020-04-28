@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TutorialInstructions : MonoBehaviour
 {
-    public Text displayText;
+    public TextMeshProUGUI displayText;
 
     private List<string> barks; // index is floor for both lists
     private List<float> barkStatus; // 0 = done and gone, 1 = pause and waiting for keypress, 2 = pause and timing out soon, 3+ = not paused and timing out soon
@@ -17,7 +18,7 @@ public class TutorialInstructions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      displayText = GetComponent<Text>();
+      displayText = GetComponent<TextMeshProUGUI>();
       displayText.text = "INSTRUCTIONS HERE";
 
       barks = new List<string>();
