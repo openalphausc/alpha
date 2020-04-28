@@ -11,7 +11,7 @@ public class PersistentManagerScript : MonoBehaviour
     //Treat "Instance" as the equivalent of "player" here. Player.Buy(item) == Instance.Buy(item).
     public static PersistentManagerScript Instance { get; private set; }
 
-    public int levelIndex;
+    public int levelIndex = 1;
     
     //Keeps track of the player's current total currency.
     //think about edge cases when editing this directly:
