@@ -39,7 +39,7 @@ public class FloorManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name != "TutorialScene")
         {
-            floorCount += 2 * (PersistentManagerScript.Instance.levelIndex-1);
+            floorCount += 2 * PersistentManagerScript.Instance.levelIndex;
             GenerateSmudges(minimumSmudges, maximumSmudges, randomness, availableTypes);
         }
         allFloors.Clear();
