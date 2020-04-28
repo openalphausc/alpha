@@ -58,7 +58,7 @@ public class TutorialInstructions : MonoBehaviour
       else displayText.text = barks[i];
 
       if(barkStatus[i] == 1 || barkStatus[i] == 2) Time.timeScale = 0f; // pause world
-      print("showing bark for currentBark = " + i);
+      // print("showing bark for currentBark = " + i);
 
       if(barkStatus[i] == 1 && (i == 3 && Input.GetKeyDown(KeyCode.Space)
       || i == 4 && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))

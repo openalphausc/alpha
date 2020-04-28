@@ -7,12 +7,12 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
- 
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        { 
+        {
             if (GameIsPaused)
             {
                 Resume();
@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
- 
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -46,6 +46,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void QuitGame()
     {
+        SaveLoader.SaveGame();
         Debug.Log("Quitting Game...");
         Application.Quit();
     }
