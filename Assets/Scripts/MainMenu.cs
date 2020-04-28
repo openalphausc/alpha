@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -11,11 +12,11 @@ public class MainMenu : MonoBehaviour
     public GameObject statsMenuUI;
     public GameObject helpMenuUI;
     public GameObject feedbackMenuUI;
-
+    public TMP_Text versionText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        versionText.text = "v" + Application.version;
     }
 
     public void PlayGame()
