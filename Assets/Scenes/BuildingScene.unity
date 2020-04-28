@@ -670,7 +670,7 @@ MonoBehaviour:
   playerObjects: {fileID: 1127927045}
   character: {fileID: 409764739}
   descentSpeed: 10
-  floorCount: 12
+  floorCount: -1
   minimumSmudges: 1
   maximumSmudges: 10
   randomness: 0.1
@@ -794,7 +794,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.0546875, y: 0.1640625, z: 0.05078125, w: -0.05078125}
+  m_BoundingSphereOverride: {x: 6.3e-43, y: 1.3180289e+22, z: 6.3e-43, w: 1.05e-43}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
