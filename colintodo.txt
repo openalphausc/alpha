@@ -5,12 +5,14 @@ TODO
 BUGS
 gauge makes it look like you get a free spray when you stop refilling
 
+you actually do get a free spray when refilling, and it doesn't cap it
+
 FEAT-BARKS
 pause game when showing boss' barks - DONE
 
-use new fancy font for boss' barks
+use new fancy font for boss' barks - DONE
 
-use Lee's writing for barks
+use Lee's writing for barks - DONE
 
 FEAT-SAVE-LOAD-DATA
 test saving and loading and stuff
