@@ -40,15 +40,15 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 21300000, guid: fdad697ff05f7a64b94223205912ec16, type: 3}
+  - logo: {fileID: 21300000, guid: 653fddeb1f8ad9042ae826bf1b761a6a, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: b26d892c18d40bf42b228c45f9d8a8ae, type: 3}
+  - logo: {fileID: 21300000, guid: bbb9a1a23a2c8e04c9cde155c3108c58, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: 3410996aa8adfba488f307ae43b124d9, type: 3}
+  - logo: {fileID: 21300000, guid: 95b2726427b5cca469ec39dc3a025c06, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: a6ad0ab574728c14aa6d7e095fe99199, type: 3}
-    duration: 2
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: df2db9362c8245041bd77e5c25c87651,
+  - logo: {fileID: 21300000, guid: f2cbdd9762272ec4a896d9b44e5c34f0, type: 3}
+    duration: 3
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: ed5eb57212684a849bd5c77cb65739b0,
     type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -129,7 +129,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.003a
+  bundleVersion: 0.004a
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -283,13 +283,13 @@ PlayerSettings:
   androidGamepadSupportLevel: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  resolutionDialogBanner: {fileID: 2800000, guid: 4faa51e6f2d27f24f91220cac87ab307,
+  resolutionDialogBanner: {fileID: 2800000, guid: f2cbdd9762272ec4a896d9b44e5c34f0,
     type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 4faa51e6f2d27f24f91220cac87ab307, type: 3}
+      m_Icon: {fileID: 2800000, guid: ed5eb57212684a849bd5c77cb65739b0, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

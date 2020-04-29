@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -12,11 +13,12 @@ public class FeedbackMenu : MonoBehaviour
     public GameObject feedbackMenuUI;
 
     public AudioMixer masterMixer;
+    public TMP_Text versionText;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        versionText.text = "v" + Application.version;
     }
 
     public void PlayGame()

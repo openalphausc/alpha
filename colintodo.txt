@@ -2,17 +2,18 @@ Welcome to Colin's todo.txt! Please don't delete this. He might forgot he wrote 
 
 TODO
 
-color gets stronger when refilling - DONE
+FEAT-SAVE-LOAD-DATA
+test saving and loading and stuff - DONE
 
-how to tell when overflowing?
--color flashes? stops when player isn't slowed down anymore - DONE
+TUTORIAL
+add yellow and green smudges and more barks
 
-how to tell how many sprays to neutralize a green smudge?
--growing is slow when right below thresholds and fast when in the middle - DONE
+BUGS/SMALL
+gauge makes it look like you get a free spray when you stop refilling
 
-why are my other sprays neutralizing the wrong smudges?
--make them dramatically worse - DONE
+you actually do get a free spray when refilling, and it doesn't cap it
 
+make player stand still when overflowing
 
 NOTE
 
