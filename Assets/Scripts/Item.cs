@@ -33,12 +33,12 @@ public class Item : ScriptableObject
 
         if (isWatch)
         {
-            itemDescription += "Lets you see the time.";
+            itemDescription += "Lets you see the time. \n";
         }
 
         if (isHeadlamp)
         {
-            itemDescription += "Lets you see into the dark.";
+            itemDescription += "Lets you see into the dark. \n";
         }
         
         if (moveSpeed != 0)
