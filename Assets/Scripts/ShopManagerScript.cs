@@ -17,7 +17,18 @@ public class ShopManagerScript : MonoBehaviour
     public List<Item> largeItemsList;
 
     private float HoldADTime;
+    public RectTransform HoldADFill;
+    public RectTransform HoldSpaceFill;
     private float HoldSpaceTime;
+    private int choice;
+
+
+    enum Choices
+    {
+        Small = 0,
+        Medium,
+        Large
+    }
 
     public string nextScene;
     // Start is called before the first frame update
@@ -39,32 +50,38 @@ public class ShopManagerScript : MonoBehaviour
             SmallItemSlot.ShowDescriptionPanel();
             MediumItemSlot.HideDescriptionPanel();
             LargeItemSlot.HideDescriptionPanel();
+            choice = (int) Choices.Small;
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
             SmallItemSlot.HideDescriptionPanel();
             MediumItemSlot.ShowDescriptionPanel();
             LargeItemSlot.HideDescriptionPanel();
+            choice = (int) Choices.Medium;
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
             SmallItemSlot.HideDescriptionPanel();
             MediumItemSlot.HideDescriptionPanel();
             LargeItemSlot.ShowDescriptionPanel();
+            choice = (int) Choices.Large;
         }
         
-        if (Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
             HoldADTime += Time.deltaTime;
-            print(HoldADTime);
+            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
+            print("been holding for " + (int)HoldADTime);
             if (HoldADTime > 1f)
             {
                 ChangeSceneScript.ChangeScene(nextScene);
             }
         }
-        else
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             HoldADTime = 0;
+            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
+            print("been holding for " + (int)HoldADTime);
         }
         
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
