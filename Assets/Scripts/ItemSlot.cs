@@ -9,10 +9,12 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] Item item;
     [SerializeField] Image image;
     [SerializeField] Button button;
+    [SerializeField] TMP_Text name;
 
     private void Start(){
         image.sprite = item.icon;
         button.GetComponentInChildren<TextMeshProUGUI>().text = item.price.ToString();
+        name.text = item.name;
     }
     
     //Method call to trigger when pressing the button.
