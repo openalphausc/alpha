@@ -22,7 +22,9 @@ public class Item : ScriptableObject
     public int bonusOnCompletionIncrease;
 
     public void loadDataFromName(string name) {
+      Debug.Log("Loading sprite from name for item " + name);
       itemName = name;
-      // load everything here
+      string filename = "Art/" + itemName;
+      icon = Resources.Load<Sprite>(itemName);
     }
 }
