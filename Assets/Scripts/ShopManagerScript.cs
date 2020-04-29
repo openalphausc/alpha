@@ -91,7 +91,11 @@ public class ShopManagerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             HoldSpaceTime += Time.deltaTime;
-            HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1); 
+            //don't stretch infinitely
+            if(HoldSpaceTime < 1.01)
+            {
+                HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime, 1, 1);
+            }
             print("been holding for " + (int)HoldSpaceTime);
             if (HoldSpaceTime > 1f)
             {
