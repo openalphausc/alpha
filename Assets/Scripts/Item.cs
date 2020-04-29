@@ -7,7 +7,6 @@ public class Item : ScriptableObject
     public string itemName;
     public Sprite icon;
     public int price;
-    public string itemDescription;
     public string itemFlavorText;
     public bool isWatch;
     public bool isHeadlamp;
@@ -30,7 +29,7 @@ public class Item : ScriptableObject
 
     public string getItemDescription()
     {
-        string itemDescription = "/0";
+        string itemDescription = "";
 
         if (isWatch)
         {
