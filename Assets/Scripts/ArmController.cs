@@ -32,13 +32,13 @@ public abstract class ArmController : MonoBehaviour
     // Used to extend the arm to a specified distance
     protected void StretchArm(float length)
     {
-        handTransform.localPosition = length * Vector3.forward;
-        armTransform.localPosition = length / 2 * Vector3.forward;
+        handTransform.localPosition = (length - 0.2f) * Vector3.forward;
+        armTransform.localPosition = (length / 2 - 0.2f) * Vector3.forward;
         handTransform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
-        armTransform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
+        armTransform.localRotation = Quaternion.Euler(new Vector3(0f, -90f, 90f));
 
         Vector3 localScale = armTransform.localScale;
-        localScale = new Vector3(length, localScale.y);
+        localScale = new Vector3(2, length);
         armTransform.localScale = localScale;
     }
 

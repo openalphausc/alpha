@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\cfire\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\cfire\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_alpha.1453246462.00" t="ExcludeRecursive" />
-    <e p="C:\Users\cfire\Desktop\alpha" t="IncludeRecursive">
+    <e p="C:\Users\owenm\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\owenm\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_alpha.-1138095546.00" t="ExcludeRecursive" />
+    <e p="C:\Users\owenm\Documents\~College\OpenAlpha\alpha" t="IncludeRecursive">
       <e p="alpha.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -20,9 +20,11 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="ArmController.cs" t="Include" />
-          <e p="ChangeScene.cs" t="Include" />
+          <e p="ChangeSceneScript.cs" t="Include" />
           <e p="CharacterMover.cs" t="Include" />
           <e p="ControlSheet.cs" t="Include" />
+          <e p="Feedback.cs" t="Include" />
+          <e p="FeedbackMenu.cs" t="Include" />
           <e p="Floor.cs" t="Include" />
           <e p="FloorManager.cs" t="Include" />
           <e p="GaugeControl.cs" t="Include" />
@@ -33,15 +35,24 @@
           <e p="Item.cs" t="Include" />
           <e p="ItemSlot.cs" t="Include" />
           <e p="LoopTitleMusic.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
           <e p="MoneyScript.cs" t="Include" />
+          <e p="Newspaper" t="Include">
+            <e p="FlipPage.cs" t="Include" />
+          </e>
+          <e p="PauseMenu.cs" t="Include" />
           <e p="PersistentManagerScript.cs" t="Include" />
           <e p="PlayButtonScript.cs" t="Include" />
+          <e p="SaveLoader.cs" t="Include" />
+          <e p="SaveState.cs" t="Include" />
+          <e p="SettingsMenu.cs" t="Include" />
           <e p="ShopManagerScript.cs" t="Include" />
           <e p="Smudge.cs" t="Include" />
           <e p="SmudgeManager.cs" t="Include" />
           <e p="SprayController.cs" t="Include" />
           <e p="SunLight.cs" t="Include" />
           <e p="TimerScript.cs" t="Include" />
+          <e p="TutorialInstructions.cs" t="Include" />
           <e p="WindowController.cs" t="Include" />
           <e p="WiperController.cs" t="Include" />
         </e>
