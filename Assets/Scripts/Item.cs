@@ -45,7 +45,7 @@ public class Item : ScriptableObject
         {
             itemDescription += "+";
             itemDescription += moveSpeed.ToString();
-            itemDescription += " to Move Speed \n";
+            itemDescription += "% Move Speed \n";
         }
 
         if (refillSpeed != 0)
@@ -59,7 +59,7 @@ public class Item : ScriptableObject
         {
             itemDescription += "+";
             itemDescription += sprayIncrease.ToString();
-            itemDescription += " to Spray \n";
+            itemDescription += " Sprays per Bottle \n";
         }
 
         if (refillRange != 0)
