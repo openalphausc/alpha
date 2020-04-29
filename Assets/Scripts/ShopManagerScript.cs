@@ -18,8 +18,8 @@ public class ShopManagerScript : MonoBehaviour
 
     private float HoldADTime;
     public RectTransform HoldADFill;
-    public RectTransform HoldSpaceFill;
     private float HoldSpaceTime;
+    public RectTransform HoldSpaceFill;
     private int choice;
 
 
@@ -36,15 +36,19 @@ public class ShopManagerScript : MonoBehaviour
     void Start()
     {
         //RandomizeItems();
+        HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1); 
+        HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
     }
     //make sure it happens before ItemSlot's start() runs
     void Awake()
     {
         RandomizeItems();
     }
+    
+    //Handles input from player
     void Update()
     {
-        
+        //select J
         if (Input.GetKeyDown(KeyCode.J))
         {
             SmallItemSlot.ShowDescriptionPanel();
@@ -77,11 +81,39 @@ public class ShopManagerScript : MonoBehaviour
                 ChangeSceneScript.ChangeScene(nextScene);
             }
         }
+        
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             HoldADTime = 0;
             HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
             print("been holding for " + (int)HoldADTime);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            HoldSpaceTime += Time.deltaTime;
+            HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1); 
+            print("been holding for " + (int)HoldSpaceTime);
+            if (HoldSpaceTime > 1f)
+            {
+                switch (choice)
+                {
+                    case (int) Choices.Small:
+                        SmallItemSlot.Buy();
+                        break;
+                    case (int) Choices.Medium:
+                        MediumItemSlot.Buy();
+                        break;
+                    case (int) Choices.Large:
+                        LargeItemSlot.Buy();
+                        break;
+                }
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            HoldSpaceTime = 0;
+            HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1); 
+            print("been holding for " + (int)HoldSpaceTime);
         }
         
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
