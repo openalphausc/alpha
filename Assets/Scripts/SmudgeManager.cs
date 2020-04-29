@@ -13,6 +13,8 @@ public class SmudgeManager : MonoBehaviour
     public GameObject prefabL;
     public GameObject prefabNone;
 
+    public GameObject leaveButton;
+
     public List<Smudge> allSmudges = new List<Smudge>(); // ACCESS VIA: FloorManager.currentFloor.smudgeManager.allSmudges
 
     public static int currentTarget = -1; // index in allSmudges that is being selected
@@ -35,7 +37,11 @@ public class SmudgeManager : MonoBehaviour
     {
         if (allSmudges.Count <= 0)
         {
-            if (!floorManager.NextFloor()) source.PlayOneShot(jingle, 0.1f);
+            if (!floorManager.NextFloor())
+            {
+                source.PlayOneShot(jingle, 0.1f);
+                GameObject button = Instantiate(leaveButton) as GameObject;
+            }
             Destroy(this);
             timerScript.runTimer = false;
         }

@@ -207,6 +207,8 @@ MonoBehaviour:
   prefabL: {fileID: 6156364550764763757, guid: 801f6186f7cac5f4883feb7df4648a29, type: 3}
   prefabNone: {fileID: 6156364550764763757, guid: 1743576c516c8ed41b20e99e20938c8b,
     type: 3}
+  leaveButton: {fileID: 5056577576163181635, guid: fb6aa287c0b70584ba9ffae1743d4186,
+    type: 3}
   allSmudges: []
 --- !u!82 &914696458970649811
 AudioSource:

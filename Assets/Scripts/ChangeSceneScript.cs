@@ -8,6 +8,7 @@ public class ChangeSceneScript : MonoBehaviour
     public string sceneName;
     public void PlayGame()
     {
+        SaveLoader.LoadGame();
         SceneManager.LoadScene(sceneName);
     }
 

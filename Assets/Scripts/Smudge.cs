@@ -51,7 +51,7 @@ public class Smudge : MonoBehaviour
 
         string filename = "Sprites/Smudge" + letter + "/Sprite" + letter + "" + PersistentManagerScript.Instance.levelIndex;
 
-        print(filename);
+        // print(filename);
         renderer.sprite = Resources.Load<Sprite>(filename);
 
         transform.localScale = new Vector3(startScale, startScale, startScale);
@@ -79,13 +79,13 @@ public class Smudge : MonoBehaviour
       transform.localScale = new Vector3(startScale * percentNeutralized/100, startScale * percentNeutralized/100, startScale * percentNeutralized/100);
     }
 
-    void ShowFloatingText() 
+    void ShowFloatingText()
     {
         GameObject helpUI = Instantiate(FloatingTextPrefab, SmudgePosition, SmudgeRotation, gameObject.transform);
         helpUI.transform.position -= new Vector3(0, 0, 1);
         string helperText = "";
         switch(this.type) {
-            case SmudgeType.SmudgeJ : 
+            case SmudgeType.SmudgeJ :
                 helperText = "J";
                 break;
             case SmudgeType.SmudgeK :

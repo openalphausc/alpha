@@ -28,9 +28,9 @@ public class GaugeMove : MonoBehaviour
     {
       // x and y are between 0 and cam.pixelWidth and cam.pixelHeight
       float x = 0.01f * cam.pixelWidth;
-      if(gameObject.name == "FluidGaugeJ") x *= 47f; // percents across the screen - CHANGE THESE
-      if(gameObject.name == "FluidGaugeK") x *= 50f;
-      else if(gameObject.name == "FluidGaugeL") x *= 53f;
+      if(gameObject.name == "FluidGaugeJ") x *= 10f; // percents across the screen - CHANGE THESE
+      if(gameObject.name == "FluidGaugeK") x *= 13f;
+      else if(gameObject.name == "FluidGaugeL") x *= 16f;
       float y = 0.01f * cam.pixelHeight;
       y *= 10f; // percent across the screen - CHANGE THIS
       float z = -9f;
