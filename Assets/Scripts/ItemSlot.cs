@@ -10,6 +10,7 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] Image image;
     [SerializeField] Button button;
     [SerializeField] TMP_Text name; 
+    [SerializeField] TMP_Text flavorText;
     [SerializeField] TMP_Text description;
     [SerializeField] GameObject descriptionPanel;
     [SerializeField] GameObject PurchasedPanel;
@@ -20,6 +21,7 @@ public class ItemSlot : MonoBehaviour
         name.text = item.name;
         //change this to item.getDescription() later.
         description.text = item.itemDescription;
+        flavorText.text = item.itemFlavorText;
     }
     
     public void Refresh(){
