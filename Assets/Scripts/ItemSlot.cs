@@ -25,11 +25,7 @@ public class ItemSlot : MonoBehaviour
     }
     
     public void Refresh(){
-        image.sprite = item.icon;
-        button.GetComponentInChildren<TextMeshProUGUI>().text = item.price.ToString();
-        name.text = item.name;
-        //change this to item.getDescription() later.
-        description.text = item.itemDescription;
+        Start();
     }
     
     //Method call to trigger when pressing the button.
