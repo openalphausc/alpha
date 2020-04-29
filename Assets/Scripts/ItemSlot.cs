@@ -9,12 +9,16 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] Item item;
     [SerializeField] Image image;
     [SerializeField] Button button;
-    [SerializeField] TMP_Text name;
+    [SerializeField] TMP_Text name; 
+    [SerializeField] TMP_Text description;
+    [SerializeField] GameObject descriptionPanel;
 
     private void Start(){
         image.sprite = item.icon;
         button.GetComponentInChildren<TextMeshProUGUI>().text = item.price.ToString();
         name.text = item.name;
+        //change this to item.getDescription() later.
+        description.text = item.itemDescription;
     }
     
     //Method call to trigger when pressing the button.
@@ -24,6 +28,15 @@ public class ItemSlot : MonoBehaviour
         //for now, just run the buy function.
         print("uhhh");
         PersistentManagerScript.Instance.Buy(item);
+    }
+
+    public void ShowDescriptionPanel()
+    {
+        descriptionPanel.SetActive(true);
+    }
+    public void HideDescriptionPanel()
+    {
+        descriptionPanel.SetActive(false);
     }
 
 }

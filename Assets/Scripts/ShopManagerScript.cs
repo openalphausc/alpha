@@ -11,6 +11,10 @@ public class ShopManagerScript : MonoBehaviour
     public GameObject SmallItemSlot;
     public GameObject MediumItemSlot;
     public GameObject LargeItemSlot;
+
+    public List<Item> smallItemsList;
+    public List<Item> mediumItemsList;
+    public List<Item> largeItemsList;
     // Start is called before the first frame update
     //Set the text managed by this manager to the player's money total
     void Start()
@@ -33,4 +37,10 @@ public class ShopManagerScript : MonoBehaviour
     public void IncreaseMoney(){
         PersistentManagerScript.Instance.money++;
     }
+
+    public void randomizeItems()
+    {
+        
+    }
+    
 }
