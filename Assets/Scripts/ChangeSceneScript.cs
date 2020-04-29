@@ -16,4 +16,8 @@ public class ChangeSceneScript : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+    public static void ChangeScene(string sceneIn)
+    {
+        SceneManager.LoadScene(sceneIn);
+    }
 }
