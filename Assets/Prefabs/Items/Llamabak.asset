@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
-  m_Name: Hydraulic Pump
+  m_Name: Llamabak
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
