@@ -24,6 +24,8 @@ public class PersistentManagerScript : MonoBehaviour
     public List<Item> inventory;
     //Consider adding other items such as record stats for display at end of rounds or in title "stats" screen
 
+    public AudioSource citysounds;
+
     //This runs when the presistentManagerScript is first run, before "Start()" of all items, so that it will be non-nul
     //if called early in a scene
     private void Awake()
@@ -40,6 +42,7 @@ public class PersistentManagerScript : MonoBehaviour
             //otherwise, destroy the gameObject trying to create another persistent manager instance (one exists)
             Destroy(gameObject);
         }
+        citysounds.Play();
     }
 
     /**Buy function: Input the item to the inventory if player can afford it AND doesn't already have the item. Reduce

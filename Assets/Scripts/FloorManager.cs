@@ -26,6 +26,11 @@ public class FloorManager : MonoBehaviour
     private WindowController windowController_;
     private CharacterMover characterMover_;
 
+    public AudioSource tutorialmusic;
+    public AudioSource volcanomusic;
+    public AudioSource squidmusic;
+    public AudioSource spaghettimusic;
+    public AudioSource arcademusic;
 
     void Start()
     {
@@ -41,7 +46,13 @@ public class FloorManager : MonoBehaviour
         {
             floorCount += 2 * PersistentManagerScript.Instance.levelIndex;
             GenerateSmudges(minimumSmudges, maximumSmudges, randomness, availableTypes);
+            // play music based on the level
+            if(PersistentManagerScript.Instance.levelIndex == 1) volcanomusic.Play();
+            else if(PersistentManagerScript.Instance.levelIndex == 2) squidmusic.Play();
+            else if(PersistentManagerScript.Instance.levelIndex == 3) spaghettimusic.Play();
+            else arcademusic.Play();
         }
+        else tutorialmusic.Play();
         allFloors.Clear();
         for(int i = 0; i < floorCount; i++)
         { // add each floor from the dataset to a new instance of a Floor
