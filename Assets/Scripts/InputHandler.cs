@@ -27,6 +27,8 @@ public class InputHandler : MonoBehaviour
     public GameObject character;
     private CharacterMover characterMover;
 
+    public AudioSource capsound;
+
     void Start()
     {
         wiperController = WiperArmJoint.GetComponent<WiperController>();
@@ -74,6 +76,7 @@ public class InputHandler : MonoBehaviour
           // if refilling and above a certain point, stop refilling
           if(refilling[i] && fluidRemaining[i] >= 1) {
             refilling[i] = false;
+            capsound.Play();
             if(SmudgeManager.currentTarget == -1) continue; // don't spray if not targeting anything
             Smudge.SmudgeType target = FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type;
             if(target == spray) Spray(i);
