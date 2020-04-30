@@ -6,8 +6,7 @@ using UnityEngine;
 // keeps track of the smudges on its floor
 public class SmudgeManager : MonoBehaviour
 {
-    public AudioSource source;
-    public AudioClip jingle;
+    public AudioSource buildingcompletesound;
     public GameObject prefabJ;
     public GameObject prefabK;
     public GameObject prefabL;
@@ -30,18 +29,19 @@ public class SmudgeManager : MonoBehaviour
         floorManager = GameObject.Find("FloorParent").GetComponent<FloorManager>();
         characterMover = GameObject.Find("Character").GetComponent<CharacterMover>();
         timerScript = GameObject.Find("TimeControl").GetComponent<TimerScript>();
-        source = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (allSmudges.Count <= 0)
         {
+            buildingcompletesound.Play();
             if (!floorManager.NextFloor())
             {
-                source.PlayOneShot(jingle, 0.1f);
+                buildingcompletesound.volume = 1f;
                 GameObject button = Instantiate(leaveButton) as GameObject;
             }
+            else buildingcompletesound.volume = 0.3f;
             Destroy(this);
             timerScript.runTimer = false;
         }
@@ -105,7 +105,7 @@ public class SmudgeManager : MonoBehaviour
         // spray matches exactly - neutralize perfectly
         if (spray == allSmudges[currentTarget].type)
         {
-            allSmudges[currentTarget].Neutralize();
+            allSmudges[currentTarget].Neutralize(100);
             return;
         }
         // spray is not an exact match - neutralize either kinda or bad
