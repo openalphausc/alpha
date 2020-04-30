@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
   m_Name: Pedometer
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Pedometer
   icon: {fileID: 0}
-  price: 0
+  price: 75
   itemFlavorText: 
   isWatch: 0
   isHeadlamp: 0

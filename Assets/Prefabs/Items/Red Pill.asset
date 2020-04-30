@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
   m_Name: Red Pill
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Red Pill
   icon: {fileID: 0}
-  price: 0
+  price: 150
   itemFlavorText: 
   isWatch: 0
   isHeadlamp: 0
@@ -24,6 +24,6 @@ MonoBehaviour:
   refillRange: 0
   timePenalties: 0
   rangeIncrease: 0
-  timeIncrease: 0
+  timeIncrease: 1000
   incomeIncrease: 0
   bonusOnCompletionIncrease: 0

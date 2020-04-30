@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
   m_Name: Roboarms
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  price: 0
+  itemName: Roboarms
+  icon: {fileID: 21300000, guid: 472c1d91d4ae654468e73a9bd07f563a, type: 3}
+  price: 150
   itemFlavorText: 
   isWatch: 0
   isHeadlamp: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   sprayIncrease: 0
   refillRange: 0
   timePenalties: 0
-  rangeIncrease: 0
+  rangeIncrease: 200
   timeIncrease: 0
   incomeIncrease: 0
   bonusOnCompletionIncrease: 0
