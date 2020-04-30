@@ -79,11 +79,11 @@ public class TutorialInstructions : MonoBehaviour
 
     void LoadBarks() {
       barks.Add("You're real new to this, huh?");
-      barkStatus.Add(1); nextBark.Add(1);
+      barkStatus.Add(2); nextBark.Add(1);
       barks.Add("You know what? I think I'll call you Squeegee.");
-      barkStatus.Add(1); nextBark.Add(2);
+      barkStatus.Add(2); nextBark.Add(2);
       barks.Add("ALRIGHT! Listen up 'cause I only want to explain this once.");
-      barkStatus.Add(1); nextBark.Add(3);
+      barkStatus.Add(2); nextBark.Add(3);
       barks.Add("You see those disgusting smudges? Press 'SPACE' to wipe 'em.");
       barkStatus.Add(1); nextBark.Add(-1);
 
@@ -117,9 +117,9 @@ public class TutorialInstructions : MonoBehaviour
       barkStatus.Add(3); nextBark.Add(-1);
 
       barks.Add("EH? What's that? More smudges on this building?"); // 16
-      barkStatus.Add(3); nextBark.Add(17);
+      barkStatus.Add(1); nextBark.Add(17);
       barks.Add("Alright, alright! I've got just the thing. Lemme...just... find it.");
-      barkStatus.Add(3); nextBark.Add(18);
+      barkStatus.Add(1); nextBark.Add(18);
       barks.Add("AH! Here ya go, Squeegee. Two new fluids to deal with those smudges!");
       barkStatus.Add(1); nextBark.Add(19);
       barks.Add("You're still new at this, so LISTEN UP!");
