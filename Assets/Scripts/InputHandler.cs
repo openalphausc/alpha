@@ -47,8 +47,6 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        if(Time.timeScale == 0f) return;
-        
         if (Input.GetKeyDown(KeyCode.Space) && CharacterMover.targeting)
         {
             wiperController.AnimateWipe();
