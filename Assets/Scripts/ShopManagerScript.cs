@@ -20,11 +20,12 @@ public class ShopManagerScript : MonoBehaviour
     public RectTransform HoldADFill;
     private float HoldSpaceTime;
     public RectTransform HoldSpaceFill;
-    private int choice;
+    private int choice = (int)Choices.None;
 
 
     enum Choices
     {
+        None = -1,
         Small = 0,
         Medium,
         Large
@@ -101,6 +102,10 @@ public class ShopManagerScript : MonoBehaviour
             {
                 switch (choice)
                 {
+                    case (int) Choices.None:
+                        //play buzz noise, no item selected
+                        print("no selection");
+                        break;
                     case (int) Choices.Small:
                         SmallItemSlot.Buy();
                         break;
@@ -125,6 +130,8 @@ public class ShopManagerScript : MonoBehaviour
             SmallItemSlot.HideDescriptionPanel();
             MediumItemSlot.HideDescriptionPanel();
             LargeItemSlot.HideDescriptionPanel();
+            //reset choice nothing
+            choice = (int) Choices.None;
         }
         
     }
