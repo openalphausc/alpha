@@ -21,6 +21,9 @@ public class CharacterMover : MonoBehaviour
     public static bool targeting = false;
     public float targetRange;
 
+    private bool startedwalking = false;
+    public AudioSource walksound;
+
     void Start()
     {
         float speedBonus = (PersistentManagerScript.Instance.InvSpeedBonus() / 100.0f);
@@ -34,6 +37,7 @@ public class CharacterMover : MonoBehaviour
     void Update()
     {
         if(speedState == 1) {
+          walksound.Stop();
           currentSpeed = slowedSpeed;
           timeCleaningUp -= Time.deltaTime;
           if(timeCleaningUp <= 0) speedState = 0;
@@ -42,11 +46,23 @@ public class CharacterMover : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+            if(!startedwalking) {
+              walksound.Play();
+              startedwalking = true;
+            }
             MovePlayer(-currentSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
+            if(!startedwalking) {
+              walksound.Play();
+              startedwalking = true;
+            }
             MovePlayer(currentSpeed);
+        }
+        else {
+          startedwalking = false;
+          walksound.Stop();
         }
 
         if(Input.GetKeyUp(KeyCode.R))

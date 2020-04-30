@@ -12,8 +12,10 @@ public class TutorialInstructions : MonoBehaviour
     private List<float> barkStatus; // 0 = done and gone, 1 = pause and waiting for keypress, 2 = pause and timing out soon, 3+ = not paused and timing out soon
     private List<int> nextBark;
     private float maxTimeOnScreen = 7f;
-    private int currentBark = 0;
+    private int currentBark = -1;
 
+    public AudioSource radiosound;
+    public AudioSource ahasound;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +35,19 @@ public class TutorialInstructions : MonoBehaviour
     {
       int floor = FloorManager.floorIndex;
       bool moving = FloorManager.moving;
-      if(floor == 1 && !moving) currentBark = 4;
-      else if(floor == 2 && !moving) currentBark = 5;
-      else if(floor == 3 && !moving) currentBark = 6;
+      bool startSounds = true;
+      if(floor == 0 && currentBark == -1) currentBark = 0;
+      else if(floor == 1 && !moving && currentBark == 3) currentBark = 4;
+      else if(floor == 2 && !moving && currentBark == 4) currentBark = 5;
+      else if(floor == 3 && !moving && currentBark == 5) currentBark = 6;
       else if(floor == 4 && !moving && currentBark == 6) currentBark = 7;
-      else if(floor == 5 && !moving) currentBark = 15;
+      else if(floor == 5 && !moving && currentBark == 14) currentBark = 15;
       else if(floor == 8 && !moving && currentBark == 15) currentBark = 16;
+      else startSounds = false;
+      if(startSounds) {
+        ahasound.Play();
+        radiosound.Play();
+      }
 
       ShowBark(currentBark);
     }
@@ -47,6 +56,7 @@ public class TutorialInstructions : MonoBehaviour
       if(barkStatus[i] == 0) {
         displayText.text = "";
         if(nextBark[i] != -1) currentBark = nextBark[i];
+        else radiosound.Stop();
         return;
       }
 
@@ -127,15 +137,15 @@ public class TutorialInstructions : MonoBehaviour
       barks.Add("Press 'K' to spray and cap the yellow fluid and 'L' for the green one.");
       barkStatus.Add(1); nextBark.Add(21);
       barks.Add("And watch out: this green one looks like it's growin'! Get that one first!");
-      barkStatus.Add(1); nextBark.Add(21);
+      barkStatus.Add(1); nextBark.Add(22);
       barks.Add("Remember: don't let 'em overflow! And keep track of your fluid supplies!");
-      barkStatus.Add(3); nextBark.Add(22);
-      barks.Add("You don't wanna stand around wasting time 'n waiting for one to refill.");
       barkStatus.Add(3); nextBark.Add(23);
-      barks.Add("TIME IS MONEY, SQUEEGEE!");
+      barks.Add("You don't wanna stand around wasting time 'n waiting for one to refill.");
       barkStatus.Add(3); nextBark.Add(24);
-      barks.Add("You better finish before sundown! Or else it's comin' out of your paychceck!");
+      barks.Add("TIME IS MONEY, SQUEEGEE!");
       barkStatus.Add(3); nextBark.Add(25);
+      barks.Add("You better finish before sundown! Or else it's comin' out of your paychceck!");
+      barkStatus.Add(3); nextBark.Add(26);
       barks.Add("**RADIO STATIC**");
       barkStatus.Add(3); nextBark.Add(-1);
     }
