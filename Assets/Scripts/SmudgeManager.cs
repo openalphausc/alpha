@@ -105,7 +105,7 @@ public class SmudgeManager : MonoBehaviour
         // spray matches exactly - neutralize perfectly
         if (spray == allSmudges[currentTarget].type)
         {
-            allSmudges[currentTarget].Neutralize();
+            allSmudges[currentTarget].Neutralize(100);
             return;
         }
         // spray is not an exact match - neutralize either kinda or bad
