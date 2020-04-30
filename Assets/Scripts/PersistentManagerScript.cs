@@ -12,7 +12,7 @@ public class PersistentManagerScript : MonoBehaviour
     public static PersistentManagerScript Instance { get; private set; }
 
     public int levelIndex;
-    
+
     //Keeps track of the player's current total currency.
     //think about edge cases when editing this directly:
     //If a player starts a round, wipes some stuff, and exits to the title screen or quits the game, restarts the level,
@@ -47,19 +47,22 @@ public class PersistentManagerScript : MonoBehaviour
      * Returns false _if the item is already in the inventory_ or _can't afford_
      * Returns true if the purchase is successful
      */
-    public bool Buy(Item item)
+    public bool Buy(Item item, AudioSource success, AudioSource error)
     {
         if (inventory.Contains(item))
         {
+            error.Play();
             return false;
         }
 
         if (money < item.price)
         {
+            error.Play();
             return false;
         }
 
         print("Successful buy!");
+        success.Play();
         money -= item.price;
         inventory.Add(item);
         return true;
