@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
-  m_Name: sword
+  m_Name: New Item
   m_EditorClassIdentifier: 
   itemName: 
-  icon: {fileID: 21300000, guid: b8462488bd07e004f98350a68ce058fd, type: 3}
-  price: 10
-  itemDescription: 
+  icon: {fileID: 0}
+  price: 0
   itemFlavorText: 
-  isWatch: 1
+  isWatch: 0
   isHeadlamp: 0
-  moveSpeed: 100
+  moveSpeed: 0
   refillSpeed: 0
-  sprayIncrease: 5
+  sprayIncrease: 0
   refillRange: 0
   timePenalties: 0
   rangeIncrease: 0
   timeIncrease: 0
   incomeIncrease: 0
+  bonusOnCompletionIncrease: 0
