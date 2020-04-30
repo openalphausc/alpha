@@ -158,17 +158,20 @@ public class ShopManagerScript : MonoBehaviour
         //randomize small item slot
         var index = Random.Range(0, smallItemsList.Count());
         if(smallItemsList.Any())
-        SmallItemSlot.item = smallItemsList[index];
+            if(smallItemsList[index] != null)
+                SmallItemSlot.item = smallItemsList[index];
         
         //randomize Medium item slot
         index = Random.Range(0, mediumItemsList.Count());
         if(mediumItemsList.Any())
-        MediumItemSlot.item = mediumItemsList[index];
+            if(mediumItemsList[index] != null)
+                MediumItemSlot.item = mediumItemsList[index];
         
         //randomize Large item slot
         index = Random.Range(0, largeItemsList.Count());
         if(largeItemsList.Any())
-        LargeItemSlot.item = largeItemsList[index];
+            if(largeItemsList[index] != null)
+                LargeItemSlot.item = largeItemsList[index];
         
         SmallItemSlot.Refresh();
         MediumItemSlot.Refresh();
