@@ -38,7 +38,7 @@ public class TutorialInstructions : MonoBehaviour
       else if(floor == 3 && !moving) currentBark = 6;
       else if(floor == 4 && !moving && currentBark == 6) currentBark = 7;
       else if(floor == 5 && !moving) currentBark = 15;
-      else if(floor == 8 && moving && currentBark == 15) currentBark = 16;
+      else if(floor == 8 && !moving && currentBark == 15) currentBark = 16;
 
       ShowBark(currentBark);
     }
@@ -126,7 +126,9 @@ public class TutorialInstructions : MonoBehaviour
       barkStatus.Add(1); nextBark.Add(20);
       barks.Add("Press 'K' to spray and cap the yellow fluid and 'L' for the green one.");
       barkStatus.Add(1); nextBark.Add(21);
-      barks.Add("And remember: don't let 'em overflow! And keep track of your fluid supplies!");
+      barks.Add("And watch out: this green one looks like it's growin'! Get that one first!");
+      barkStatus.Add(1); nextBark.Add(21);
+      barks.Add("Remember: don't let 'em overflow! And keep track of your fluid supplies!");
       barkStatus.Add(3); nextBark.Add(22);
       barks.Add("You don't wanna stand around wasting time 'n waiting for one to refill.");
       barkStatus.Add(3); nextBark.Add(23);

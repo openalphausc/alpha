@@ -27,7 +27,8 @@ public class CharacterMover : MonoBehaviour
         movementSpeed = baseSpeed;
         movementSpeed *= (1 + speedBonus);
         currentSpeed = movementSpeed;
-        slowedSpeed = 0.2f * movementSpeed;
+        // slowedSpeed = 0.2f * movementSpeed;
+        slowedSpeed = 0f;
     }
 
     void Update()
@@ -95,7 +96,7 @@ public class CharacterMover : MonoBehaviour
         }
 
         closestRelativePosition = closestPosition;
-        
+
         if (closestRelativePosition.magnitude <= targetRange)
         {
             FloorManager.currentFloor.smudgeManager.SelectSmudge(CharacterMover.closestSmudge);

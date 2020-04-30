@@ -175,8 +175,8 @@ public class FloorManager : MonoBehaviour
         {
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+6, 2, 0), Smudge.SmudgeType.SmudgeK),
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(1, 5, 0), Smudge.SmudgeType.SmudgeNone),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+5, 1, 0), Smudge.SmudgeType.SmudgeK),
-            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-5, 4, 0), Smudge.SmudgeType.SmudgeNone),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(+5, 1, 0), Smudge.SmudgeType.SmudgeL),
+            new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-5, 4, 0), Smudge.SmudgeType.SmudgeK),
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(3, 3, 0), Smudge.SmudgeType.SmudgeK),
             new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(-3, 1, 0), Smudge.SmudgeType.SmudgeNone),
         },

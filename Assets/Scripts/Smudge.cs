@@ -67,7 +67,7 @@ public class Smudge : MonoBehaviour
     void Update()
     {
       // green smudges grow slowly
-      if(type == SmudgeType.SmudgeL && !neutralized && FloorManager.currentFloor.smudgeManager.allSmudges.Contains(this)) {
+      if(type == SmudgeType.SmudgeL && !neutralized && FloorManager.currentFloor.smudgeManager.allSmudges.Contains(this) && percentNeutralized < 400f) {
         float growPerSecond = 100f - (percentNeutralized % 100f);
         if(growPerSecond < 1f) growPerSecond = 1f;
         percentNeutralized += growPerSecond * Time.deltaTime;
