@@ -16,12 +16,15 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] GameObject PurchasedPanel;
 
     private void Start(){
-        image.sprite = item.icon;
-        button.GetComponentInChildren<TextMeshProUGUI>().text = item.price.ToString();
-        name.text = item.name;
-        //change this to item.getDescription() later.
-        description.text = item.getItemDescription();
-        flavorText.text = item.itemFlavorText;
+        if(item != null)
+        {
+            image.sprite = item.icon;
+            button.GetComponentInChildren<TextMeshProUGUI>().text = item.price.ToString();
+            name.text = item.name;
+            //change this to item.getDescription() later.
+            description.text = item.getItemDescription();
+            flavorText.text = item.itemFlavorText;
+        }
     }
     
     public void Refresh(){
