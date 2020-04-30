@@ -3055,10 +3055,10 @@ MonoBehaviour:
   LargeItemSlot: {fileID: 1287761075}
   smallItemsList:
   - {fileID: 11400000, guid: bee0c02ea43747643970c99ed1e236b4, type: 2}
-  - {fileID: 11400000, guid: a1bc094c6e2b89a4cbe65b69ac411e18, type: 2}
+  - {fileID: 11400000, guid: f48d5d96d0d4639489bf300c7f94c6a4, type: 2}
   mediumItemsList:
   - {fileID: 11400000, guid: 30b754bd43fa8ae4b8a45cd09f24bf87, type: 2}
-  - {fileID: 11400000, guid: 559a75ac22f6f9b469371270b9414139, type: 2}
+  - {fileID: 11400000, guid: 1bf6e37a75fcc724f86cf2fa30900374, type: 2}
   largeItemsList:
   - {fileID: 11400000, guid: 87f7d5c7c4c215e4995ceac5ad886a53, type: 2}
   - {fileID: 11400000, guid: f9dc54b781c7c5448a3733717d4f70d1, type: 2}
