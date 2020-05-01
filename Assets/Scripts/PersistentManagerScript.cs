@@ -33,6 +33,8 @@ public class PersistentManagerScript : MonoBehaviour
     //if called early in a scene
     private void Awake()
     {
+        //dampen sound globally
+        AudioListener.volume = 0.2f;
         //If there isn't an instance yet, create one
         if (Instance == null)
         {
