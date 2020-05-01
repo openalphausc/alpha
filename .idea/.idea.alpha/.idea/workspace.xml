@@ -4,9 +4,6 @@
     <list default="true" id="cf3e2290-4e0c-454b-9933-7691dfbf67e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.alpha/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.alpha/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.alpha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.alpha/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerObjects.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerObjects.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BuildingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BuildingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/FloorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FloorManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,9 +56,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ArmController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ShopManagerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FloorManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SunLight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Smudge.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FloorManager.cs" />
       </list>
     </option>
   </component>

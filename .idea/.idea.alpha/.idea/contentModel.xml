@@ -23,6 +23,7 @@
           <e p="ArmController.cs" t="Include" />
           <e p="ChangeSceneScript.cs" t="Include" />
           <e p="CharacterMover.cs" t="Include" />
+          <e p="Cityscape.cs" t="Include" />
           <e p="ControlSheet.cs" t="Include" />
           <e p="Feedback.cs" t="Include" />
           <e p="FeedbackMenu.cs" t="Include" />
