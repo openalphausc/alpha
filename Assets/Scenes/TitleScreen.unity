@@ -8508,7 +8508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 0
   floorSplits: []
-  money: 100
+  money: 0
   inventory: []
   citysounds: {fileID: 1679164027}
 --- !u!4 &1679164026
