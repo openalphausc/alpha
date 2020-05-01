@@ -19,7 +19,7 @@ public class WiperController : ArmController
         base.Start();
         // source_ = GetComponent<AudioSource>();
         //set the income per wipe to the income per wipe set in the inputHandler
-        incomePerFloor = transform.parent.gameObject.GetComponent<InputHandler>().incomePerWipe;
+        incomePerFloor = transform.parent.gameObject.GetComponent<InputHandler>().incomePerFloor;
     }
 
     void Update()

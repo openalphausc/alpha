@@ -15,7 +15,7 @@ public class InputHandler : MonoBehaviour
     public List<float> fluidRemaining;
     public List<bool> refilling;
     public float maxFluid = 4f;
-    public int incomePerWipe = 2;
+    public int incomePerFloor = 2;
 
     public GameObject gaugeJ;
     public GameObject gaugeK;

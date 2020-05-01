@@ -21,7 +21,7 @@ MonoBehaviour:
   isHeadlamp: 0
   moveSpeed: 0
   refillSpeed: 0
-  sprayIncrease: 50
+  sprayIncrease: 2
   refillRange: 0
   timePenalties: 0
   rangeIncrease: 0

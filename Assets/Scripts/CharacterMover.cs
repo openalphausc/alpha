@@ -32,6 +32,8 @@ public class CharacterMover : MonoBehaviour
         currentSpeed = movementSpeed;
         // slowedSpeed = 0.2f * movementSpeed;
         slowedSpeed = 0f;
+        //increase target range based on extended reach from inventory
+        targetRange *= (float) (1 + PersistentManagerScript.Instance.InvRangeIncrease()/100);
     }
 
     void Update()
