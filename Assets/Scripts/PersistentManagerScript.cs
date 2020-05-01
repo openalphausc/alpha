@@ -12,6 +12,7 @@ public class PersistentManagerScript : MonoBehaviour
     public static PersistentManagerScript Instance { get; private set; }
 
     public int levelIndex;
+    public float levelProgress;
     
     //keeps lifetime track of the player's splits
     public List<float> floorSplits;
@@ -33,6 +34,8 @@ public class PersistentManagerScript : MonoBehaviour
     //if called early in a scene
     private void Awake()
     {
+        //dampen sound globally
+        AudioListener.volume = 0.2f;
         //If there isn't an instance yet, create one
         if (Instance == null)
         {

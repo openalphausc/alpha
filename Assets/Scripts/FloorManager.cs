@@ -11,6 +11,7 @@ public class FloorManager : MonoBehaviour
     public GameObject floorPrefab;
     public GameObject playerObjects;
     public GameObject character;
+    public GameObject background;
     [SerializeField] private float descentSpeed; // How quickly the platform transitions between floors
     [SerializeField] private int floorCount; // Number of floors
     [SerializeField] private int minimumSmudges; // Lowest number of possible smudges on a floor
@@ -66,6 +67,8 @@ public class FloorManager : MonoBehaviour
         floorIndex = 0;
         playerObjects.transform.position = new Vector3(0, (floorCount - 1) * FLOOR_HEIGHT, 0); // start at top floor
 
+        PersistentManagerScript.Instance.levelProgress = 0f;
+
         windowController_ = GetComponent<WindowController>();
         characterMover_ = character.GetComponent<CharacterMover>();
     }
@@ -75,6 +78,11 @@ public class FloorManager : MonoBehaviour
         if (moving)
         { // move character, platform, camera, etc. down a floor
             playerObjects.transform.Translate(0, -descentSpeed * Time.deltaTime, 0);
+            if (floorIndex < 16)
+            {
+                background.transform.Translate(0, descentSpeed / 35f * Time.deltaTime, 0);
+            }
+
             if (playerObjects.transform.position.y <= (floorCount - floorIndex - 1) * FLOOR_HEIGHT)
             { // stop when arrived
                 playerObjects.transform.position = new Vector3(0,  (floorCount - floorIndex - 1) * FLOOR_HEIGHT, 0);
@@ -90,6 +98,8 @@ public class FloorManager : MonoBehaviour
 
     public bool NextFloor() // go to the next floor down. returns false if at bottom
     {
+        PersistentManagerScript.Instance.levelProgress = ((float) floorIndex) / floorCount;
+        
         floorIndex++;
         if (floorIndex >= floorCount)
         {
@@ -113,13 +123,29 @@ public class FloorManager : MonoBehaviour
             double randomCount = range * random.NextDouble() + minSmudges; // totally random amount within range
             double actualCount = variance * randomCount + (1 - variance) * predictedCount; // weighted average of the two based on variance
             int roundedCount = (int) Math.Round(actualCount); // nearest int
+
+            int countL = 0;
             for (int j = 0; j < roundedCount; j++)
             {
                 double xSlot = 14.0 / roundedCount * j - 7; // each smudge gets its own horizontal segment
                 double xShift = 14.0 / roundedCount * (random.NextDouble() * 0.8 + 0.1); // random spot within that slot, not too close to edge (10% margin)
                 float xPos = (float)(xSlot + xShift); // add the two for the actual x value
                 float yPos = 4 * (float)random.NextDouble() + 1; // totally random height
-                int randomType = random.Next() % types.Count; // totally random smudge
+
+                int randomType = random.Next();
+                if (countL < 2)
+                {
+                    randomType %= types.Count; // totally random smudge
+                    if (randomType == 3)
+                    {
+                        countL++;
+                    }
+                }
+                else
+                {
+                    randomType %= types.Count - 1;
+                }
+
                 positions.Add(new Tuple<Vector3, Smudge.SmudgeType>(new Vector3(xPos, yPos, 0), types[randomType]));
             }
             smudgeData.Add(positions);
