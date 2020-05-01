@@ -235,8 +235,8 @@ public class PersistentManagerScript : MonoBehaviour
     }
 
     /**
-     * Returns an int, the percentage income per wipe increase the player has from all their items. Apply in
-     * the start function of Wiper Controller in the assignment of incomePerWipe (feat-cash-shit branch)
+     * Returns an int, the percentage income per floor increase the player has from all their items. Apply in
+     * the start function of Wiper Controller in the assignment of incomePerFloor (feat-cash-shit branch)
      */
     public int InvIncomeIncrease()
     {
