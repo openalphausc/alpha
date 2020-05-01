@@ -12,6 +12,7 @@ public class PersistentManagerScript : MonoBehaviour
     public static PersistentManagerScript Instance { get; private set; }
 
     public int levelIndex;
+    public float levelProgress;
     
     //keeps lifetime track of the player's splits
     public List<float> floorSplits;

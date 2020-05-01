@@ -67,6 +67,8 @@ public class FloorManager : MonoBehaviour
         floorIndex = 0;
         playerObjects.transform.position = new Vector3(0, (floorCount - 1) * FLOOR_HEIGHT, 0); // start at top floor
 
+        PersistentManagerScript.Instance.levelProgress = 0f;
+
         windowController_ = GetComponent<WindowController>();
         characterMover_ = character.GetComponent<CharacterMover>();
     }
@@ -96,6 +98,8 @@ public class FloorManager : MonoBehaviour
 
     public bool NextFloor() // go to the next floor down. returns false if at bottom
     {
+        PersistentManagerScript.Instance.levelProgress = ((float) floorIndex) / floorCount;
+        
         floorIndex++;
         if (floorIndex >= floorCount)
         {
