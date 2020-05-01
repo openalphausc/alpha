@@ -45,9 +45,10 @@ public static class SaveLoader
       PersistentManagerScript.Instance.levelIndex = save.levelIndex;
       PersistentManagerScript.Instance.money = save.money;
       foreach (string name in save.inventory) {
-        Item item = new Item();
-        item.loadDataFromName(name);
+        Debug.Log(" iterating through save inventory item " + name);
+        Item item = Resources.Load<Item>("Items/" + name);
         PersistentManagerScript.Instance.inventory.Add(item);
+        Debug.Log(" loaded");
       }
 
       Debug.Log("Game Loaded");
