@@ -38,14 +38,6 @@ public class SmudgeManager : MonoBehaviour
         if (allSmudges.Count <= 0)
         {
             buildingcompletesound.Play();
-            //add income!;
-            int baseIncome = minIncomePerFloor + Math.Max(0,
-                10 - (int) (PersistentManagerScript.Instance.floorSplits[
-                    PersistentManagerScript.Instance.floorSplits.Count() - 1]
-                )
-            );
-            int income = baseIncome * (int) (PersistentManagerScript.Instance.InvIncomeIncrease()/100.0);
-            PersistentManagerScript.Instance.money += income;
             if (!floorManager.NextFloor())
             {
                 buildingcompletesound.volume = 1f;
@@ -55,6 +47,14 @@ public class SmudgeManager : MonoBehaviour
 
             Destroy(this);
             timerScript.runTimer = false;
+            timerScript.addTime();
+            //add income!;
+            int baseIncome = minIncomePerFloor + Math.Max(0,
+                5 - (int) (timerScript.trackSplits.Last()));
+            // print("base income:" + baseIncome);
+            int income = (int) (baseIncome * (1 + (PersistentManagerScript.Instance.InvIncomeIncrease()/100.0)));
+            // print("total income: " + income);
+            PersistentManagerScript.Instance.money += income;
         }
     }
 
