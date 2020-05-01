@@ -33,7 +33,7 @@ public class InputHandler : MonoBehaviour
     {
         wiperController = WiperArmJoint.GetComponent<WiperController>();
         sprayController = SprayArmJoint.GetComponent<SprayController>();
-
+        maxFluid += PersistentManagerScript.Instance.InvSprayIncrease();
         fluidRemaining.Clear();
         for(int i = 0; i < 3; i++) {
           fluidRemaining.Add(maxFluid);
