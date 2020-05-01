@@ -25,9 +25,13 @@ public class Cityscape : MonoBehaviour
       if(elapsedTime < darkTime) elapsedTime += Time.deltaTime;
       else return;
 
-      float red = 255f - ((255f - finalRed) * elapsedTime/darkTime);
-      float green = 255f - ((255f - finalGreen) * elapsedTime/darkTime);
-      float blue = 255f - ((255f - finalBlue) * elapsedTime/darkTime);
-      sprite.color = new Color(red/255, green/255, blue/255);
+      float t = elapsedTime/darkTime;
+      float ratio = t*t*t*t; // model a t^4 curve in approaching darkness
+      Debug.Log(ratio);
+      float red = 1f - ratio*(1 - finalRed/255);
+      Debug.Log("red = " + red);
+      float green = 1f - ratio*(1 - finalGreen/225);
+      float blue = 1f - ratio*(1 - finalBlue/255);
+      sprite.color = new Color(red, green, blue);
     }
 }
