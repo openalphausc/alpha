@@ -1060,6 +1060,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bee0c02ea43747643970c99ed1e236b4, type: 2}
   - {fileID: 11400000, guid: 60f6ff8379ff2744d9469a42cf4dc22c, type: 2}
   - {fileID: 11400000, guid: 5f511740a4f72ff4098c4a3ebc53a70f, type: 2}
+  - {fileID: 11400000, guid: 293137cb851fcab498ed735a96f15ff5, type: 2}
   citysounds: {fileID: 599010283}
 --- !u!4 &599010282
 Transform:
