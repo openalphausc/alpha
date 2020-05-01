@@ -76,7 +76,11 @@ public class FloorManager : MonoBehaviour
         if (moving)
         { // move character, platform, camera, etc. down a floor
             playerObjects.transform.Translate(0, -descentSpeed * Time.deltaTime, 0);
-            background.transform.Translate(0, descentSpeed / 35f * Time.deltaTime, 0);
+            if (floorIndex < 16)
+            {
+                background.transform.Translate(0, descentSpeed / 35f * Time.deltaTime, 0);
+            }
+
             if (playerObjects.transform.position.y <= (floorCount - floorIndex - 1) * FLOOR_HEIGHT)
             { // stop when arrived
                 playerObjects.transform.position = new Vector3(0,  (floorCount - floorIndex - 1) * FLOOR_HEIGHT, 0);
