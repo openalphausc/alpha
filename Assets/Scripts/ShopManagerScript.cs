@@ -21,6 +21,7 @@ public class ShopManagerScript : MonoBehaviour
     private float HoldSpaceTime;
     public RectTransform HoldSpaceFill;
     private int choice = (int)Choices.None;
+    public string nextScene;
 
     public AudioSource error;
 
@@ -32,7 +33,6 @@ public class ShopManagerScript : MonoBehaviour
         Large
     }
 
-    public string nextScene;
     // Start is called before the first frame update
     //Set the text managed by this manager to the player's money total
     void Start()

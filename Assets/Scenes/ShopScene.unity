@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1980,6 +1980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 1
+  floorSplits: []
   money: 1000
   inventory: []
   citysounds: {fileID: 1338624016}
@@ -3175,8 +3176,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60f6ff8379ff2744d9469a42cf4dc22c, type: 2}
   HoldADFill: {fileID: 1193764553}
   HoldSpaceFill: {fileID: 1528169660}
-  error: {fileID: 1811422494}
   nextScene: BuildingScene
+  error: {fileID: 1811422494}
 --- !u!4 &1811422493
 Transform:
   m_ObjectHideFlags: 0
@@ -3312,13 +3313,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815802725}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0036702545, w: 0.99999326}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 809065584}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.42100003}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 292.48, y: -215.36}
