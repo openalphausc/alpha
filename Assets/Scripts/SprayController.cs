@@ -6,7 +6,11 @@ using UnityEngine;
 public class SprayController : ArmController
 {
     public ParticleSystem particles;
+    [SerializeField] private Sprite sprayJ;
+    [SerializeField] private Sprite sprayK;
+    [SerializeField] private Sprite sprayL;
 
+    private Dictionary<Smudge.SmudgeType, Sprite> sprayBottle = new Dictionary<Smudge.SmudgeType, Sprite>();
     private Dictionary<Smudge.SmudgeType, Color> sprayColor = new Dictionary<Smudge.SmudgeType, Color>();
 
     public AudioSource spray1;
@@ -20,6 +24,10 @@ public class SprayController : ArmController
     {
         base.Start();
 
+        sprayBottle[Smudge.SmudgeType.SmudgeJ] = sprayJ;
+        sprayBottle[Smudge.SmudgeType.SmudgeK] = sprayK;
+        sprayBottle[Smudge.SmudgeType.SmudgeL] = sprayL;
+        
         sprayColor[Smudge.SmudgeType.SmudgeJ] = Color.red;
         sprayColor[Smudge.SmudgeType.SmudgeK] = Color.yellow;
         sprayColor[Smudge.SmudgeType.SmudgeL] = Color.green;
@@ -39,7 +47,7 @@ public class SprayController : ArmController
             StopCoroutine(coroutine);
         }
 
-        handRenderer.color = sprayColor[spray];
+        handRenderer.sprite = sprayBottle[spray];
 
         // aim the spraying arm
         Vector3 closest = ClosestRelativeToArm();
@@ -51,8 +59,7 @@ public class SprayController : ArmController
         if (showSprayParticles)
         {
             ParticleSystem.MainModule particlesMain = particles.main;
-            particlesMain.startColor =
-                handRenderer.color;
+            particlesMain.startColor = sprayColor[spray];
             particles.Play();
             //if there's enough fluid (showSprayParticles), then play the spray sound effect
             if(spray == Smudge.SmudgeType.SmudgeJ || spray == Smudge.SmudgeType.SmudgeK) {
