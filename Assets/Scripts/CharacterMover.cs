@@ -37,13 +37,19 @@ public class CharacterMover : MonoBehaviour
 
     void Update()
     {
-        if(speedState == 1) {
-          walksound.Stop();
-          currentSpeed = slowedSpeed;
-          timeCleaningUp -= Time.deltaTime;
-          if(timeCleaningUp <= 0) speedState = 0;
+        if (speedState == 1)
+        {
+            walksound.Stop();
+            currentSpeed = slowedSpeed;
+            timeCleaningUp -= Time.deltaTime;
+            if (timeCleaningUp <= 0) speedState = 0;
+            animator.SetBool("broken", true);
         }
-        else if(speedState == 0) currentSpeed = movementSpeed;
+        else if (speedState == 0)
+        {
+            currentSpeed = movementSpeed;
+            animator.SetBool("broken", false);
+        }
 
         if (Input.GetKey(KeyCode.A))
         {
