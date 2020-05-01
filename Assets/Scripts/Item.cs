@@ -20,13 +20,6 @@ public class Item : ScriptableObject
     public int incomeIncrease;
     public int bonusOnCompletionIncrease;
 
-    public void loadDataFromName(string name) {
-      Debug.Log("Loading sprite from name for item " + name);
-      itemName = name;
-      string filename = "Art/" + itemName;
-      icon = Resources.Load<Sprite>(itemName);
-    }
-
     public string getItemDescription()
     {
         string itemDescription = "";
@@ -40,7 +33,7 @@ public class Item : ScriptableObject
         {
             itemDescription += "Lets you see into the dark. \n";
         }
-        
+
         if (moveSpeed != 0)
         {
             itemDescription += "+";

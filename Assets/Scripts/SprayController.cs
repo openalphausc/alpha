@@ -6,9 +6,9 @@ using UnityEngine;
 public class SprayController : ArmController
 {
     public ParticleSystem particles;
-    [SerializeField] private Sprite sprayJ;
-    [SerializeField] private Sprite sprayK;
-    [SerializeField] private Sprite sprayL;
+    private Sprite sprayJ;
+    private Sprite sprayK;
+    private Sprite sprayL;
 
     private Dictionary<Smudge.SmudgeType, Sprite> sprayBottle = new Dictionary<Smudge.SmudgeType, Sprite>();
     private Dictionary<Smudge.SmudgeType, Color> sprayColor = new Dictionary<Smudge.SmudgeType, Color>();
@@ -27,7 +27,7 @@ public class SprayController : ArmController
         sprayBottle[Smudge.SmudgeType.SmudgeJ] = sprayJ;
         sprayBottle[Smudge.SmudgeType.SmudgeK] = sprayK;
         sprayBottle[Smudge.SmudgeType.SmudgeL] = sprayL;
-        
+
         sprayColor[Smudge.SmudgeType.SmudgeJ] = Color.red;
         sprayColor[Smudge.SmudgeType.SmudgeK] = Color.yellow;
         sprayColor[Smudge.SmudgeType.SmudgeL] = Color.green;
