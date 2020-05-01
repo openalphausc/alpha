@@ -97,7 +97,8 @@ public class GaugeControl : MonoBehaviour
           float x = currPercent/100;
           
           //EDIT THIS TO MULTIPLY ALSO BY THE PLAYER'S INCREASED REFILL SPEED BY PERCENTAGE
-          float increase = Time.deltaTime * increaseSpeed * Mathf.Pow(offset + x, power) / (power - 1);
+          float baseIncrease = Time.deltaTime * increaseSpeed * Mathf.Pow(offset + x, power) / (power - 1);
+          float increase = baseIncrease * (float) (1 + PersistentManagerScript.Instance.InvRefillSpeedBonus()/100.0);
           float min = Time.deltaTime * 0.004f;
           if(increase < min) increase = min;
 
@@ -110,7 +111,7 @@ public class GaugeControl : MonoBehaviour
           // start animation of cleaning up
           characterMover.speedState = 1;
           //EDIT THIS TO MULTIPLY / REDUCE BY THE PLAYER'S PENALTY REDUCTION PERCENTAGE
-          characterMover.timeCleaningUp = overflowTime = 2f;
+          characterMover.timeCleaningUp = overflowTime = 2f * (float) (1 - (PersistentManagerScript.Instance.InvTimePenaltyReduction()/100));
           overflowing = true;
           overflowsound.Play();
         }
