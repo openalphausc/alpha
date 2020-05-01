@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Funnel
   icon: {fileID: 21300000, guid: fb789e01cc75ffa4babc0a43f71e8783, type: 3}
   price: 75
-  itemFlavorText: 
+  itemFlavorText: It's all coming together.
   isWatch: 0
   isHeadlamp: 0
   moveSpeed: 0

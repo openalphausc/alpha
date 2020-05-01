@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: ShamBAZINGA
   icon: {fileID: 21300000, guid: 090df5bf4bff24d42ba755a95d73b681, type: 3}
   price: 150
-  itemFlavorText: 
+  itemFlavorText: An affront to god.
   isWatch: 0
   isHeadlamp: 0
   moveSpeed: 0

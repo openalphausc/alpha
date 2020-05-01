@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Headlamp
   icon: {fileID: 21300000, guid: 5d33632aba8091143aafe3b7d601bff9, type: 3}
-  price: 150
-  itemFlavorText: 
+  price: 200
+  itemFlavorText: Ahh! The light! / The light at the end of the tunnel. / A bright
+    solution to a dark problem.
   isWatch: 0
   isHeadlamp: 1
   moveSpeed: 0

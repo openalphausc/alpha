@@ -15,11 +15,11 @@ MonoBehaviour:
   itemName: Hydraulic Pump
   icon: {fileID: 21300000, guid: e0d985ca37bd6b64fab8032e5b5d561a, type: 3}
   price: 100
-  itemFlavorText: 
+  itemFlavorText: Push it, push it to the limit, limit.
   isWatch: 0
   isHeadlamp: 0
   moveSpeed: 0
-  refillSpeed: 150
+  refillSpeed: 100
   sprayIncrease: 0
   refillRange: 0
   timePenalties: 0

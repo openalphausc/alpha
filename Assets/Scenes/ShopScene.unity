@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3154,13 +3154,25 @@ MonoBehaviour:
   LargeItemSlot: {fileID: 1287761075}
   smallItemsList:
   - {fileID: 11400000, guid: bee0c02ea43747643970c99ed1e236b4, type: 2}
-  - {fileID: 11400000, guid: f48d5d96d0d4639489bf300c7f94c6a4, type: 2}
+  - {fileID: 11400000, guid: c578ae060f85e3c4c9b8e5a3bfe280c6, type: 2}
+  - {fileID: 11400000, guid: 5f798fe74236f404fb79e49986fe8c7e, type: 2}
+  - {fileID: 11400000, guid: ddefa26ef0f5dad4bb41e3d21e59ba26, type: 2}
+  - {fileID: 11400000, guid: 293137cb851fcab498ed735a96f15ff5, type: 2}
   mediumItemsList:
   - {fileID: 11400000, guid: 30b754bd43fa8ae4b8a45cd09f24bf87, type: 2}
-  - {fileID: 11400000, guid: 1bf6e37a75fcc724f86cf2fa30900374, type: 2}
+  - {fileID: 11400000, guid: 1c16a6a397362e94f89e48ff73afaddd, type: 2}
+  - {fileID: 11400000, guid: 861617af88574ed46b67edf945635d99, type: 2}
+  - {fileID: 11400000, guid: 1f9bd1301372fe247b1a21c7bf1db4d5, type: 2}
+  - {fileID: 11400000, guid: c774f36ffc80a9649963cce49e907385, type: 2}
+  - {fileID: 11400000, guid: 91fb388f412f0eb4db7860a5228270cc, type: 2}
   largeItemsList:
   - {fileID: 11400000, guid: 87f7d5c7c4c215e4995ceac5ad886a53, type: 2}
-  - {fileID: 11400000, guid: f9dc54b781c7c5448a3733717d4f70d1, type: 2}
+  - {fileID: 11400000, guid: 31dbef28360131e47a8e07d642465d1d, type: 2}
+  - {fileID: 11400000, guid: 5f511740a4f72ff4098c4a3ebc53a70f, type: 2}
+  - {fileID: 11400000, guid: 1bf6e37a75fcc724f86cf2fa30900374, type: 2}
+  - {fileID: 11400000, guid: ef36722d4bbba87468afc2fe89820169, type: 2}
+  - {fileID: 11400000, guid: 0badeebf28929c24282aff09f16ac201, type: 2}
+  - {fileID: 11400000, guid: 60f6ff8379ff2744d9469a42cf4dc22c, type: 2}
   HoldADFill: {fileID: 1193764553}
   HoldSpaceFill: {fileID: 1528169660}
   error: {fileID: 1811422494}
