@@ -3129,6 +3129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1811422493}
   - component: {fileID: 1811422492}
+  - component: {fileID: 1811422494}
   m_Layer: 0
   m_Name: ShopManager
   m_TagString: Untagged
@@ -3153,15 +3154,28 @@ MonoBehaviour:
   LargeItemSlot: {fileID: 1287761075}
   smallItemsList:
   - {fileID: 11400000, guid: bee0c02ea43747643970c99ed1e236b4, type: 2}
-  - {fileID: 11400000, guid: f48d5d96d0d4639489bf300c7f94c6a4, type: 2}
+  - {fileID: 11400000, guid: c578ae060f85e3c4c9b8e5a3bfe280c6, type: 2}
+  - {fileID: 11400000, guid: 5f798fe74236f404fb79e49986fe8c7e, type: 2}
+  - {fileID: 11400000, guid: ddefa26ef0f5dad4bb41e3d21e59ba26, type: 2}
+  - {fileID: 11400000, guid: 293137cb851fcab498ed735a96f15ff5, type: 2}
   mediumItemsList:
   - {fileID: 11400000, guid: 30b754bd43fa8ae4b8a45cd09f24bf87, type: 2}
-  - {fileID: 11400000, guid: 1bf6e37a75fcc724f86cf2fa30900374, type: 2}
+  - {fileID: 11400000, guid: 1c16a6a397362e94f89e48ff73afaddd, type: 2}
+  - {fileID: 11400000, guid: 861617af88574ed46b67edf945635d99, type: 2}
+  - {fileID: 11400000, guid: 1f9bd1301372fe247b1a21c7bf1db4d5, type: 2}
+  - {fileID: 11400000, guid: c774f36ffc80a9649963cce49e907385, type: 2}
+  - {fileID: 11400000, guid: 91fb388f412f0eb4db7860a5228270cc, type: 2}
   largeItemsList:
   - {fileID: 11400000, guid: 87f7d5c7c4c215e4995ceac5ad886a53, type: 2}
-  - {fileID: 11400000, guid: f9dc54b781c7c5448a3733717d4f70d1, type: 2}
+  - {fileID: 11400000, guid: 31dbef28360131e47a8e07d642465d1d, type: 2}
+  - {fileID: 11400000, guid: 5f511740a4f72ff4098c4a3ebc53a70f, type: 2}
+  - {fileID: 11400000, guid: 1bf6e37a75fcc724f86cf2fa30900374, type: 2}
+  - {fileID: 11400000, guid: ef36722d4bbba87468afc2fe89820169, type: 2}
+  - {fileID: 11400000, guid: 0badeebf28929c24282aff09f16ac201, type: 2}
+  - {fileID: 11400000, guid: 60f6ff8379ff2744d9469a42cf4dc22c, type: 2}
   HoldADFill: {fileID: 1193764553}
   HoldSpaceFill: {fileID: 1528169660}
+  error: {fileID: 1811422494}
   nextScene: BuildingScene
 --- !u!4 &1811422493
 Transform:
@@ -3177,6 +3191,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1811422494
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811422491}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 132b17bd7246fd44e9efb53e21f611a0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1815802725
 GameObject:
   m_ObjectHideFlags: 0

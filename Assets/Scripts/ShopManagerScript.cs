@@ -22,6 +22,7 @@ public class ShopManagerScript : MonoBehaviour
     public RectTransform HoldSpaceFill;
     private int choice = (int)Choices.None;
 
+    public AudioSource error;
 
     enum Choices
     {
@@ -37,15 +38,15 @@ public class ShopManagerScript : MonoBehaviour
     void Start()
     {
         //RandomizeItems();
-        HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1); 
-        HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
+        HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1);
+        HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1);
     }
     //make sure it happens before ItemSlot's start() runs
     void Awake()
     {
         RandomizeItems();
     }
-    
+
     //Handles input from player
     void Update()
     {
@@ -71,22 +72,22 @@ public class ShopManagerScript : MonoBehaviour
             LargeItemSlot.ShowDescriptionPanel();
             choice = (int) Choices.Large;
         }
-        
+
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
             HoldADTime += Time.deltaTime;
-            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
+            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1);
             print("been holding for " + (int)HoldADTime);
             if (HoldADTime > 1f)
             {
                 ChangeSceneScript.ChangeScene(nextScene);
             }
         }
-        
+
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             HoldADTime = 0;
-            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
+            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1);
             print("been holding for " + (int)HoldADTime);
         }
         if (Input.GetKey(KeyCode.Space))
@@ -103,7 +104,7 @@ public class ShopManagerScript : MonoBehaviour
                 switch (choice)
                 {
                     case (int) Choices.None:
-                        //play buzz noise, no item selected
+                        error.Play();
                         print("no selection");
                         break;
                     case (int) Choices.Small:
@@ -116,15 +117,16 @@ public class ShopManagerScript : MonoBehaviour
                         LargeItemSlot.Buy();
                         break;
                 }
+                HoldSpaceTime = 0f;
             }
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             HoldSpaceTime = 0;
-            HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1); 
+            HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1);
             print("been holding for " + (int)HoldSpaceTime);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
         {
             SmallItemSlot.HideDescriptionPanel();
@@ -133,7 +135,7 @@ public class ShopManagerScript : MonoBehaviour
             //reset choice nothing
             choice = (int) Choices.None;
         }
-        
+
     }
 
 
@@ -167,22 +169,22 @@ public class ShopManagerScript : MonoBehaviour
         if(smallItemsList.Any())
             if(smallItemsList[index] != null)
                 SmallItemSlot.item = smallItemsList[index];
-        
+
         //randomize Medium item slot
         index = Random.Range(0, mediumItemsList.Count());
         if(mediumItemsList.Any())
             if(mediumItemsList[index] != null)
                 MediumItemSlot.item = mediumItemsList[index];
-        
+
         //randomize Large item slot
         index = Random.Range(0, largeItemsList.Count());
         if(largeItemsList.Any())
             if(largeItemsList[index] != null)
                 LargeItemSlot.item = largeItemsList[index];
-        
+
         SmallItemSlot.Refresh();
         MediumItemSlot.Refresh();
         LargeItemSlot.Refresh();
     }
-    
+
 }
