@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
   m_Name: Headlamp
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  price: 0
-  itemDescription: 
-  itemFlavorText: 
+  itemName: Headlamp
+  icon: {fileID: 21300000, guid: 5d33632aba8091143aafe3b7d601bff9, type: 3}
+  price: 200
+  itemFlavorText: Ahh! The light! / The light at the end of the tunnel. / A bright
+    solution to a dark problem.
   isWatch: 0
-  isHeadlamp: 0
+  isHeadlamp: 1
   moveSpeed: 0
   refillSpeed: 0
   sprayIncrease: 0
