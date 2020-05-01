@@ -40,6 +40,7 @@ public class ShopManagerScript : MonoBehaviour
         //RandomizeItems();
         HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1);
         HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1);
+        PersistentManagerScript.Instance.levelIndex++;
     }
     //make sure it happens before ItemSlot's start() runs
     void Awake()
