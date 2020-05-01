@@ -198,7 +198,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 51.55
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1017,6 +1017,8 @@ GameObject:
   - component: {fileID: 4275645619635373687}
   - component: {fileID: 9112286341540526103}
   - component: {fileID: 5602091675262484784}
+  - component: {fileID: 1428682108062212280}
+  - component: {fileID: 4714685866198096235}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -1104,13 +1106,15 @@ MonoBehaviour:
   description: {fileID: 142526702620954341}
   descriptionPanel: {fileID: 692179643241729481}
   PurchasedPanel: {fileID: 1990523973106786143}
---- !u!82 &8655431877021763012
+  kaching: {fileID: 1428682108062212280}
+  error: {fileID: 4714685866198096235}
+--- !u!82 &1428682108062212280
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8974305791644766078}
+  m_GameObject: {fileID: 8553393739533584328}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -1200,13 +1204,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2250433115615639908
+--- !u!82 &4714685866198096235
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8974305791644766078}
+  m_GameObject: {fileID: 8553393739533584328}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
