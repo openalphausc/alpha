@@ -20,11 +20,13 @@ public class ShopManagerScript : MonoBehaviour
     public RectTransform HoldADFill;
     private float HoldSpaceTime;
     public RectTransform HoldSpaceFill;
-    private int choice;
+    private int choice = (int)Choices.None;
 
+    public AudioSource error;
 
     enum Choices
     {
+        None = -1,
         Small = 0,
         Medium,
         Large
@@ -36,15 +38,15 @@ public class ShopManagerScript : MonoBehaviour
     void Start()
     {
         //RandomizeItems();
-        HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1); 
-        HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
+        HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1);
+        HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1);
     }
     //make sure it happens before ItemSlot's start() runs
     void Awake()
     {
         RandomizeItems();
     }
-    
+
     //Handles input from player
     void Update()
     {
@@ -70,22 +72,22 @@ public class ShopManagerScript : MonoBehaviour
             LargeItemSlot.ShowDescriptionPanel();
             choice = (int) Choices.Large;
         }
-        
+
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
             HoldADTime += Time.deltaTime;
-            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
+            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1);
             print("been holding for " + (int)HoldADTime);
             if (HoldADTime > 1f)
             {
                 ChangeSceneScript.ChangeScene(nextScene);
             }
         }
-        
+
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             HoldADTime = 0;
-            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1); 
+            HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1);
             print("been holding for " + (int)HoldADTime);
         }
         if (Input.GetKey(KeyCode.Space))
@@ -101,6 +103,10 @@ public class ShopManagerScript : MonoBehaviour
             {
                 switch (choice)
                 {
+                    case (int) Choices.None:
+                        error.Play();
+                        print("no selection");
+                        break;
                     case (int) Choices.Small:
                         SmallItemSlot.Buy();
                         break;
@@ -111,22 +117,25 @@ public class ShopManagerScript : MonoBehaviour
                         LargeItemSlot.Buy();
                         break;
                 }
+                HoldSpaceTime = 0f;
             }
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             HoldSpaceTime = 0;
-            HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1); 
+            HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1);
             print("been holding for " + (int)HoldSpaceTime);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
         {
             SmallItemSlot.HideDescriptionPanel();
             MediumItemSlot.HideDescriptionPanel();
             LargeItemSlot.HideDescriptionPanel();
+            //reset choice nothing
+            choice = (int) Choices.None;
         }
-        
+
     }
 
 
@@ -158,21 +167,24 @@ public class ShopManagerScript : MonoBehaviour
         //randomize small item slot
         var index = Random.Range(0, smallItemsList.Count());
         if(smallItemsList.Any())
-        SmallItemSlot.item = smallItemsList[index];
-        
+            if(smallItemsList[index] != null)
+                SmallItemSlot.item = smallItemsList[index];
+
         //randomize Medium item slot
         index = Random.Range(0, mediumItemsList.Count());
         if(mediumItemsList.Any())
-        MediumItemSlot.item = mediumItemsList[index];
-        
+            if(mediumItemsList[index] != null)
+                MediumItemSlot.item = mediumItemsList[index];
+
         //randomize Large item slot
         index = Random.Range(0, largeItemsList.Count());
         if(largeItemsList.Any())
-        LargeItemSlot.item = largeItemsList[index];
-        
+            if(largeItemsList[index] != null)
+                LargeItemSlot.item = largeItemsList[index];
+
         SmallItemSlot.Refresh();
         MediumItemSlot.Refresh();
         LargeItemSlot.Refresh();
     }
-    
+
 }

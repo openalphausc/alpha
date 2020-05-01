@@ -9,43 +9,43 @@ public class ItemSlot : MonoBehaviour
     public Item item;
     [SerializeField] Image image;
     [SerializeField] Button button;
-    [SerializeField] TMP_Text name; 
+    [SerializeField] TMP_Text name;
     [SerializeField] TMP_Text flavorText;
     [SerializeField] TMP_Text description;
     [SerializeField] GameObject descriptionPanel;
     [SerializeField] GameObject PurchasedPanel;
 
+    public AudioSource kaching;
+    public AudioSource error;
+
     private void Start(){
-        image.sprite = item.icon;
-        button.GetComponentInChildren<TextMeshProUGUI>().text = item.price.ToString();
-        name.text = item.name;
-        //change this to item.getDescription() later.
-        description.text = item.getItemDescription();
-        flavorText.text = item.itemFlavorText;
+        if(item != null)
+        {
+            image.sprite = item.icon;
+            button.GetComponentInChildren<TextMeshProUGUI>().text = item.price.ToString();
+            name.text = item.name;
+            //change this to item.getDescription() later.
+            description.text = item.getItemDescription();
+            flavorText.text = item.itemFlavorText;
+        }
     }
-    
+
     public void Refresh(){
         Start();
     }
-    
+
     //Method call to trigger when pressing the button.
     //If successful, change the button text or something to look different
     //and update the image to show that the item has been bought
     public void Buy(){
         //for now, just run the buy function.
-        print("uhhh");
-        if (PersistentManagerScript.Instance.Buy(item))
+        if (PersistentManagerScript.Instance.Buy(item, kaching, error))
         {
-            //output success chime
-            //darken sprite 
+            //darken sprite
             PurchasedPanel.SetActive(true);
             button.GetComponentInChildren<TextMeshProUGUI>().text = "Purchased";
         }
-        else
-        {
-            //output error noise
-        }
-        
+
     }
 
     public void ShowDescriptionPanel()

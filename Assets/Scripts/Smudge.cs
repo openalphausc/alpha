@@ -17,7 +17,7 @@ public class Smudge : MonoBehaviour
     public Color normalColorOn;
     public Color neutralizedColorOff;
     public Color neutralizedColorOn;
-    public float percentNeutralized = 100; // 0 means neutralized, 100 means normal (size 1), but it's a gradient
+    public float percentNeutralized = 100f; // 0 means neutralized, 100 means normal (size 1), but it's a gradient
     public bool neutralized = false;
     public bool selected = false;
     public GameObject FloatingTextPrefab;
@@ -28,6 +28,8 @@ public class Smudge : MonoBehaviour
     private Quaternion SmudgeRotation;
 
     private float startScale = 0.7f;
+
+    GameObject helpUI;
 
     void Start()
     {
@@ -67,7 +69,7 @@ public class Smudge : MonoBehaviour
     void Update()
     {
       // green smudges grow slowly
-      if(type == SmudgeType.SmudgeL && !neutralized && FloorManager.currentFloor.smudgeManager.allSmudges.Contains(this)) {
+      if(type == SmudgeType.SmudgeL && !neutralized && FloorManager.currentFloor.smudgeManager.allSmudges.Contains(this) && percentNeutralized < 400f) {
         float growPerSecond = 100f - (percentNeutralized % 100f);
         if(growPerSecond < 1f) growPerSecond = 1f;
         percentNeutralized += growPerSecond * Time.deltaTime;
@@ -75,13 +77,14 @@ public class Smudge : MonoBehaviour
 
 
       // change size of smudge based on percentNeutralized
-      if(percentNeutralized <= 40) percentNeutralized = 50;
-      transform.localScale = new Vector3(startScale * percentNeutralized/100, startScale * percentNeutralized/100, startScale * percentNeutralized/100);
+      float neutralizeScale = percentNeutralized;
+      if(neutralizeScale < 50) neutralizeScale = 50;
+      transform.localScale = new Vector3(startScale * neutralizeScale/100, startScale * neutralizeScale/100, transform.localScale.z);
     }
 
     void ShowFloatingText()
     {
-        GameObject helpUI = Instantiate(FloatingTextPrefab, SmudgePosition, SmudgeRotation, gameObject.transform);
+        helpUI = Instantiate(FloatingTextPrefab, SmudgePosition, SmudgeRotation, gameObject.transform);
         helpUI.transform.position -= new Vector3(0, 0, 1);
         string helperText = "";
         switch(this.type) {
@@ -100,6 +103,10 @@ public class Smudge : MonoBehaviour
         helpUI.GetComponent<TextMesh>().text = helperText;
     }
 
+    void HideFloatingText() {
+      helpUI.GetComponent<TextMesh>().text = "";
+    }
+
     public void Select()
     {
         selected = true;
@@ -112,13 +119,14 @@ public class Smudge : MonoBehaviour
         renderer.color = neutralized ? neutralizedColorOff : normalColorOff;
     }
 
-    public void Neutralize(int percent = 100)
+    public void Neutralize(int percent)
     {
         percentNeutralized -= percent;
         if(percentNeutralized <= 0f) {
           percentNeutralized = 0f;
           neutralized = true;
           renderer.color = selected ? neutralizedColorOn : neutralizedColorOff;
+          HideFloatingText();
         }
     }
 

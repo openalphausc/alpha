@@ -26,6 +26,9 @@ public class GaugeControl : MonoBehaviour
     private float overflowTime = -1f;
     private SpriteRenderer sprite;
 
+    public AudioSource refillsound;
+    public AudioSource overflowsound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +89,7 @@ public class GaugeControl : MonoBehaviour
         // adjust size of gauge front to make it seem like it's going down
         float currPercent = 100*transform.localScale.y/startScale;
         inputHandler.fluidRemaining[fluidIndex] = Mathf.Round(inputHandler.maxFluid*currPercent/100);
+        refillsound.volume = 1f - currPercent/100f;
         if(currPercent < 99) {
           // increase speed is proportional to how much distance is left
           float power = 2f;
@@ -105,10 +109,14 @@ public class GaugeControl : MonoBehaviour
           characterMover.speedState = 1;
           characterMover.timeCleaningUp = overflowTime = 2f;
           overflowing = true;
+          overflowsound.Play();
         }
 
         transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, -0.1f);
       }
-      else if(inputHandler.fluidRemaining[fluidIndex] == 0) inputHandler.refilling[fluidIndex] = true;
+      else if(inputHandler.fluidRemaining[fluidIndex] == 0) {
+        inputHandler.refilling[fluidIndex] = true;
+        refillsound.Play();
+      }
     }
 }

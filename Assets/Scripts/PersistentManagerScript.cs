@@ -12,7 +12,7 @@ public class PersistentManagerScript : MonoBehaviour
     public static PersistentManagerScript Instance { get; private set; }
 
     public int levelIndex;
-    
+
     //Keeps track of the player's current total currency.
     //think about edge cases when editing this directly:
     //If a player starts a round, wipes some stuff, and exits to the title screen or quits the game, restarts the level,
@@ -23,6 +23,8 @@ public class PersistentManagerScript : MonoBehaviour
     //should make this private in the future, but useful to be public for debugging purposes in the editor
     public List<Item> inventory;
     //Consider adding other items such as record stats for display at end of rounds or in title "stats" screen
+
+    public AudioSource citysounds;
 
     //This runs when the presistentManagerScript is first run, before "Start()" of all items, so that it will be non-nul
     //if called early in a scene
@@ -40,6 +42,7 @@ public class PersistentManagerScript : MonoBehaviour
             //otherwise, destroy the gameObject trying to create another persistent manager instance (one exists)
             Destroy(gameObject);
         }
+        citysounds.Play();
     }
 
     /**Buy function: Input the item to the inventory if player can afford it AND doesn't already have the item. Reduce
@@ -47,19 +50,22 @@ public class PersistentManagerScript : MonoBehaviour
      * Returns false _if the item is already in the inventory_ or _can't afford_
      * Returns true if the purchase is successful
      */
-    public bool Buy(Item item)
+    public bool Buy(Item item, AudioSource success, AudioSource error)
     {
         if (inventory.Contains(item))
         {
+            error.Play();
             return false;
         }
 
         if (money < item.price)
         {
+            error.Play();
             return false;
         }
 
         print("Successful buy!");
+        success.Play();
         money -= item.price;
         inventory.Add(item);
         return true;

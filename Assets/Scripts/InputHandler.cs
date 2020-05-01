@@ -27,6 +27,8 @@ public class InputHandler : MonoBehaviour
     public GameObject character;
     private CharacterMover characterMover;
 
+    public AudioSource capsound;
+
     void Start()
     {
         wiperController = WiperArmJoint.GetComponent<WiperController>();
@@ -47,8 +49,6 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        if(Time.timeScale == 0f) return;
-        
         if (Input.GetKeyDown(KeyCode.Space) && CharacterMover.targeting)
         {
             wiperController.AnimateWipe();
@@ -71,18 +71,15 @@ public class InputHandler : MonoBehaviour
 
           // if not refilling or cleaning up, attempt to spray
           if(!refilling[i] && characterMover.speedState == 0) {
-            if(i == 0) gaugeMoveJ.decreasing = true;
-            else if(i == 1) gaugeMoveK.decreasing = true;
-            else if(i == 2) gaugeMoveL.decreasing = true;
             Spray(i);
           }
           // if refilling and above a certain point, stop refilling
           if(refilling[i] && fluidRemaining[i] >= 1) {
             refilling[i] = false;
-            // if targeting a sprayable spray, also spray
-            if(FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == Smudge.SmudgeType.SmudgeJ || FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == Smudge.SmudgeType.SmudgeK || FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type == Smudge.SmudgeType.SmudgeL) {
-              Spray(i);
-            }
+            capsound.Play();
+            if(SmudgeManager.currentTarget == -1) continue; // don't spray if not targeting anything
+            Smudge.SmudgeType target = FloorManager.currentFloor.smudgeManager.allSmudges[SmudgeManager.currentTarget].type;
+            if(target == spray) Spray(i);
           }
         }
     }
@@ -95,6 +92,10 @@ public class InputHandler : MonoBehaviour
       if(fluidRemaining[fluidIndex] > 0) {
         FloorManager.currentFloor.smudgeManager.SpraySmudge(spray);
         fluidRemaining[fluidIndex]--;
+        if(fluidIndex == 0) gaugeMoveJ.decreasing = true;
+        else if(fluidIndex == 1) gaugeMoveK.decreasing = true;
+        else if(fluidIndex == 2) gaugeMoveL.decreasing = true;
       }
+      // Debug.Log("After spraying, fluid of " + fluidIndex + " is " + fluidRemaining[fluidIndex]);
     }
 }
