@@ -30,6 +30,7 @@ public class TimerScript : MonoBehaviour
         else
         {
             trackSplits.Add(timer);
+            PersistentManagerScript.Instance.floorSplits.Add((timer));
             timer = 0;
             runTimer = true;
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // controls the wiper arm
 public class WiperController : ArmController
@@ -11,15 +12,11 @@ public class WiperController : ArmController
     public AudioSource wipe2;
     public AudioSource wipe3;
 
-    //so you can see the income per floor
-    public int incomePerFloor = 0;
 
     protected override void Start()
     {
         base.Start();
         // source_ = GetComponent<AudioSource>();
-        //set the income per wipe to the income per wipe set in the inputHandler
-        incomePerFloor = transform.parent.gameObject.GetComponent<InputHandler>().incomePerFloor;
     }
 
     void Update()
@@ -71,7 +68,6 @@ public class WiperController : ArmController
             if(choice == 1) wipe1.Play();
             else if(choice == 2) wipe2.Play();
             else if(choice == 3) wipe3.Play();
-            PersistentManagerScript.Instance.money += incomePerFloor;
         }
 
         coroutine = FinishWipe();

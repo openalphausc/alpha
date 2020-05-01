@@ -12,6 +12,9 @@ public class PersistentManagerScript : MonoBehaviour
     public static PersistentManagerScript Instance { get; private set; }
 
     public int levelIndex;
+    
+    //keeps lifetime track of the player's splits
+    public List<float> floorSplits;
 
     //Keeps track of the player's current total currency.
     //think about edge cases when editing this directly:
@@ -236,7 +239,7 @@ public class PersistentManagerScript : MonoBehaviour
 
     /**
      * Returns an int, the percentage income per floor increase the player has from all their items. Apply in
-     * the start function of Wiper Controller in the assignment of incomePerFloor (feat-cash-shit branch)
+     * the start function of Wiper Controller in the assignment of minIncomePerFloor (feat-cash-shit branch)
      */
     public int InvIncomeIncrease()
     {

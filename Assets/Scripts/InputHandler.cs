@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // attached to Character, processes non-movement controls and manages fluid levels
 public class InputHandler : MonoBehaviour
@@ -15,7 +16,6 @@ public class InputHandler : MonoBehaviour
     public List<float> fluidRemaining;
     public List<bool> refilling;
     public float maxFluid = 4f;
-    public int incomePerFloor = 2;
 
     public GameObject gaugeJ;
     public GameObject gaugeK;
