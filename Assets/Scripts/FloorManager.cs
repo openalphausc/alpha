@@ -20,7 +20,7 @@ public class FloorManager : MonoBehaviour
     public List<Floor> allFloors;
     public static Floor currentFloor; // ACCESS VIA: FloorManager.currentFloor
 
-    private const float FLOOR_HEIGHT = 7;
+    private const float FLOOR_HEIGHT = 7.5f;
     public static bool moving;
     public static int floorIndex; // current floor index in allFloors
     private WindowController windowController_;
@@ -44,7 +44,7 @@ public class FloorManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name != "TutorialScene")
         {
-            floorCount += 2 * PersistentManagerScript.Instance.levelIndex;
+            floorCount = 10 + 2 * PersistentManagerScript.Instance.levelIndex;
             GenerateSmudges(minimumSmudges, maximumSmudges, randomness, availableTypes);
             // play music based on the level
             if(PersistentManagerScript.Instance.levelIndex == 1) volcanomusic.Play();
