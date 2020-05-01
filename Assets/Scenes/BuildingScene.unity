@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1054,7 +1054,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 1
   money: 100
-  inventory: []
+  inventory:
+  - {fileID: 11400000, guid: 91fb388f412f0eb4db7860a5228270cc, type: 2}
+  - {fileID: 11400000, guid: 87f7d5c7c4c215e4995ceac5ad886a53, type: 2}
+  - {fileID: 11400000, guid: bee0c02ea43747643970c99ed1e236b4, type: 2}
+  - {fileID: 11400000, guid: 60f6ff8379ff2744d9469a42cf4dc22c, type: 2}
+  - {fileID: 11400000, guid: 5f511740a4f72ff4098c4a3ebc53a70f, type: 2}
   citysounds: {fileID: 599010283}
 --- !u!4 &599010282
 Transform:
@@ -1239,7 +1244,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0.26171875, z: 0.0546875, w: -0.0546875}
+  m_BoundingSphereOverride: {x: 0.09375, y: 0.046875, z: 0.0078125, w: -0.0078125}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
