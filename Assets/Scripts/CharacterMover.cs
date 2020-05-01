@@ -12,6 +12,7 @@ public class CharacterMover : MonoBehaviour
     public float currentSpeed;
     public float movementSpeed;
     public float slowedSpeed;
+    public Animator animator;
 
     public int speedState = 0; // 0 is free, 1 is slow
     public float timeCleaningUp;
@@ -51,6 +52,7 @@ public class CharacterMover : MonoBehaviour
               startedwalking = true;
             }
             MovePlayer(-currentSpeed);
+            animator.SetFloat("HorizontalSpeed", -1.0f);
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -59,10 +61,12 @@ public class CharacterMover : MonoBehaviour
               startedwalking = true;
             }
             MovePlayer(currentSpeed);
+            animator.SetFloat("HorizontalSpeed", 1.0f);
         }
         else {
           startedwalking = false;
           walksound.Stop();
+          animator.SetFloat("HorizontalSpeed", 0.0f);
         }
 
         if(Input.GetKeyUp(KeyCode.R))
