@@ -50,7 +50,7 @@ public class SmudgeManager : MonoBehaviour
             timerScript.addTime();
             //add income!;
             int baseIncome = minIncomePerFloor + Math.Max(0,
-                5 - (int) (timerScript.trackSplits.Last()));
+                10 - (int) (4 * timerScript.trackSplits.Last()));
             // print("base income:" + baseIncome);
             int income = (int) (baseIncome * (1 + (PersistentManagerScript.Instance.InvIncomeIncrease()/100.0)));
             // print("total income: " + income);
