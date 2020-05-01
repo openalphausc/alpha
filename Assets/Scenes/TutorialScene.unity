@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -359,7 +359,8 @@ AudioSource:
   m_GameObject: {fileID: 592511358}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6533485066239247241, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 7c3efbba35a8b074188d975d5bedba87, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -455,7 +456,8 @@ AudioSource:
   m_GameObject: {fileID: 592511358}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6533485066239247241, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 9e78cad1b5761844cbd8f7b840e7838e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -551,7 +553,8 @@ AudioSource:
   m_GameObject: {fileID: 592511358}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6533485066239247241, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 957649ae35876504bb17becea6417cdb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -647,7 +650,8 @@ AudioSource:
   m_GameObject: {fileID: 592511358}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6533485066239247241, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: f5427790d2debce4faffc9d51f675db2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -743,7 +747,8 @@ AudioSource:
   m_GameObject: {fileID: 592511358}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6533485066239247241, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 50b5cddd8efa6ab4e9066dcf7cf02e1e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -888,7 +893,8 @@ AudioSource:
   m_GameObject: {fileID: 599010280}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5813314857088379751, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: f22a0ac58b86ef94dbb3dedf2f35730b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1065,8 +1071,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 936812243}
   - {fileID: 1868656470}
+  - {fileID: 936812243}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1205,7 +1211,7 @@ RectTransform:
   m_LocalScale: {x: 2.875, y: 2.875, z: 2.875}
   m_Children: []
   m_Father: {fileID: 625583992}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1230,10 +1236,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: INSTRUCTIONS HERE
+  m_text: Instructions Here
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 95d289b50d90e734bbdad82ef5ce0bda, type: 2}
+  m_sharedMaterial: {fileID: -3063458637644465953, guid: 95d289b50d90e734bbdad82ef5ce0bda,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1258,10 +1265,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 23.85
+  m_fontSizeBase: 10
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1296,7 +1303,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -0.047386583}
+  m_margin: {x: 0, y: 0, z: 2.6304524, w: -0.047386583}
   m_textInfo:
     textComponent: {fileID: 936812244}
     characterCount: 17
@@ -1339,7 +1346,8 @@ AudioSource:
   m_GameObject: {fileID: 936812242}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5813314857088379751, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 779703863cea7774db9b052512068dce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.667
@@ -1450,7 +1458,8 @@ AudioSource:
   m_GameObject: {fileID: 936812242}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5813314857088379751, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4adb92e92dcfd8c468696ad38a09c97a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1767,11 +1776,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868656469}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1.4375, y: 1.4375, z: 1.4375}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1.4375, y: 1.4375, z: 0}
   m_Children: []
   m_Father: {fileID: 625583992}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1791,7 +1800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.1764706}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.34901962}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
