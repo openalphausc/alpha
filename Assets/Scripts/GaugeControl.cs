@@ -39,7 +39,7 @@ public class GaugeControl : MonoBehaviour
       bottom = -startScale/2;
 
       decreaseSpeed = 0.2f;
-      increaseSpeed = 0.2f;
+      increaseSpeed = 0.4f;
 
       gaugeMove = gameObject.transform.parent.gameObject.GetComponent<GaugeMove>();
 
