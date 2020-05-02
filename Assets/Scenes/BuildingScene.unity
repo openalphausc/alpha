@@ -2505,11 +2505,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8084750350240116237, guid: bf1613d90b0d72d4bbde65cf4bc59458,
         type: 3}
-      propertyPath: passiveReachRatio
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8084750350240116237, guid: bf1613d90b0d72d4bbde65cf4bc59458,
-        type: 3}
       propertyPath: minIncomePerFloor
       value: 5
       objectReference: {fileID: 0}

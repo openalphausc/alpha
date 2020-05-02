@@ -12,6 +12,9 @@ public class CharacterMover : MonoBehaviour
     public float currentSpeed;
     public float movementSpeed;
     public float slowedSpeed;
+    public Animator animator;
+    public GameObject leftArm;
+    public GameObject rightArm;
 
     public int speedState = 0; // 0 is free, 1 is slow
     public float timeCleaningUp;
@@ -38,21 +41,36 @@ public class CharacterMover : MonoBehaviour
 
     void Update()
     {
-        if(speedState == 1) {
-          walksound.Stop();
-          currentSpeed = slowedSpeed;
-          timeCleaningUp -= Time.deltaTime;
-          if(timeCleaningUp <= 0) speedState = 0;
+        if (speedState == 1)
+        {
+            walksound.Stop();
+            currentSpeed = slowedSpeed;
+            timeCleaningUp -= Time.deltaTime;
+            if (timeCleaningUp <= 0)
+            {
+                speedState = 0;
+            }
+            animator.SetBool("broken", true);
+            leftArm.SetActive(false);
+            rightArm.SetActive(false);
         }
-        else if(speedState == 0) currentSpeed = movementSpeed;
+        else if (speedState == 0)
+        {
+            currentSpeed = movementSpeed;
+            animator.SetBool("broken", false);
+            leftArm.SetActive(true);
+            rightArm.SetActive(true);
+        }
 
         if (Input.GetKey(KeyCode.A))
         {
+          print("A");
             if(!startedwalking) {
               walksound.Play();
               startedwalking = true;
             }
             MovePlayer(-currentSpeed);
+            animator.SetFloat("HorizontalSpeed", -1.0f);
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -61,10 +79,12 @@ public class CharacterMover : MonoBehaviour
               startedwalking = true;
             }
             MovePlayer(currentSpeed);
+            animator.SetFloat("HorizontalSpeed", 1.0f);
         }
         else {
           startedwalking = false;
           walksound.Stop();
+          animator.SetFloat("HorizontalSpeed", 0.0f);
         }
 
         if(Input.GetKeyUp(KeyCode.R))
