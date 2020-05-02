@@ -77,6 +77,11 @@ public class PersistentManagerScript : MonoBehaviour
         return true;
     }
 
+    public void SkipTutorial()
+    {
+        PersistentManagerScript.Instance.levelIndex = 1;
+    }
+
 
     //~~~~~~~~~~~~~~~~~~Modifiers section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     /**

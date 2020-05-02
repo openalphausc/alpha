@@ -38,11 +38,11 @@ public class Smudge : MonoBehaviour
         switch (type)
         {
             case SmudgeType.SmudgeJ:
-                // letter = "J";
-                // break;
+                letter = "J";
+                break;
             case SmudgeType.SmudgeK:
-                // letter = "K";
-                // break;
+                letter = "K";
+                break;
             case SmudgeType.SmudgeL:
                 letter = "L";
                 break;
@@ -51,7 +51,7 @@ public class Smudge : MonoBehaviour
                 break;
         }
 
-        string filename = "Sprites/Smudge" + letter + "/Sprite" + letter + "" + "0"; //PersistentManagerScript.Instance.levelIndex;
+        string filename = "Sprites/Smudge" + letter + "/Sprite" + letter + "0"; //PersistentManagerScript.Instance.levelIndex;
 
         // print(filename);
         renderer.sprite = Resources.Load<Sprite>(filename);

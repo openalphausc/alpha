@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3375b821b6a27144d9c23872b85e1e56, type: 3}
   m_Name: AYYEUP
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 21300000, guid: 3f5ba37042aa99348bb8aa1c53dd1338, type: 3}
+  itemName: Ayyeup
+  icon: {fileID: 21300000, guid: ed5eb57212684a849bd5c77cb65739b0, type: 3}
   price: 0
-  itemDescription: 
-  itemFlavorText: 
+  itemFlavorText: Sold Out
   isWatch: 0
   isHeadlamp: 0
   moveSpeed: 0
@@ -27,3 +26,4 @@ MonoBehaviour:
   rangeIncrease: 0
   timeIncrease: 0
   incomeIncrease: 0
+  bonusOnCompletionIncrease: 0

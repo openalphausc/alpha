@@ -1,106 +1,258 @@
-End-User License Agreement ("Agreement")
-Last updated: April 12, 2020
+END
+USER LICENSE AGREEMENT
 
-Please read this End-User License Agreement carefully before clicking the "I Agree" button, downloading or using Wishy Washy.
 
-Interpretation and Definitions
-Interpretation
-The words of which the initial letter is capitalized have meanings defined under the following conditions.
+This End User License Agreement ("EULA") governs your
+download, installation and use of, and access to, the game Wishy Washy on
+Steam (the "Game") that is provided by Open Alpha USC ("Open Alpha USC").
 
-The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
+ 
+BY CLICKING THE “ACCEPT” BUTTON OR OTHERWISE ACKNOWLEDGING
+YOUR ACCEPTANCE OF THIS EULA OR BY USING THE GAME, YOU ACCEPT THIS EULA AND
+AGREE TO BE LEGALLY BOUND TO ITS TERMS. THIS EULA IS EFFECTIVE AS OF THE
+EARLIER OF YOUR ACCEPTING THESE TERMS AND YOUR USE OF THE GAME.  IF YOU DO NOT AGREE TO THE TERMS OF THIS
+EULA, OPEN ALPHA USC WILL NOT AND DOES NOT LICENSE THE GAME TO YOU AND YOU MUST NOT
+DOWNLOAD, INSTALL, OR OTHERWISE USE THE GAME. 
 
-Definitions
-For the purposes of this End-User License Agreement:
 
-Agreement means this End-User License Agreement that forms the entire agreement between You and the Company regarding the use of the Application. This Agreement is maintained by the EULA Generator.
-Application means the software program provided by the Company downloaded by You to a Device, named Wishy Washy
-Company (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Open Alpha USC, 3607 Trousdale Parkway Attn: Open Alpha USC University of Southern California Office of Campus Activities SKS 410 Los Angeles, CA 90089-3103 .
-Content refers to content such as text, images, or other information that can be posted, uploaded, linked to or otherwise made available by You, regardless of the form of that content.
-Country refers to: California, United States
-Device means any device that can access the Application such as a computer, a cellphone or a digital tablet.
-Third-Party Services means any services or content (including data, information, applications and other products services) provided by a third-party that may be displayed, included or made available by the Application.
-You means the individual accessing or using the Application or the company, or other legal entity on behalf of which such individual is accessing or using the Application, as applicable.
-Acknowledgement
-By clicking the "I Agree" button, downloading or using the Application, You are agreeing to be bound by the terms and conditions of this Agreement. If You do not agree to the terms of this Agreement, do not click on the "I Agree" button, do not download or do not use the Application.
+1.  Ownership of the Game.  The Game is the valuable property of Open Alpha USC and
+our licensors and is protected by copyright and other intellectual property
+laws and treaties.  Open Alpha USC, and our
+licensors, own all right, title and interest in and to the Game, including all
+copyright and other intellectual property rights therein. Open Alpha USC reserves all
+rights not expressly granted to you.
 
-This Agreement is a legal document between You and the Company and it governs your use of the Application made available to You by the Company.
+ 
+2.  Scope of License to the Game.  The Game is licensed, not sold, to you.
+Subject to the terms and conditions of this EULA, and if acquired through Steam, the Steam Subscriber
+Agreement available at https://store.steampowered.com/subscriber_agreement/ (the
+"Steam Terms"), Open Alpha USC grants you a limited, non-exclusive,
+non-transferable license to download, install and use the Game through the
+Steam platform on a computer, handheld or mobile device or otherwise (each, a
+"Device") that you own or control.  Your use of the Game requires your acceptance
+of, and compliance with, the Steam Terms.
 
-The Application is licensed, not sold, to You by the Company for use strictly in accordance with the terms of this Agreement.
 
-You represent that you are over the age of 18. The Company does not target its Content to children or teenagers under 18, and the Company does not permit any user under 18 for using the Application.
+3.  License Restrictions.  The license granted to you in Section 2 does
+not allow you to do any of the following:  (a) use
+the Game on any Device you do not own or control; (b) distribute, copy,
+license, rent, sell, publish, lease or otherwise transfer the Game (except as
+expressly permitted by this EULA or the Steam Terms) or any proprietary
+materials of Open Alpha USC to any third party; (c) reverse engineer, decompile,
+disassemble or attempt to discover any source code or trade secrets related to
+the Game or any proprietary materials of Open Alpha USC; (d) remove, alter, or obscure
+any copyright, trademark or other proprietary rights notice on or in the Game;
+(e) work around any technical limitations in the Game; or (f) use the Game for
+purposes for which it was not designed. If you breach any of these
+restrictions, you may be subject to prosecution and damages.
 
-License
-Scope of License
-The Company grants You a revocable, non-exclusive, non-transferable, limited license to download, install and use the Application strictly in accordance with the terms of this Agreement.
+ 
+4.  Modifications; Feedback.
+ If you create modifications of the Game
+(“Mods”),
+you will only own the software code for those Mods.  You will not own any Game IP used, rendered,
+depicted or otherwise incorporated into or exploited in those Mods.  You will not attempt to monetize your Mods or
+otherwise distribute or exploit your Mods in exchange for any type of valuable
+consideration.  You consent to Open Alpha USC
+contacting you about your Mods and Open Alpha USC’s potential use of such Mods, and you
+grant to Open Alpha USC an option to negotiate a worldwide, royalty-free commercial
+license, whether exclusive or nonexclusive, to your Mods (“Option”).  Open Alpha USC may invoke the option at any time
+during the term of this EULA, and for twelve (12) months thereafter (“Option
+Period”). During the Option Period (if Open Alpha USC invokes the Option for an
+exclusive license), you will negotiate in good faith exclusively with Open Alpha USC
+regarding any license to your Mods. 
 
-The license that is granted to You by the Company is solely for your personal, non-commercial purposes strictly in accordance with the terms of this Agreement.
+ 
+Open Alpha USC owns and will retain ownership of the Game and all Game
+code, characters, weapons, monsters, loot, planets, storylines, imagery,
+mythos, look and feel, concepts, game mechanics, environments and all other
+Game elements, together with all related intellectual property in or to the
+foregoing, on which your Mods may be built (“Game IP”).  Open Alpha USC reserves all rights, interest and title
+to and in the Game and Game IP, including the right to independently develop
+code, features, functions or otherwise that are identical or substantially
+similar to your Mods. Open Alpha USC may be developing or in the future develop
+information internally or receive information from other parties that may be
+similar or identical to your Mods.  Open Alpha USC
+will not be restricted or forbidden from engaging in such development or from
+receiving such information, nor will Open Alpha USC be restricted from improving or
+modifying the Game, any Game IP, any Open Alpha USC technology or from expanding its
+business scope.  You hereby release Open Alpha USC
+from and forever waive any claims or causes of action you may now or in the
+future have related to Open Alpha USC’s activities described above.
 
-License Restrictions
-You agree not to, and You will not permit others to:
+ 
+If you provide any ideas, suggestions or recommendations to Open Alpha USC
+regarding the Game (“Feedback”), Open Alpha USC is free to retain,
+use and incorporate such Feedback in Open Alpha USC’s products and/or services, including
+the Game, without payment of royalties or other consideration.
 
-Remove, alter or obscure any proprietary notice (including any notice of copyright or trademark) of the Company or its affiliates, partners, suppliers or the licensors of the Application.
-Third-Party Services
-The Application may display, include or make available third-party content (including data, information, applications and other products services) or provide links to third-party websites or services.
+ 
+This Section 4 does not constitute a license to any Game IP
+or any proprietary materials of Open Alpha USC.  Except
+as explicitly stated in this EULA, nothing in this EULA confers or shall be
+construed as conferring any right or license to the other party’s intellectual
+property rights, whether by estoppel, implication or otherwise.
 
-You acknowledge and agree that the Company shall not be responsible for any Third-party Services, including their accuracy, completeness, timeliness, validity, copyright compliance, legality, decency, quality or any other aspect thereof. The Company does not assume and shall not have any liability or responsibility to You or any other person or entity for any Third-party Services.
+ 
+5.  Support Services; Contact.  Open Alpha USC is not obligated to provide any support
+or maintenance services for the Game at this time. If you have any questions
+regarding the Game, please contact us at oateam@usc.edu.
 
-You must comply with applicable Third parties' Terms of agreement when using the Application. Third-party Services and links thereto are provided solely as a convenience to You and You access and use them entirely at your own risk and subject to such third parties' Terms and conditions.
+ 
+6.  No Warranty.  YOU ACKNOWLEDGE AND AGREE THAT: (A) THE GAME
+MAY CONTAIN BUGS, ERRORS, AND DEFECTS; (B) USE OF THE GAME IS AT YOUR SOLE
+RISK; AND (C) THE ENTIRE RISK AS TO SATISFACTORY QUALITY, PERFORMANCE, ACCURACY
+AND EFFORT IS WITH YOU. ACCORDINGLY, THE GAME IS PROVIDED "AS IS,"
+"AS AVAILABLE," WITH ALL FAULTS, DEFECTS AND ERRORS AND WITHOUT
+WARRANTY OF ANY KIND. OPEN ALPHA USC DISCLAIMS ALL WARRANTIES (EXPRESS AND IMPLIED AND
+ARISING BY LAW OR OTHERWISE) REGARDING THE GAME AND ITS SUITABILITY FOR YOUR
+INTENDED USE, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTY OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY AND
+NON-INFRINGEMENT. OPEN ALPHA USC WILL HAVE NO LIABILITY OF ANY KIND FOR THE USE OF, OR
+INABILITY TO USE, THE GAME OR ANY SERVICE THAT THE GAME IS INTENDED TO ACCESS
+OR FOR ANY LOSS OF DATA. OPEN ALPHA USC does not REPRESENT OR warrant
+that the Game will be delivered free of any interruptions, delays, omissions or
+errors (“Faults”) or in a secure manner or that any Faults will be
+corrected. NO ORAL OR WRITTEN INFORMATION OR
+ADVICE GIVEN BY OPEN ALPHA USC OR ITS AUTHORIZED REPRESENTATIVES
+WILL CREATE A WARRANTY. IN THE EVENT THAT THE GAME PROVES DEFECTIVE, YOU ASSUME
+THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
 
-Term and Termination
-This Agreement shall remain in effect until terminated by You or the Company.
+ 
+The laws of some states or jurisdictions do not allow the exclusion
+of implied warranties. To the extent that those laws apply, the exclusions set
+forth above may not apply to you.
 
-The Company may, in its sole discretion, at any time and for any or no reason, suspend or terminate this Agreement with or without prior notice.
+ 
+7.  Indemnification.  To the fullest extent permitted by applicable
+law, you agree to defend, indemnify, and hold harmless Open Alpha USC, its affiliates,
+independent contractors and service providers, and each of their respective
+members, directors, offices, employees and agents ("Representatives")
+from and against all claims, damages, costs, liabilities and expenses
+(including but not limited to reasonable attorneys' fees) arising out of or
+related to your download or installation of and access to, or inability to download,
+install or access, the Game. In the event of any claim that the Game, or your
+possession or use thereof, infringes any intellectual property rights of a
+third party, you agree to contact Open Alpha USC. 
+Open Alpha USC will, at its option, terminate the license granted herein, settle
+or defend the claim.
 
-This Agreement will terminate immediately, without prior notice from the Company, in the event that you fail to comply with any provision of this Agreement. You may also terminate this Agreement by deleting the Application and all copies thereof from your Device or from your computer.
 
-Upon termination of this Agreement, You shall cease all use of the Application and delete all copies of the Application from your Device.
+ 
 
-Termination of this Agreement will not limit any of the Company's rights or remedies at law or in equity in case of breach by You (during the term of this Agreement) of any of your obligations under the present Agreement.
 
-Indemnification
-You agree to indemnify and hold the Company and its parents, subsidiaries, affiliates, officers, employees, agents, partners and licensors (if any) harmless from any claim or demand, including reasonable attorneys' fees, due to or arising out of your: (a) use of the Application; (b) violation of this Agreement or any law or regulation; or (c) violation of any right of a third party.
+8.  Limitation of Liability.  To the
+fullest extent permitted by applicable law: (A) OPEN ALPHA USC AND ITS
+REPRESENTATIVES WILL HAVE NO LIABILITY (WHETHER IN CONTRACT, WARRANTY, TORT,
+NEGLIGENCE OR OTHERWISE) FOR ANY DAMAGES SUSTAINED BY YOU ARISING FROM YOUR DOWNLOAD
+OR INSTALLATION OF, OR ACCESS TO, THE GAME, INCLUDING WITHOUT LIMITATION ANY
+INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL OR PUNITIVE DAMAGES OR LOSS OF
+DATA, EVEN IF OPEN ALPHA USC OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGES; AND (B) YOU CAN RECOVER ONLY DIRECT DAMAGES FOR THE GREATER OF
+$10.00 AND THE AMOUNT YOU PAID FOR THE GAME.
 
-No Warranties
-The Application is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Application, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Application will meet your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.
+ 
+9.  No Export.  You may not use or otherwise export or
+re-export the Game or any content contained therein, except as authorized by
+United States law and the laws of the jurisdiction in which the Game or any
+content was obtained. In particular, but without limitation, the Game and the
+content contained therein may not be exported or re-exported to (a) any
+U.S. embargoed countries, or (b) anyone on the U.S. Treasury Department's
+list of Specially Designated Nationals or the U.S. Department of Commerce
+Denied Person's List or Entity List.
 
-Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Application, or the information, content, and materials or products included thereon; (ii) that the Application will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Application; or (iv) that the Application, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.
+ 
+10.  Legal Compliance.  By downloading and installing the Game, you
+represent and warrant that: (a) you are not located in a country that is
+subject to a U.S. Government embargo, or that has been designated by the U.S.
+Government as a "terrorist supporting" country; and (b) you are not
+listed on any U.S. Government list of prohibited or restricted parties. You will
+comply with all applicable laws, rules and regulations, including but not
+limited to U.S. export control laws.
 
-Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section 11 shall be applied to the greatest extent enforceable under applicable law. To the extent any warranty exists under law that cannot be disclaimed, the Company shall be solely responsible for such warranty.
+ 
+11.  Commercial Items.  If acquired by any agency of the United
+States government, such agency acknowledges that: (a) the Game constitutes
+"commercial computer software" or "commercial computer software
+documentation" for purposes of 48 C.F.R. §12.212 and 48 C.F.R. §227.7202,
+as applicable and (b) such agency's rights are limited to those specifically
+granted under this EULA.
 
-Limitation of Liability
-Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Agreement and your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You for the Application or through the Application.
+ 
+12.  Termination.  Any use of the Game other than as
+specifically authorized under this EULA, or the Steam Terms, without the prior
+written permission of Open Alpha USC is strictly prohibited and will immediately
+terminate the license granted herein. Such unauthorized use may also violate
+applicable laws, including without limitation copyright and trademark laws and
+applicable communications regulations and statutes.  You may terminate this EULA at any time by
+(a) ceasing use of the Game and (b) deleting all copies of the Game in your
+possession or control. Open Alpha USC reserves the right to terminate this EULA at any
+time, for any or no reason. In the event of termination, the license granted to
+you herein will automatically terminate and you must immediately cease all use
+of the Game and destroy all copies of the Game within your possession or
+control.
 
-To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Application, third-party software and/or third-party hardware used with the Application, or otherwise in connection with any provision of this Agreement), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.
+ 
+13.  Survival.  Sections 1, 3-5, 6-11, 12 (last sentence
+only) and 14-18 of this EULA will survive any termination of this EULA.
 
-Some states/jurisdictions do not allow the exclusion or limitation of incidental or consequential damages, so the above limitation or exclusion may not apply to You.
+ 
+14.  Updates and Modifications.
+The terms of this EULA will govern any updates or upgrades provided by Open Alpha USC,
+unless such update or upgrade is accompanied by a separate license, in which
+case the terms of that separate license will govern. Your next use of the Game
+may be governed by a different EULA and it is your responsibility to check this
+EULA periodically for changes. You use or continued use of the Game following
+the posting of any changes to this EULA or any other posted policies will
+constitute your acceptance of, and agreement to be bound by, the changed terms
+or policies. Open Alpha USC reserves the right to modify or discontinue, temporarily or
+permanently, the Game (or any features or portions thereof) without prior
+notice. Open Alpha USC also may impose limits on the use of or access to the Game, in
+any case and without notice or liability.
 
-Severability and Waiver
-Severability
-If any provision of this Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.
+ 
+15.  Dispute Resolution; Arbitration. If
+any dispute arises between the under this EULA that cannot be resolved by
+mutual agreement after correspondence and meetings between us, it will be
+finally settled under the JAMS Comprehensive Arbitration Rules and Procedures,
+by one or more arbitrators appointed in accordance with such Rules and
+Procedures.  Arbitration will be held in King
+County, Washington, or at some other mutually agreeable location.
 
-Waiver
-Except as provided herein, the failure to exercise a right or to require performance of an obligation under this Agreement shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall be the waiver of a breach constitute a waiver of any subsequent breach.
 
-Product Claims
-The Company does not make any warranties concerning the Application.
+ 
 
-United States Legal Compliance
-You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.
 
-Changes to this Agreement
-The Company reserves the right, at its sole discretion, to modify or replace this Agreement at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at the sole discretion of the Company.
+16.   Governing Law and Venue. This EULA and your download and
+installation of, and access to, the Game will be governed by and interpreted in
+accordance with the laws of the State of California, without reference to its choice of
+law rules. Each party irrevocably consents to the jurisdiction and venue of the
+federal and state courts located in Los Angeles, California, with respect to any dispute
+between the parties that is not subject to arbitration under this EULA.
 
-By continuing to access or use the Application after any revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, You are no longer authorized to use the Application.
 
-Governing Law
-The laws of the Country, excluding its conflicts of law rules, shall govern this Agreement and your use of the Application. Your use of the Application may also be subject to other local, state, national, or international laws.
+ 
 
-Entire Agreement
-The Agreement constitutes the entire agreement between You and the Company regarding your use of the Application and supersedes all prior and contemporaneous written or oral agreements between You and the Company.
 
-You may be subject to additional terms and conditions that apply when You use or purchase other Company's services, which the Company will provide to You at the time of such use or purchase.
+17.  Conflicts.
+In the event of a conflict between the terms of this EULA and any other written
+or oral agreement related to the Game, including the Steam Terms as applied to
+the Game, the terms of this EULA will control. 
+An omission or supplemental term will not be deemed a conflict.
 
-Contact Us
-If you have any questions about this Agreement, You can contact Us:
 
-By visiting this page on our website: https://www.openalphausc.com/spring2020
+18.  Miscellaneous.  If any provision of this EULA is found to be
+invalid or unenforceable, such provision will be deemed to be restated to
+reflect the original intention of the parties to the maximum extent possible
+and in accordance with applicable law, and the remaining provisions, terms,
+covenants, and restrictions of this EULA will remain in full force and effect. You
+may not assign this EULA or any of your rights under this EULA without the
+prior written consent of Open Alpha USC. Any attempted assignment without such consent will
+be void. Subject to the foregoing restriction, this EULA will be fully binding
+upon, inure to the benefit of, and be enforceable by Open Alpha USC and our respective
+successors and assigns. Any failure by Open Alpha USC to insist upon or enforce
+performance by you of any of the provisions of this EULA or to exercise any
+rights or remedies under this EULA or otherwise by law will not be construed as
+a waiver or relinquishment of any right to assert or rely upon the provision, right
+or remedy in that or any other instance; rather, the provision, right or remedy
+will be and will remain in full force and effect.
