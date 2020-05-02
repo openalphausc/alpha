@@ -48,6 +48,7 @@ public class CharacterMover : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+          print("A");
             if(!startedwalking) {
               walksound.Play();
               startedwalking = true;

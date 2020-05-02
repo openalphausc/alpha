@@ -51,7 +51,7 @@ public class Smudge : MonoBehaviour
                 break;
         }
 
-        string filename = "Sprites/Smudge" + letter + "/Sprite" + letter + "" + "0"; //PersistentManagerScript.Instance.levelIndex;
+        string filename = "Sprites/Smudge" + letter + "/Sprite" + letter + "0"; //PersistentManagerScript.Instance.levelIndex;
 
         // print(filename);
         renderer.sprite = Resources.Load<Sprite>(filename);
