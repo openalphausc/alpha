@@ -31,49 +31,67 @@ public class Item : ScriptableObject
 
         if (isHeadlamp)
         {
-            itemDescription += "Lets you see into the dark. \n";
+            itemDescription += "Lets you see in the dark. \n";
         }
 
         if (moveSpeed != 0)
         {
             itemDescription += "+";
             itemDescription += moveSpeed.ToString();
-            itemDescription += "% Move Speed \n";
+            itemDescription += "% Move speed \n";
+            itemDescription += "Current: +";
+            itemDescription += PersistentManagerScript.Instance.InvSpeedBonus().ToString();
+            itemDescription += "% Move speed \n";
         }
 
         if (refillSpeed != 0)
         {
             itemDescription += "+";
             itemDescription += refillSpeed.ToString();
-            itemDescription += " to Refill Speed \n";
+            itemDescription += "% Refill speed \n";
+            itemDescription += "Current: +";
+            itemDescription += PersistentManagerScript.Instance.InvRefillSpeedBonus().ToString();
+            itemDescription += "% Refill speed \n";
         }
 
         if (sprayIncrease != 0)
         {
             itemDescription += "+";
             itemDescription += sprayIncrease.ToString();
-            itemDescription += " Sprays per Bottle \n";
+            itemDescription += " Sprays per bottle \n";
+            itemDescription += "Current: +";
+            itemDescription += PersistentManagerScript.Instance.InvSprayIncrease().ToString();
+            itemDescription += " Sprays per bottle \n";
         }
 
         if (refillRange != 0)
         {
             itemDescription += "+";
             itemDescription += refillRange.ToString();
-            itemDescription += " to Refill Range \n";
+            itemDescription += "% to refill range \n";
+            itemDescription += "Current: +";
+            itemDescription += PersistentManagerScript.Instance.InvRefillRangeIncrease().ToString();
+            itemDescription += "% to refill range \n";
         }
 
         if (timePenalties != 0)
         {
-            itemDescription += "+";
+            itemDescription += "-";
             itemDescription += timePenalties.ToString();
-            itemDescription += " to Time Penalties \n";
+            itemDescription += "% to time penalties \n";
+            itemDescription += "Current: -";
+            itemDescription += PersistentManagerScript.Instance.InvTimePenaltyReduction().ToString();
+            itemDescription += "% to time penalties \n";
         }
 
         if (rangeIncrease != 0)
         {
             itemDescription += "+";
             itemDescription += rangeIncrease.ToString();
-            itemDescription += " to Range \n";
+            itemDescription += "% Reach increase \n";
+            itemDescription += "Current: +";
+            itemDescription += PersistentManagerScript.Instance.InvRangeIncrease().ToString();
+            itemDescription += "% Reach increase \n";
         }
 
         if (timeIncrease != 0)
@@ -81,19 +99,28 @@ public class Item : ScriptableObject
             itemDescription += "+";
             itemDescription += timeIncrease.ToString();
             itemDescription += " to Time \n";
+            itemDescription += "Current: +";
+            itemDescription += PersistentManagerScript.Instance.InvTimeIncrease().ToString();
+            itemDescription += " to Time \n";
         }
 
         if (incomeIncrease != 0)
         {
             itemDescription += "+";
             itemDescription += incomeIncrease.ToString();
-            itemDescription += " to Income \n";
+            itemDescription += "% Income per floor\n";
+            itemDescription += "Current: +";
+            itemDescription += PersistentManagerScript.Instance.InvIncomeIncrease().ToString();
+            itemDescription += "% Income per floor\n";
         }
 
         if (bonusOnCompletionIncrease != 0)
         {
             itemDescription += "+";
             itemDescription += bonusOnCompletionIncrease.ToString();
+            itemDescription += " to Bonus on Completion \n";
+            itemDescription += "Current: +";
+            itemDescription += PersistentManagerScript.Instance.InvBonusOnCompletionIncrease().ToString();
             itemDescription += " to Bonus on Completion \n";
         }
 

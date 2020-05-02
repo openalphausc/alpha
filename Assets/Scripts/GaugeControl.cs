@@ -86,7 +86,7 @@ public class GaugeControl : MonoBehaviour
         transform.localPosition = new Vector3(0, bottom + transform.localScale.y/2f, -0.1f);
       }
       else if(inputHandler.refilling[fluidIndex]) {
-        // adjust size of gauge front to make it seem like it's going down
+        // adjust size of gauge front to make it seem like it's going down  
         float currPercent = 100*transform.localScale.y/startScale;
         inputHandler.fluidRemaining[fluidIndex] = Mathf.Round(inputHandler.maxFluid*currPercent/100);
         refillsound.volume = 1f - currPercent/100f;
@@ -95,7 +95,10 @@ public class GaugeControl : MonoBehaviour
           float power = 2f;
           float offset = 1f;
           float x = currPercent/100;
-          float increase = Time.deltaTime * increaseSpeed * Mathf.Pow(offset + x, power) / (power - 1);
+          
+          //EDIT THIS TO MULTIPLY ALSO BY THE PLAYER'S INCREASED REFILL SPEED BY PERCENTAGE
+          float baseIncrease = Time.deltaTime * increaseSpeed * Mathf.Pow(offset + x, power) / (power - 1);
+          float increase = baseIncrease * (float) (1 + PersistentManagerScript.Instance.InvRefillSpeedBonus()/100.0);
           float min = Time.deltaTime * 0.004f;
           if(increase < min) increase = min;
 
@@ -107,7 +110,8 @@ public class GaugeControl : MonoBehaviour
           inputHandler.refilling[fluidIndex] = false;
           // start animation of cleaning up
           characterMover.speedState = 1;
-          characterMover.timeCleaningUp = overflowTime = 2f;
+          //EDIT THIS TO MULTIPLY / REDUCE BY THE PLAYER'S PENALTY REDUCTION PERCENTAGE
+          characterMover.timeCleaningUp = overflowTime = 2f * (float) (1 - (PersistentManagerScript.Instance.InvTimePenaltyReduction()/100));
           overflowing = true;
           overflowsound.Play();
         }

@@ -27,6 +27,10 @@ public class MainMenu : MonoBehaviour
 
     public void ChangeScene(string scene)
     {
+        if (scene == "BuildingScene")
+        {
+            PersistentManagerScript.Instance.levelIndex = 1;
+        }
         SaveLoader.LoadGame();
         SceneManager.LoadScene(scene);
     }
