@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4ba75dd14402f4aa201fa9dbca475f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: ShopScene
+  sceneName: NewspaperScene
 --- !u!114 &2214433871436583846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoldADFill: {fileID: 6730052710676306873}
-  nextScene: ShopScene
+  nextScene: NewspaperScene
 --- !u!1 &6223201212067803443
 GameObject:
   m_ObjectHideFlags: 0
