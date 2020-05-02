@@ -84,4 +84,16 @@ public class MainMenu : MonoBehaviour
         mainMenuUi.SetActive(true);
         SaveLoader.SaveGame();
     }
+
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("CreditsScene");
+    }
 }
