@@ -873,7 +873,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7687316116437126309}
   - component: {fileID: 4282188319409563429}
-  - component: {fileID: 4297052355982753639}
   m_Layer: 0
   m_Name: Day 1
   m_TagString: Untagged
@@ -909,19 +908,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   page1: {fileID: 4899314466841105809}
---- !u!114 &4297052355982753639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5969152181822189847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b323f7946934945ab61c88ce6ef576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dirtLayer: {fileID: 6644986059193606282}
 --- !u!1 &6644986059193606282
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 283.99997, y: 12.99999}
+  m_AnchoredPosition: {x: 108, y: 12.99999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2242453292280599610
