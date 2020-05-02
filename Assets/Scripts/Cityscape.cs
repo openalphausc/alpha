@@ -27,9 +27,9 @@ public class Cityscape : MonoBehaviour
 
       float t = elapsedTime/darkTime;
       float ratio = t*t*t*t; // model a t^4 curve in approaching darkness
-      Debug.Log(ratio);
+      // Debug.Log(ratio);
       float red = 1f - ratio*(1 - finalRed/255);
-      Debug.Log("red = " + red);
+      // Debug.Log("red = " + red);
       float green = 1f - ratio*(1 - finalGreen/225);
       float blue = 1f - ratio*(1 - finalBlue/255);
       sprite.color = new Color(red, green, blue);
