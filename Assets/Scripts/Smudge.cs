@@ -38,11 +38,11 @@ public class Smudge : MonoBehaviour
         switch (type)
         {
             case SmudgeType.SmudgeJ:
-                // letter = "J";
-                // break;
+                letter = "J";
+                break;
             case SmudgeType.SmudgeK:
-                // letter = "K";
-                // break;
+                letter = "K";
+                break;
             case SmudgeType.SmudgeL:
                 letter = "L";
                 break;
