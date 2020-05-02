@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoldADFill: {fileID: 6730052710676306873}
-  nextScene: ShopScene
+  nextScene: SubwayScene
   goText: {fileID: 2024886768183578904}
 --- !u!1 &6223201212067803443
 GameObject:
