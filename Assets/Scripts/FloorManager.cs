@@ -98,9 +98,9 @@ public class FloorManager : MonoBehaviour
 
     public bool NextFloor() // go to the next floor down. returns false if at bottom
     {
+        floorIndex++;
         PersistentManagerScript.Instance.levelProgress = ((float) floorIndex) / floorCount;
         
-        floorIndex++;
         if (floorIndex >= floorCount)
         {
             return false;

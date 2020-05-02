@@ -41,10 +41,12 @@
           <e p="MoneyScript.cs" t="Include" />
           <e p="Newspaper" t="Include">
             <e p="FlipPage.cs" t="Include" />
+            <e p="SpawnNews.cs" t="Include" />
           </e>
           <e p="PauseMenu.cs" t="Include" />
           <e p="PersistentManagerScript.cs" t="Include" />
           <e p="PlayButtonScript.cs" t="Include" />
+          <e p="PlayerProgress.cs" t="Include" />
           <e p="SaveLoader.cs" t="Include" />
           <e p="SaveState.cs" t="Include" />
           <e p="SettingsMenu.cs" t="Include" />
@@ -52,6 +54,7 @@
           <e p="Smudge.cs" t="Include" />
           <e p="SmudgeManager.cs" t="Include" />
           <e p="SprayController.cs" t="Include" />
+          <e p="SubwayScript.cs" t="Include" />
           <e p="SunLight.cs" t="Include" />
           <e p="TimerScript.cs" t="Include" />
           <e p="TutorialInstructions.cs" t="Include" />
