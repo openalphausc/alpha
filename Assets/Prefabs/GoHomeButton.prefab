@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4ba75dd14402f4aa201fa9dbca475f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: ShopScene
+  sceneName: SubwayScene
 --- !u!114 &2214433871436583846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Go To Shop
+  m_text: Go Home
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 426975687786aed47adb2311c0263203, type: 2}
   m_sharedMaterial: {fileID: -1919517907897741209, guid: 426975687786aed47adb2311c0263203,
@@ -797,10 +797,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2024886768183578904}
-    characterCount: 10
+    characterCount: 7
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 2
     pageCount: 1
