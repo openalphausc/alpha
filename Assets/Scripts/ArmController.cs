@@ -22,9 +22,6 @@ public abstract class ArmController : MonoBehaviour
         armTransform = arm.transform;
         handTransform = hand.transform;
         handRenderer = hand.GetComponent<SpriteRenderer>();
-        
-        //apply reach increase from items
-        maxArmLength *= (float) (1 + PersistentManagerScript.Instance.InvRangeIncrease()/100);
     }
 
     protected Vector3 ClosestRelativeToArm()

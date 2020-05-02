@@ -38,6 +38,7 @@ public class ItemSlot : MonoBehaviour
     //If successful, change the button text or something to look different
     //and update the image to show that the item has been bought
     public void Buy(){
+        //for now, just run the buy function.
         if (PersistentManagerScript.Instance.Buy(item, kaching, error))
         {
             //darken sprite

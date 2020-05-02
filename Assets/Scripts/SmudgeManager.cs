@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 // keeps track of the smudges on its floor
@@ -15,8 +14,7 @@ public class SmudgeManager : MonoBehaviour
 
     public GameObject leaveButton;
 
-    public List<Smudge>
-        allSmudges = new List<Smudge>(); // ACCESS VIA: FloorManager.currentFloor.smudgeManager.allSmudges
+    public List<Smudge> allSmudges = new List<Smudge>(); // ACCESS VIA: FloorManager.currentFloor.smudgeManager.allSmudges
 
     public static int currentTarget = -1; // index in allSmudges that is being selected
     private CharacterMover characterMover;
@@ -24,7 +22,7 @@ public class SmudgeManager : MonoBehaviour
     private TimerScript timerScript;
     private int initialSmudges = 0; //initial number of total window smudges when spawned
     private int currTotalSmudges = 0; //current amount of smudges on window
-    public int minIncomePerFloor = 5;
+
 
     void Start()
     {
@@ -44,17 +42,8 @@ public class SmudgeManager : MonoBehaviour
                 GameObject button = Instantiate(leaveButton) as GameObject;
             }
             else buildingcompletesound.volume = 0.3f;
-
             Destroy(this);
             timerScript.runTimer = false;
-            timerScript.addTime();
-            //add income!;
-            int baseIncome = minIncomePerFloor + Math.Max(0,
-                10 - (int) (4 * timerScript.trackSplits.Last()));
-            // print("base income:" + baseIncome);
-            int income = (int) (baseIncome * (1 + (PersistentManagerScript.Instance.InvIncomeIncrease()/100.0)));
-            // print("total income: " + income);
-            PersistentManagerScript.Instance.money += income;
         }
     }
 
@@ -103,13 +92,12 @@ public class SmudgeManager : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 
     public float Progress
     {
-        get { return (float) currTotalSmudges / (float) initialSmudges; }
+        get{return (float)currTotalSmudges/(float)initialSmudges;}
     }
 
     public void SpraySmudge(Smudge.SmudgeType spray)
@@ -120,7 +108,6 @@ public class SmudgeManager : MonoBehaviour
             allSmudges[currentTarget].Neutralize(100);
             return;
         }
-
         // spray is not an exact match - neutralize either kinda or bad
         int kinda = 34;
         int bad = 20;
@@ -128,21 +115,17 @@ public class SmudgeManager : MonoBehaviour
         Smudge.SmudgeType red = Smudge.SmudgeType.SmudgeJ;
         Smudge.SmudgeType yellow = Smudge.SmudgeType.SmudgeK;
         Smudge.SmudgeType green = Smudge.SmudgeType.SmudgeL;
-        if (smudge == red)
-        {
-            if (spray == yellow) allSmudges[currentTarget].Neutralize(kinda);
-            else if (spray == green) allSmudges[currentTarget].Neutralize(bad);
+        if(smudge == red) {
+          if(spray == yellow) allSmudges[currentTarget].Neutralize(kinda);
+          else if(spray == green) allSmudges[currentTarget].Neutralize(bad);
         }
-        else if (smudge == yellow)
-        {
-            if (spray == green) allSmudges[currentTarget].Neutralize(kinda);
-            else if (spray == red) allSmudges[currentTarget].Neutralize(bad);
+        else if(smudge == yellow) {
+          if(spray == green) allSmudges[currentTarget].Neutralize(kinda);
+          else if(spray == red) allSmudges[currentTarget].Neutralize(bad);
         }
-
-        if (smudge == green)
-        {
-            if (spray == red) allSmudges[currentTarget].Neutralize(kinda);
-            else if (spray == yellow) allSmudges[currentTarget].Neutralize(bad);
+        if(smudge == green) {
+          if(spray == red) allSmudges[currentTarget].Neutralize(kinda);
+          else if(spray == yellow) allSmudges[currentTarget].Neutralize(bad);
         }
     }
 
