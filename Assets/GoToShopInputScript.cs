@@ -17,6 +17,7 @@ public class GoToShopInputScript : MonoBehaviour
     {
         if (PersistentManagerScript.Instance.levelIndex == 4 && SceneManager.GetActiveScene().name != "CreditsScene")
         {
+            goText.fontSize = 20;
             goText.text = "GO TO CREDITS";
             nextScene = "CreditsScene";
         }

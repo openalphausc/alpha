@@ -51,3 +51,4 @@ crashlytics-build.properties
 
 todo.txt
 .DS_Store
+Packages/manifest.json
