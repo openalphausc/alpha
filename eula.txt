@@ -1,11 +1,12 @@
 END
 USER LICENSE AGREEMENT
-
+Last updated: May 1, 2020
 
 This End User License Agreement ("EULA") governs your
 download, installation and use of, and access to, the game Wishy Washy on
 Steam (the "Game") that is provided by Open Alpha USC ("Open Alpha USC").
 
+Company (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Open Alpha USC, 3607 Trousdale Parkway Attn: Open Alpha USC University of Southern California Office of Campus Activities SKS 410 Los Angeles, CA 90089-3103 .
  
 BY CLICKING THE “ACCEPT” BUTTON OR OTHERWISE ACKNOWLEDGING
 YOUR ACCEPTANCE OF THIS EULA OR BY USING THE GAME, YOU ACCEPT THIS EULA AND
@@ -256,3 +257,10 @@ rights or remedies under this EULA or otherwise by law will not be construed as
 a waiver or relinquishment of any right to assert or rely upon the provision, right
 or remedy in that or any other instance; rather, the provision, right or remedy
 will be and will remain in full force and effect.
+
+
+
+Contact Us
+If you have any questions about this Agreement, You can contact Us:
+
+By visiting this page on our website: https://www.openalphausc.com/spring2020
