@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 1598447211}
   - component: {fileID: 1598447210}
   - component: {fileID: 1598447209}
+  - component: {fileID: 1598447212}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -700,6 +701,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1598447212
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598447208}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6533485066239247241, guid: 30d2a102de229b340b5f0917ac6837c2,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 50b5cddd8efa6ab4e9066dcf7cf02e1e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1686471086
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +858,7 @@ MonoBehaviour:
     Assurance Lead \n\n\n\nOpen Alpha Co-Presidents\n\n\n\n\n\nOpen Alpha Executive
     Board \n\n\n\n\n\n\n\n\nProgrammers\n\n\n\n\n\n\n\n\n\nGame Designers\n\n\n\n\n\n\n\n\n\n\n\nArtists\n\n\n\n\n\n\n\n\nAnimators\n\n\n\n\n\n\nSound
     \n\n\n\nMusic\n\n\n\nContracted Music\n\n\n\n\n\n\nNarrative Designers\n\n\n\n\n\n\n\nProducers\n\n\n\n\n\n\nQuality
-    Assurance Managers\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuality Assurance Testers\n\n\n\n\n\n\n\n\n\n\n\n"
+    Assurance Managers\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuality Assurance Testers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarketing\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 426975687786aed47adb2311c0263203, type: 2}
   m_sharedMaterial: {fileID: -1919517907897741209, guid: 426975687786aed47adb2311c0263203,
@@ -830,12 +928,12 @@ MonoBehaviour:
   m_margin: {x: -142.30666, y: 0, z: -125.27015, w: 0}
   m_textInfo:
     textComponent: {fileID: 1686471088}
-    characterCount: 458
+    characterCount: 473
     spriteCount: 0
-    spaceCount: 168
-    wordCount: 42
+    spaceCount: 174
+    wordCount: 43
     linkCount: 0
-    lineCount: 151
+    lineCount: 157
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -916,288 +1014,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-
-    Aylish Turner
-
-    Masato Lin
-
-
-
-
-
-
-    Owen Mech
-
-
-
-
-
-    Jon Ranieri
-
-
-
-
-
-    Austin Hammonds
-
-
-
-
-
-    Leeanna Albanese
-
-
-
-
-
-    Kelly Kim
-
-
-
-
-
-
-
-    Ben Heid
-
-
-
-
-
-
-    David Barrett
-
-
-
-
-
-
-
-    Charlie Feuerborn
-
-    Colin Spridonov
-
-
-
-
-
-
-
-
-    Alaina Palmer
-
-    Alisa Chen
-
-    Rachel Yu
-
-    Sam Mehdi
-
-
-
-
-
-
-
-
-
-    Alaina Palmer
-
-    Coco Zhang
-
-    Colin Spirirdonov
-
-    Charlie Feuerborn
-
-    David Barrett
-
-    Justin Sindecuse-Hayden
-
-    Ryan Levy
-
-    Owen Mech
-
-
-
-
-
-
-    Alaina Palmer
-
-    Alisa Chen
-
-    Aylish Turner
-
-    Ben Heid
-
-    Charlie Feuerborn
-
-    Coco Zhang
-
-    Colin Spiridonov
-
-    David Barrett
-
-    Jon Ranieri
-
-    Owen Mech
-
-
-
-
-
-
-
-    Alisa Chen
-
-    Aylish Turner
-
-    Masato Lin
-
-    Rachel Yu
-
-    Ryan Levy
-
-
-
-
-
-
-
-    Aylish Turner
-
-    Justin Sindecuse-Hayden
-
-    Masato Lin
-
-    Ryan Levy
-
-
-
-
-
-
-    Austin Hammonds
-
-
-
-
-
-    Austin Hammonds
-
-
-
-
-
-
-    Brett Bailey
-
-    Matt Miller
-
-    Prateek Rajagopal
-
-
-
-
-
-
-
-
-    Aylish Turner
-
-    Coco Zhang
-
-    Leeanna Albanese
-
-    Masato Lin
-
-    Ryan Levy
-
-
-
-
-
-
-    Ben Heid
-
-    Kelly Kim
-
-    Sam Mehdi
-
-
-
-
-
-
-
-
-
-
-    Ben Heid
-
-    Charlie Feuerborn
-
-    Colin Spiridonov
-
-    David Barrett
-
-    Jon Ranieri
-
-    Justin Syndecuse-Hayden
-
-    Leeanna Albanese
-
-    Masato Lin
-
-    Owen Mech
-
-    Ryan Levy
-
-
-
-
-
-
-
-
-
-
-
-
-    Aaron Cote
-
-    Bansini Doshi
-
-    Dylan Drain
-
-    Debbie Feuerborn
-
-    Elise Feuerborn
-
-    Henry Feuerborn
-
-    Imran Tallman
-
-    Kevin Che
-
-    Max Spiridonov
-
-    Deyan Spiridonov
-
-    Paul Feuerborn
-
-    Peggy Kindschuh
-
-    Priyanka Musti
-
-    Andrew Howard
-
-
-'
+  m_text: "\n\nAylish Turner\nMasato Lin\n\n\n\n\n\nOwen Mech\n\n\n\n\nJon Ranieri\n\n\n\n\nAustin
+    Hammonds\n\n\n\n\nLeeanna Albanese\n\n\n\n\nKelly Kim\n\n\n\n\n\n\nBen Heid\n\n\n\n\n\nDavid
+    Barrett\n\n\n\n\n\n\nCharlie Feuerborn\nColin Spridonov\n\n\n\n\n\n\n\nAlaina
+    Palmer\nAlisa Chen\nRachel Yu\nSam Mehdi\n\n\n\n\n\n\n\n\nAlaina Palmer\nCoco
+    Zhang\nColin Spirirdonov\nCharlie Feuerborn\nDavid Barrett\nJustin Sindecuse-Hayden\nRyan
+    Levy\nOwen Mech\n\n\n\n\n\nAlaina Palmer\nAlisa Chen\nAylish Turner\nBen Heid\nCharlie
+    Feuerborn\nCoco Zhang\nColin Spiridonov\nDavid Barrett\nJon Ranieri\nOwen Mech\n\n\n\n\n\n\nAlisa
+    Chen\nAylish Turner\nMasato Lin\nRachel Yu\nRyan Levy\n\n\n\n\n\n\nAylish Turner\nJustin
+    Sindecuse-Hayden\nMasato Lin\nRyan Levy\n\n\n\n\n\nAustin Hammonds\n\n\n\n\nAustin
+    Hammonds\n\n\n\n\n\nBrett Bailey\nMatt Miller\nPrateek Rajagopal\n\n\n\n\n\n\n\nAylish
+    Turner\nCoco Zhang\nLeeanna Albanese\nMasato Lin\nRyan Levy\n\n\n\n\n\nBen Heid\nKelly
+    Kim\nSam Mehdi\n\n\n\n\n\n\n\n\n\nBen Heid\nCharlie Feuerborn\nColin Spiridonov\nDavid
+    Barrett\nJon Ranieri\nJustin Syndecuse-Hayden\nLeeanna Albanese\nMasato Lin\nOwen
+    Mech\nRyan Levy\n\n\n\n\n\n\n\n\n\n\n\nAaron Cote\r\nBansini Doshi\r\nDylan Drain\r\nDebbie
+    Feuerborn\r\nElise Feuerborn\r\nHenry Feuerborn\r\nImran Tallman\r\nKevin Che\r\nMatt
+    Levy\r\nMax Spiridonov\r\nDeyan Spiridonov\r\nPaul Feuerborn\r\nPeggy Kindschuh\r\nPriyanka
+    Musti\r\nAndrew Howard\r\n\n\n\n\n\n\n\nRachel Yu\nAylish Turner\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 426975687786aed47adb2311c0263203, type: 2}
-  m_sharedMaterial: {fileID: -1919517907897741209, guid: 426975687786aed47adb2311c0263203,
+  m_fontAsset: {fileID: 11400000, guid: 95d289b50d90e734bbdad82ef5ce0bda, type: 2}
+  m_sharedMaterial: {fileID: -3063458637644465953, guid: 95d289b50d90e734bbdad82ef5ce0bda,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1233,7 +1069,7 @@ MonoBehaviour:
   m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 6
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1264,12 +1100,12 @@ MonoBehaviour:
   m_margin: {x: -126.16687, y: 0, z: -135.16974, w: 0}
   m_textInfo:
     textComponent: {fileID: 1855384600}
-    characterCount: 1186
+    characterCount: 1241
     spriteCount: 0
-    spaceCount: 277
-    wordCount: 159
+    spaceCount: 289
+    wordCount: 165
     linkCount: 0
-    lineCount: 198
+    lineCount: 207
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
