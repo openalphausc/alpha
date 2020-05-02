@@ -13,6 +13,8 @@ public class CharacterMover : MonoBehaviour
     public float movementSpeed;
     public float slowedSpeed;
     public Animator animator;
+    public GameObject leftArm;
+    public GameObject RightArm;
 
     public int speedState = 0; // 0 is free, 1 is slow
     public float timeCleaningUp;
@@ -44,11 +46,15 @@ public class CharacterMover : MonoBehaviour
             timeCleaningUp -= Time.deltaTime;
             if (timeCleaningUp <= 0) speedState = 0;
             animator.SetBool("broken", true);
+            leftArm.SetActive(false);
+            RightArm.SetActive(false);
         }
         else if (speedState == 0)
         {
             currentSpeed = movementSpeed;
             animator.SetBool("broken", false);
+            leftArm.SetActive(true);
+            RightArm.SetActive(true);
         }
 
         if (Input.GetKey(KeyCode.A))
