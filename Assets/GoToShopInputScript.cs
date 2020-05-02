@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoToShopInputScript : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class GoToShopInputScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PersistentManagerScript.Instance.levelIndex == 4)
+        if (PersistentManagerScript.Instance.levelIndex == 4 && SceneManager.GetActiveScene().name != "CreditsScene")
         {
             goText.text = "GO TO CREDITS";
             nextScene = "CreditsScene";
