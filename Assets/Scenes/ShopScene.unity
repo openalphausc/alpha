@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8edbcb400f701ab46a7bcd96c21166ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5bbc2914db3ead4db6d3773c09e27b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1488,8 +1488,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280751456
-  m_fontColor: {r: 0.37648234, g: 0.08454966, b: 0.15294118, a: 1}
+    rgba: 4286060544
+  m_fontColor: {r: 0.003921565, g: 0.09565887, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1759,7 +1759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9433962, g: 0.888426, b: 0.5473478, a: 0.81960785}
+  m_Color: {r: 0.9424719, g: 0.9607843, b: 0.5137255, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1980,7 +1980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 1
-  floorSplits: []
   money: 1000
   inventory: []
   citysounds: {fileID: 1338624016}
@@ -2007,9 +2006,8 @@ AudioSource:
   m_GameObject: {fileID: 1338624013}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 5813314857088379751, guid: 30d2a102de229b340b5f0917ac6837c2,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5e1fa2c25cd99453aaff3d48e0ab8a21, type: 3}
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f22a0ac58b86ef94dbb3dedf2f35730b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3177,8 +3175,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60f6ff8379ff2744d9469a42cf4dc22c, type: 2}
   HoldADFill: {fileID: 1193764553}
   HoldSpaceFill: {fileID: 1528169660}
-  nextScene: BuildingScene
   error: {fileID: 1811422494}
+  nextScene: BuildingScene
 --- !u!4 &1811422493
 Transform:
   m_ObjectHideFlags: 0
@@ -3202,8 +3200,7 @@ AudioSource:
   m_GameObject: {fileID: 1811422491}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 5813314857088379751, guid: 30d2a102de229b340b5f0917ac6837c2,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 132b17bd7246fd44e9efb53e21f611a0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3315,13 +3312,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815802725}
-  m_LocalRotation: {x: -0, y: -0, z: -0.0036702545, w: 0.99999326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 809065584}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.42100003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 292.48, y: -215.36}

@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // attached to Character, processes non-movement controls and manages fluid levels
 public class InputHandler : MonoBehaviour
@@ -16,6 +15,7 @@ public class InputHandler : MonoBehaviour
     public List<float> fluidRemaining;
     public List<bool> refilling;
     public float maxFluid = 4f;
+    public int incomePerWipe = 2;
 
     public GameObject gaugeJ;
     public GameObject gaugeK;
@@ -33,7 +33,7 @@ public class InputHandler : MonoBehaviour
     {
         wiperController = WiperArmJoint.GetComponent<WiperController>();
         sprayController = SprayArmJoint.GetComponent<SprayController>();
-        maxFluid += PersistentManagerScript.Instance.InvSprayIncrease();
+
         fluidRemaining.Clear();
         for(int i = 0; i < 3; i++) {
           fluidRemaining.Add(maxFluid);

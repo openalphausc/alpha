@@ -21,7 +21,6 @@ public class ShopManagerScript : MonoBehaviour
     private float HoldSpaceTime;
     public RectTransform HoldSpaceFill;
     private int choice = (int)Choices.None;
-    public string nextScene;
 
     public AudioSource error;
 
@@ -33,6 +32,7 @@ public class ShopManagerScript : MonoBehaviour
         Large
     }
 
+    public string nextScene;
     // Start is called before the first frame update
     //Set the text managed by this manager to the player's money total
     void Start()
@@ -40,7 +40,6 @@ public class ShopManagerScript : MonoBehaviour
         //RandomizeItems();
         HoldSpaceFill.transform.localScale = new Vector3(HoldSpaceTime,1,1);
         HoldADFill.transform.localScale = new Vector3(HoldADTime,1,1);
-        PersistentManagerScript.Instance.levelIndex++;
     }
     //make sure it happens before ItemSlot's start() runs
     void Awake()

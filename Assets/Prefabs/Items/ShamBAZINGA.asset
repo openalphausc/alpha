@@ -25,5 +25,5 @@ MonoBehaviour:
   timePenalties: 0
   rangeIncrease: 0
   timeIncrease: 0
-  incomeIncrease: 50
+  incomeIncrease: 0
   bonusOnCompletionIncrease: 0

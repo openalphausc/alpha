@@ -29,16 +29,10 @@ public class TimerScript : MonoBehaviour
 
         else
         {
-            addTime();
-            PersistentManagerScript.Instance.floorSplits.Add((timer));
+            trackSplits.Add(timer);
             timer = 0;
             runTimer = true;
         }
         
     }
-
-    public void addTime()
-    {
-        
-        trackSplits.Add(timer);
-    }}
+}
