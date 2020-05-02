@@ -1143,7 +1143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c8748b210864d47b1ce40ee8364a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 4
+  levelIndex: 0
   levelProgress: 0
   floorSplits: []
   money: 100
