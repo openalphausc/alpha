@@ -13,6 +13,7 @@ public class Smudge : MonoBehaviour
     }
 
     public SmudgeType type;
+    public GameObject sprite;
     public Color normalColorOff;
     public Color normalColorOn;
     public Color neutralizedColorOff;
@@ -33,7 +34,7 @@ public class Smudge : MonoBehaviour
 
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        renderer = sprite.GetComponent<SpriteRenderer>();
         string letter;
         switch (type)
         {
@@ -85,7 +86,7 @@ public class Smudge : MonoBehaviour
     void ShowFloatingText()
     {
         helpUI = Instantiate(FloatingTextPrefab, SmudgePosition, SmudgeRotation, gameObject.transform);
-        helpUI.transform.position -= new Vector3(0, 0, 1);
+        helpUI.transform.position += new Vector3(0, 0, 0.5f);
         string helperText = "";
         switch(this.type) {
             case SmudgeType.SmudgeJ :

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1333,7 +1333,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: NaN, y: 0, z: NaN, w: 3.8652727e-18}
+  m_BoundingSphereOverride: {x: 6.5, y: 7, z: -7, w: 8}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2497,16 +2497,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 8084750350199562617, guid: bf1613d90b0d72d4bbde65cf4bc59458,
-        type: 3}
-      propertyPath: incomePerFloor
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8084750350240116237, guid: bf1613d90b0d72d4bbde65cf4bc59458,
-        type: 3}
-      propertyPath: minIncomePerFloor
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf1613d90b0d72d4bbde65cf4bc59458, type: 3}

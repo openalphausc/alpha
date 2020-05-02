@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf3e2290-4e0c-454b-9933-7691dfbf67e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.alpha/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.alpha/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.alpha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.alpha/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spaghetti.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spaghetti.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Squid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Squid.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Volcano.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Volcano.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewspaperScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewspaperScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FloorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FloorManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Newspaper/BuildingCover.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Newspaper/BuildingCover.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerProgress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FloatingText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FloatingText.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerObjects.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerObjects.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Smudge-J.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Smudge-J.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Smudge-K.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Smudge-K.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Smudge-L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Smudge-L.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Smudge-None.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Smudge-None.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BuildingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BuildingScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Smudge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Smudge.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_Bitmap.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TimerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/FloatingText.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Newspaper/SpawnNews.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SprayController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -67,11 +68,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ArmController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ShopManagerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SunLight.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Smudge.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PersistentManagerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerProgress.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FloorManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Smudge.cs" />
       </list>
     </option>
   </component>
@@ -131,6 +132,7 @@
       <workItem from="1588312223585" duration="2342000" />
       <workItem from="1588390559383" duration="29000" />
       <workItem from="1588447956272" duration="1988000" />
+      <workItem from="1588457382614" duration="1044000" />
     </task>
     <servers />
   </component>
@@ -144,7 +146,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
