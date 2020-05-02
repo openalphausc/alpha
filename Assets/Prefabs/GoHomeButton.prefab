@@ -227,8 +227,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6406352678420106669}
-        m_MethodName: ChangeScene
+      - m_Target: {fileID: 2214433871436583846}
+        m_MethodName: Change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -590,6 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoldADFill: {fileID: 6730052710676306873}
   nextScene: ShopScene
+  goText: {fileID: 2024886768183578904}
 --- !u!1 &6223201212067803443
 GameObject:
   m_ObjectHideFlags: 0
